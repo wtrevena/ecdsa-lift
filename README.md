@@ -75,3 +75,33 @@ on j = 0 curves.
 4. **SageMath for anything touching canonical lifts, isogeny graphs,
    or `p`-adic fields beyond raw `Z/p^k`.** Python stdlib only for
    low-level exploration.
+
+## Phases 40–42 and the paper
+
+After the Phase 1–39 negative sweep, three phases closed the loop and
+became the basis of a short paper (`paper/ecdsa_lift_paper.tex`, builds
+to a 7-page PDF):
+
+- **Phase 40 / 40b** — *mechanism-derived controls* that overturn the
+  Phase 37 "Gowers anomaly." The increment-shuffle null (40) refutes the
+  prefix-sum-artifact hypothesis; the half-sequence null (40b) localizes
+  the entire signal to the exact public identity
+  `δ(k)+δ(n−k)=[n]τ(G)` (Phase 21b). The anomaly is real but not new and
+  carries no advantage. See `notes/phase40_resolution.md`.
+- **Phase 41** — numerical verification of the **inertness theorem**
+  (`notes/theorem.md`): for `gcd(n,p)=1`, the secret-bearing part of any
+  section lift error is governed by `k mod p^{e−1}`, independent of the
+  public `k mod n`; the well-definedness obstruction is the nonzero
+  kernel element `[n]τ(G)` of maximal order `p^{e−1}`. All core claims
+  pass on every test prime (pure-Python `z`-coordinate arithmetic).
+- **Phase 42** — the boundary is **sharp**: on an anomalous curve
+  (`#E(F_p)=p`, `gcd(n,p)=p`) the obstruction vanishes and Smart's attack
+  recovers `k` with 100% success (12/12). The single inequality
+  `gcd(n,p)=1` is the exact line between inert and broken.
+
+The paper's thesis is methodological: in structure-hunting cryptanalysis
+a control is valid only against a *named* alternative hypothesis, and
+nulls must be derived from mechanisms. The inertness theorem (an explicit
+instance of Silverman's "Four Faces of Lifting" and Gadiyar–Padma, not
+new mathematics — see `notes/literature_check.md`) is what certifies,
+after the fact, that the suspicion was structurally forced.

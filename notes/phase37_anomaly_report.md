@@ -3,6 +3,14 @@
 *Written after Phases 37–37e (Gowers norms, Aut residual, permutation
 control, anomaly investigation).*
 
+> **SUPERSEDED — read `phase40_resolution.md` first.** Phases 40/40b
+> show this anomaly is **not** a new structural property. It is the
+> Fourier-domain shadow of the Phase 21b antisymmetry
+> `δ(k)+δ(n−k)=[n]τ(G)`. Restricting to a single half (where the
+> reflection imposes no constraint) makes the `U²` elevation vanish.
+> The "not explained by any universal identity" claim below is wrong;
+> it is exactly explained by that identity. Retained for the record.
+
 ## Summary
 
 For an ordinary elliptic curve E/F_p and the Teichmüller lift
@@ -120,11 +128,4 @@ requiring exhaustive enumeration to measure.
 2. **Why is j=1728 strongest?**  The CM by Z[i] automorphism has order 4;
    j=0 has order 6.  Does larger Aut suppress or enhance the spectral
    anomaly?  (Our data: |Aut|=4 gives β=0.28; |Aut|=6 gives β=0.44;
-   |Aut|=2 gives β=0.31.  No obvious monotone relationship.)
-3. **Is the anomaly present for non-Teichmüller lifts?**  The canonical
-   lift τ_can is a homomorphism with δ ≡ 0.  For "random" sections σ
-   (e.g. Hensel lift), does the anomaly persist or change?
-4. **Can the anomaly be accessed indirectly?**  E.g., via pairings,
-   isogenies, or multi-party protocols that allow computing functions
-   of k without knowing k.  (We conjecture no, but this is the most
-   important open question.)
+   |Aut|=2 gives β=0.31.  No 
