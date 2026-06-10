@@ -66,11 +66,16 @@ multiplication; `c_k` depends only on the *point* `kG` (public).
 `k` only through `k mod p^{e-1}`; equivalently `log([k]c) = k·log(c)`
 in `pZ/p^e`, of additive order `p^{e-1}/gcd(...)`, a power of `p`.
 
-**(c) Independence from the public residue.** Since `gcd(n, p^{e-1})=1`,
-the CRT isomorphism `Z/np^{e-1} ≅ Z/n × Z/p^{e-1}` makes `k mod n` (fixed
-by the public `Q`) and `k mod p^{e-1}` (which governs `[k]c`)
-independent coordinates of `k`. Hence no value of `[k]c` is determined
-by `(E,G,Q)`.
+**(c) The public residue does not give `[k]c` (computational form).**
+Since `gcd(n, p^{e-1})=1`, the CRT isomorphism
+`Z/np^{e-1} ≅ Z/n × Z/p^{e-1}` makes `k mod n` (fixed by the public `Q`)
+and `k mod p^{e-1}` (which governs `[k]c`) independent coordinates of a
+`k` ranging over `Z/np^{e-1}`. The public data fixes only `k mod n`.
+**Caveat (do not overstate):** once a canonical representative
+`k ∈ [1,n-1]` is fixed — as every experiment does — `k mod p^{e-1}` and
+hence `[k]c` are *determined*; the correct claim is **computational**, not
+information-theoretic: no efficient algorithm computes `[k]c` from
+`(E,G,Q)` short of solving the ECDLP (this is the contrapositive of (d)).
 
 **(d) Well-definedness obstruction.** `δ_τ` is a well-defined function of
 the *instance* `(E,G,Q)` (i.e. of `k mod n`) if and only if `c = 0`,
@@ -81,7 +86,11 @@ by the fixed nonzero kernel element
         [n]·τ(G) = [n]·c  ≠ O,
 ```
 which is exactly the Phase 21b antisymmetry constant
-(`δ_τ(k) + δ_τ(n−k) = [n]τ(G)`).
+(`δ_τ(k) + δ_τ(n−k) = [n]τ(G)`). **Note:** this antisymmetry requires
+the section to be odd, `τ(−P) = −τ(P)`, so that
+`τ(kG) + τ(−kG) = O`; it holds for the x-Teichmüller / Hensel sections
+used here (the two Hensel `y`-roots are negatives) but is a property of
+the section, not of every conceivable lift.
 
 **Corollary (no lift oracle).** No section's lift error provides a
 function of the public data that depends on the secret: for `gcd(n,p)=1`
@@ -120,16 +129,4 @@ So the single inequality `gcd(n,p)=1` is exactly the line between
 "lift is inert" (ordinary ECDSA curves) and "lift breaks the DLP"
 (anomalous curves). This is verified numerically in Phase 41 (the
 obstruction `[n]τ(G)` is a nonzero `p`-power-order kernel element on
-every ordinary test curve) and Phase 42 (the obstruction vanishes and
-Smart's attack recovers `k` with 100% success on an anomalous curve).
-
-## Scope and limitations
-
-- The theorem concerns **section lift errors** (the canonical-lift /
-  Teichmüller / Hensel family). Pairing-based functionals (Weil/Tate on
-  the lift) are a different mechanism; for ordinary `j=0` curves they
-  are inert for the independent reason that the embedding degree is
-  enormous (Phase 7), but the theorem does not subsume them.
-- It is an **instance of known principle** (Silverman; Gadiyar–Padma),
-  not new mathematics. Its value is as a precise, verified, unifying
-  statement that explains why the 40 empirical phases were all inert.
+every ordinary test curve) and Phase 42 (th

@@ -16,7 +16,6 @@
 \newcommand{\red}{\mathrm{red}}
 \newcommand{\ord}{\mathrm{ord}}
 \newcommand{\Aut}{\mathrm{Aut}}
-\DeclareMathOperator{\val}{v_p}
 \DeclareMathOperator{\Uk}{U}
 
 \title{\bf When a Control Does Not Control:\\
@@ -24,7 +23,8 @@ A Mechanism-Derived Refutation of a False Positive\\
 in $p$-adic Cryptanalysis of the ECDLP}
 
 \author{W.\ T.\ Trevena\thanks{Correspondence: william.todd.trevena@gmail.com.
-Code and data: the \texttt{ecdsa-lift} repository.}}
+Code, data, and a per-phase index: the \texttt{ecdsa-lift} repository
+(release tagged with this paper).}}
 
 \date{June 2026}
 
@@ -32,59 +32,62 @@ Code and data: the \texttt{ecdsa-lift} repository.}}
 \maketitle
 
 \begin{abstract}
-We report a systematic negative exploration of $p$-adic lifting attacks
-on the elliptic curve discrete logarithm problem (ECDLP) for ordinary
-curves with prime-order subgroups, of the kind underlying ECDSA. Across
-forty experimental phases every structural probe of the canonical-lift /
-formal-group attack surface came back inert. The methodological interest
-lies in one episode. A Gowers $\Uk^2$ / Fourier analysis of the
+Pipelines that fan out many structural probes against a hard problem and
+surface the most anomalous are increasingly common, and they are
+false-positive engines: with enough encodings and transforms an apparent
+$5$--$11\sigma$ effect is cheap. We give a worked example from a
+systematic negative exploration of $p$-adic lifting attacks on the
+elliptic curve discrete logarithm problem (ECDLP) for ordinary curves of
+the kind underlying ECDSA. A Gowers $\Uk^2$ / Fourier analysis of the
 Teichm\"uller lift error $\delta(k)$ produced a persistent
-$5$--$11\sigma$ anomaly that a standard permutation control certified as
-``real, index-ordered structure.'' We show that this conclusion was an
-artifact of a control that cannot distinguish the hypotheses it was
-meant to separate. Replacing it with two \emph{mechanism-derived} nulls
----one per candidate explanation---localizes the entire signal to a
-single exact, universal, public identity (the antisymmetry
-$\delta(k)+\delta(n-k)=[n]\tau(G)$), and shows it is neither new nor
-cryptanalytically useful. We then prove, as an explicit instance of a
-principle going back to Silverman and to Gadiyar--Padma, an inertness
-theorem that explains why \emph{every} such anomaly on these curves must
-reduce to artifact-or-identity: the only secret-dependent part of any
-section lift error is governed by $k \bmod p^{e-1}$, which is
-information-theoretically independent of the public residue $k \bmod n$
-whenever $\gcd(n,p)=1$. The single inequality $\gcd(n,p)=1$ is sharp:
-when it fails ($n=p$, anomalous curves) the obstruction vanishes and the
-same machinery recovers $k$ with $100\%$ success---Smart's attack. The
-contribution is less the (essentially folklore) theorem than the
-discipline it certifies: in structure-hunting cryptanalysis, a control
-is valid only against a named alternative hypothesis, and nulls must be
-derived from mechanisms, not intuition.
+$5$--$11\sigma$ anomaly on the original sweep (and $\sim$$3$--$14\sigma$
+on a clean controlled set) that a standard permutation control certified
+as ``real, index-ordered structure.'' We show this was a \emph{control that
+cannot separate the hypotheses it was meant to test}. Two
+\emph{mechanism-derived} nulls---one per candidate explanation---localize
+the entire signal to a single exact, public identity (the antisymmetry
+$\delta(k)+\delta(n-k)=[n]\tau(G)$): the signal vanishes when the
+reflection is removed, and---our key positive control---synthetic
+sequences carrying \emph{only} that reflection reproduce the elevation
+and its growth with $n$ (and a power-law Fourier decay of the same order,
+$\beta\approx0.4$). We then give an inertness theorem, an explicit
+instance of a principle due to Silverman and to Gadiyar--Padma, that
+explains why every such anomaly on these curves must reduce to
+artifact-or-identity: for $\gcd(n,p)=1$ the only secret-dependent part of
+any section lift error is $[k]c$, governed by $k \bmod p^{e-1}$, which is
+not determined by the public data $(E,G,Q)$ over the natural lift and for
+which no efficient algorithm from $(E,G,Q)$ is known. The
+single inequality $\gcd(n,p)=1$ is sharp: when it fails ($n=p$, anomalous
+curves) the obstruction vanishes and the same machinery recovers $k$ with
+$100\%$ success---Smart's attack. The contribution is the methodology a
+results-free negative exploration must practice: a control is valid only
+against a named alternative hypothesis, nulls must be derived from
+mechanisms, and a structural reason for inertness beats an accumulation
+of passed tests.
 \end{abstract}
 
 \section{Introduction}
 
 A recurring temptation in cryptanalysis is to lift a hard problem into a
 richer setting---a $p$-adic ring, a formal group, a higher-genus
-Jacobian---in the hope that structure invisible over $\Fp$ becomes
-visible and exploitable. For the ECDLP this hope is well mapped:
-Silverman's ``four faces of lifting'' \cite{silverman4faces,silvermanlift}
-catalogues the local/global $\times$ torsion/non-torsion strategies and
-the obstruction each meets, and the only $p$-adic local lift that ever
-broke an ECDLP is Smart's attack on anomalous curves
-\cite{smart,satoharaki,semaev}, where the group order equals the
-characteristic.
+Jacobian---hoping that structure invisible over $\Fp$ becomes visible and
+exploitable. For the ECDLP this hope is well mapped: Silverman's ``four
+faces of lifting'' \cite{silverman4faces,silvermanlift} catalogues the
+local/global $\times$ torsion/non-torsion strategies and the obstruction
+each meets, and the only $p$-adic local lift that ever broke an ECDLP is
+Smart's attack on anomalous curves \cite{smart,satoharaki,semaev}, where
+the group order equals the characteristic.
 
-This paper is a case study in \emph{how one knows when a lifting probe
-has actually found nothing}. We conducted a long, deliberately
-exhaustive negative exploration of the canonical-lift attack surface for
-ordinary curves with large prime-order subgroups---the ECDSA regime---and
-every phase was inert. Such a project invites a methodological hazard:
-after dozens of null results, a probe eventually returns an
-``anomaly,'' and the analyst must decide whether it is signal. We hit
-exactly this case, initially mis-called it signal on the strength of a
-textbook control, and only a more careful experiment overturned it. We
-think the overturning, and the reason the anomaly \emph{had} to be
-spurious, are more useful to report than the negative result itself.
+Automating such explorations sharpens an old hazard. A pipeline that
+computes many encodings of a lift invariant and reports the most unusual
+will, after enough nulls, return an ``anomaly,'' and the analyst must
+decide whether it is signal. We conducted a long, deliberately exhaustive
+negative exploration of the canonical-lift attack surface for ordinary
+curves with large prime-order subgroups---the ECDSA regime---and hit
+exactly this case: a higher-order Fourier probe returned a clear
+$5$--$11\sigma$ effect on the original sweep, a textbook control endorsed
+it, and only a more careful experiment overturned it. The overturning, and the reason the
+anomaly \emph{had} to be spurious, are the substance of this paper.
 
 \paragraph{Contributions.}
 \begin{itemize}
@@ -92,25 +95,27 @@ spurious, are more useful to report than the negative result itself.
 control}: a permutation test that appears to certify structure but
 provably cannot separate the competing explanations
 (\S\ref{sec:falsepos}).
-\item A general recipe---\emph{mechanism-derived controls}: enumerate the
-candidate generating mechanisms and build one null per mechanism---and
-its application, which localizes a $5$--$11\sigma$ Gowers anomaly to a
-single exact public identity (\S\ref{sec:controls}).
-\item An inertness theorem (\S\ref{sec:theorem}) that explains why such
-anomalies are forced: for $\gcd(n,p)=1$, the secret-dependent part of any
-section lift error lives in a coordinate ($k \bmod p^{e-1}$) independent
-of the public one ($k \bmod n$). We state it as the explicit instance it
-is of \cite{silverman4faces,gadiyarpadma}, with full proof and numerical
+\item \emph{Mechanism-derived controls}: enumerate the candidate
+generating mechanisms and build one null per mechanism, including a
+\emph{positive} control in which a synthetic model of the surviving
+mechanism reproduces the statistic quantitatively
+(\S\ref{sec:controls}). This localizes the anomaly (a $\sim$$3$--$14\sigma$
+elevation on the clean controlled set) to one exact public identity.
+\item An inertness theorem (\S\ref{sec:theorem}) explaining why such
+anomalies are forced: for $\gcd(n,p)=1$ the secret-dependent part of any
+section lift error is $[k]c$, governed by $k \bmod p^{e-1}$, which the
+public data $(E,G,Q)$ does not determine over the natural lift and which
+no known efficient algorithm computes from it. We present it as the explicit
+instance it is of \cite{silverman4faces,gadiyarpadma}, with proof and
 verification.
 \item A sharp-boundary demonstration (\S\ref{sec:boundary}): the same
-construction, run on an anomalous curve where $\gcd(n,p)=p$, recovers the
-secret with $100\%$ success. The theorem's one hypothesis is exactly the
-line between inert and broken.
+construction on an anomalous curve ($\gcd(n,p)=p$) recovers the secret
+with $100\%$ success. The theorem's one hypothesis is exactly the line
+between inert and broken.
 \end{itemize}
 
-We are explicit throughout that the theorem is not new mathematics; its
-role is to certify, after the fact, that the methodological suspicion was
-structurally warranted.
+The theorem is not new mathematics; its role is to certify, after the
+fact, that the methodological suspicion was structurally warranted.
 
 \section{Background and notation}\label{sec:background}
 
@@ -123,24 +128,30 @@ groups
 0 \longrightarrow \Ehat(p\Z/p^e) \longrightarrow E(\Z/p^e)
   \xrightarrow{\ \red\ } E(\Fp) \longrightarrow 0,
 \end{equation}
-where the kernel of reduction $\Ehat(p\Z/p^e)$ is a $p$-group of order
-$p^{e-1}$. The formal parameter $z=-X/Y$ identifies $\Ehat$ with
-$(p\Z/p^e,+_F)$ ($+_F$ the formal group law), and the formal logarithm
+with kernel of reduction $\Ehat(p\Z/p^e)$ a $p$-group of order $p^{e-1}$~\cite{silvermanaec}.
+The formal parameter $z=-X/Y$ identifies $\Ehat$ with $(p\Z/p^e,+_F)$
+($+_F$ the formal group law), and the formal logarithm
 $\log\colon\Ehat\to(p\Z/p^e,+)$ is an isomorphism with
-$\log([m]u)=m\log(u)$. For $E\colon y^2=x^3+b$ the log has the sparse form
-$\log(z)=z+\tfrac{b}{7}z^7+\cdots$, so for $z\in p\Z$ and $e\le 4$ one has
-$\log(z)\equiv z\pmod{p^e}$: kernel arithmetic is additive in $z$ at our
-precision.
+$\log([m]u)=m\log(u)$. For $E\colon y^2=x^3+b$ the invariant differential
+is $\omega=(1+3b\,z^6+\cdots)\,dz$, so
+$\log(z)=z+\tfrac{3b}{7}z^7+\cdots$; for $z\in p\Z$ and $e\le 4$ the
+correction vanishes ($z^7\in p^7\Z$), hence $\log(z)\equiv z\pmod{p^e}$
+and kernel arithmetic is additive in $z$ at our precision.
 
 A \emph{section} is a map $\tau\colon E(\Fp)\to E(\Z/p^e)$ with
 $\red\circ\tau=\mathrm{id}$; the Teichm\"uller and Hensel lifts are
-sections, generally not homomorphisms. The \emph{lift error} (a
-$1$-cochain valued in $\Ehat$ by \eqref{eq:ses}) is
+sections, generally not homomorphisms. We use the $x$-Teichm\"uller /
+Hensel section throughout; it satisfies $\tau(-P)=-\tau(P)$ (the two
+Hensel roots in $y$ are negatives), a property we invoke once below. The
+\emph{lift error} (a $1$-cochain valued in $\Ehat$ by \eqref{eq:ses}) is
 \begin{equation}
 \delta_\tau(k)\ :=\ [k]\,\tau(G)\ -\ \tau(kG)\ \in\ \Ehat(p\Z/p^e).
 \end{equation}
 We write $\delta(k)$ for the Teichm\"uller case and
-$z(\delta(k))\in p\Z/p^e$ for its formal parameter.
+$z(\delta(k))\in p\Z/p^e$ for its formal parameter; for an integer
+$z\in\Z/p^e$, $\mathrm{digit}_j(z)$ is the coefficient of $p^j$ in the
+base-$p$ expansion (digit $0$ is the units place, identically $0$ here
+since $z\in p\Z$).
 
 \paragraph{Prior art.} That a $p$-adic lift transports the ECDLP without
 weakening it, that the canonical (Teichm\"uller) lift carries no
@@ -148,161 +159,214 @@ information, and that ``solving the DLP is equivalent to constructing a
 non-canonical lift'' are due to Silverman \cite{silverman4faces,
 silvermanlift} for elliptic curves and to Gadiyar--Maini--Padma and
 Gadiyar--Padma \cite{gadiyarpadma} for $\Fp^\times$. Smart, Satoh--Araki
-and Semaev \cite{smart,satoharaki,semaev} give the anomalous attack. The
-canonical lift itself is Lubin--Serre--Tate \cite{lst}; its computational
-instance is Satoh's point-counting algorithm \cite{satohcount}. Our
-theorem is an explicit packaging of these in the lift-error language.
+and Semaev \cite{smart,satoharaki,semaev} give the anomalous attack; the
+canonical lift is Lubin--Serre--Tate \cite{lst}, its computational
+instance Satoh's point counting \cite{satohcount}. Our theorem repackages
+these in the lift-error language.
 
 \section{The exploration, in brief}\label{sec:exploration}
 
 The full study ran forty numbered phases against the canonical-lift /
 formal-group attack surface for $j=0$ (CM by $\Z[\omega]$) and generic
-ordinary curves. We summarize only the shape of the result; details are
-in the repository. Probes included: injectivity and pseudorandomness of
-$\delta$ (DFT flatness, maximal Berlekamp--Massey complexity, uniform
-$p$-adic valuation, no polynomial/Mahler/multiplicative fit); a
-homomorphic section from $H^2$ vanishing (which exists but, being a
-homomorphism, annihilates the attack); an explicit Serre--Tate canonical
-lift validated by $\delta_{\mathrm{can}}\equiv 0$; HNP/lattice (LLL,
-BKZ) attacks on the cocycle; MOV embedding degree; ordinary/supersingular
-bridges; genus-2 Jacobian covers; Weil pairings; Iwasawa $\mu$; and a
-Frobenius/unit-root analysis. Every one was inert. Two exact relations
-survived, both \emph{public} (computable from the curve) and both
-giving no advantage: the automorphism-equivariance rank law
-$\mathrm{rank}=\min(\cdot,(n-1)/|\Aut(E)|)$ for the leading digit of
-$\delta$, and the antisymmetry
+ordinary curves; Appendix~\ref{app:phases} indexes them. Probes included
+pseudorandomness of $\delta$ (DFT flatness, maximal Berlekamp--Massey
+complexity, uniform $p$-adic valuation, no polynomial/Mahler/%
+multiplicative fit); a homomorphic section from $H^2$ vanishing (which
+exists but, being a homomorphism, annihilates the attack); an explicit
+Serre--Tate canonical lift validated by $\delta_{\mathrm{can}}\equiv 0$;
+HNP/lattice (LLL, BKZ) attacks on the cocycle; MOV embedding degree;
+ordinary/supersingular bridges; genus-$2$ Jacobian covers; Weil pairings;
+Iwasawa $\mu$; and a Frobenius/unit-root analysis. Every one was inert.
+Two exact relations survived, both \emph{public} (computable from the
+curve alone) and both giving no advantage: an automorphism-equivariance
+of the leading $\delta$-digit, and the antisymmetry
 \begin{equation}\label{eq:antisym}
 \delta(k)+\delta(n-k)=[n]\,\tau(G),
 \end{equation}
-verified to hold \emph{exactly} in the $z$-coordinate (e.g.\ for
-$p=97$, $z(\delta(k))+z(\delta(n-k))$ takes a single value across all
-$78$ pairs).
+which holds for any section with $\tau(-P)=-\tau(P)$ (so that
+$\tau(kG)+\tau(-kG)=O$), and which we confirmed holds \emph{exactly} in
+the $z$-coordinate---e.g.\ for $p=97$ ($n=79$),
+$z(\delta(k))+z(\delta(n-k))$ takes a single value across all $39$
+reflection pairs $(k,n-k)$.
 
 \section{A false positive: the Gowers anomaly}\label{sec:falsepos}
 
-Phases of the study applied higher-order Fourier analysis to the digit
-sequence of $\delta$. For digit $j$ encode
-$f_j(k)=\exp\!\big(2\pi i\,\mathrm{digit}_j(z(\delta(k)))/p\big)$ and
-measure the Gowers $\Uk^2$ norm against an $S^1$-random baseline. Across
-$p=31$ to $521$ the $\Uk^2$ norm was elevated $5$--$11\sigma$; $\Uk^3$
-and higher were at baseline. The leading Fourier coefficient decayed as
-$|\hat f(\alpha)|\sim C n^{-\beta}$ with $\beta\in[0.28,0.47]<1/2$,
-present on CM, $j{=}1728$, and non-CM curves alike. An internal report
-concluded this was a genuine, previously unnoticed degree-$1$ structural
-property of the Teichm\"uller cocycle ``not explained by any universal
-identity.''
+Encode digit $j$ of the lift error as a phase,
+$f_j(k)=\exp\!\big(2\pi i\,\mathrm{digit}_j(z(\delta(k)))/p\big)$ for
+$k=1,\dots,n-1$, and measure the Gowers $\Uk^2$ norm~\cite{taovu} against an
+$S^1$-uniform random baseline (definitions and counts in
+\S\ref{sec:stats}). Across many primes the $\Uk^2$ norm was elevated
+$5$--$11\sigma$ on the original exploratory sweep (Phase 37, a mixed bag
+of curves later found to include supersingular and anomalous cases); on
+the clean controlled set of \S\ref{sec:controls} the elevation is
+$\sim$$3$--$14\sigma$ ($z(\text{real vs rand})$ ranges $3.3$ to $13.6$).
+$\Uk^3$ and higher sat at baseline. The leading Fourier
+coefficient decayed as $|\hat f(\alpha)|\sim C n^{-\beta}$ with
+$\beta<1/2$, on CM, $j{=}1728$, and non-CM curves alike. An internal
+report concluded this was a genuine, previously unnoticed degree-$1$
+structural property of the Teichm\"uller cocycle ``not explained by any
+universal identity.''
 
 The evidence offered was a permutation control: randomly permuting the
-\emph{values} of $f_j$ destroyed the elevation, which was read as proof
-that the structure lived in the index ordering, hence was ``real.''
-This inference is invalid, and seeing why is the point of the paper.
+\emph{values} of $f_j$ destroyed the elevation, read as proof that the
+structure lived in the index ordering, hence was ``real.'' This inference
+is invalid, and seeing why is the point of the paper.
 
 \section{Mechanism-derived controls}\label{sec:controls}
 
-\paragraph{The principle.} A control is a null model, and a null model
-tests exactly one alternative hypothesis: the one under which the
-statistic is recomputed. The value-permutation control recomputes
-$\Uk^2$ under ``the multiset of digit values, in random order.'' It
-therefore separates ``structure in the value distribution'' from
-``structure in the ordering''---and nothing else. But at least three
-distinct mechanisms predict ordered structure here, and the permutation
-kills all of them simultaneously, so it cannot attribute the signal to
+\paragraph{The principle.} A control is a null model, and a null tests
+exactly one alternative: the one under which the statistic is recomputed.
+The value-permutation control recomputes $\Uk^2$ under ``the multiset of
+digit values, in random order,'' so it separates ``structure in the value
+distribution'' from ``structure in the ordering''---and nothing else. But
+at least three mechanisms predict ordered structure here, and the
+permutation kills all three at once, so it cannot attribute the signal to
 any one:
 \begin{enumerate}
 \item[(H1)] \emph{Prefix-sum artifact.} $\delta(k)=-\sum_{i<k}c(iG,G)$ is
-a running sum. Summation is a low-pass filter
+a running sum; summation is a low-pass filter
 ($\hat s(\xi)=\hat d(\xi)/(1-e^{2\pi i\xi/n})$, a $1/\xi$ pole at
 $\xi=0$), so \emph{any} increments with this multiset, once summed, carry
-low-frequency mass and elevated $\Uk^2$.
+elevated low-frequency $\Uk^2$.
 \item[(H2)] \emph{Antisymmetry shadow.} The exact reflection
 \eqref{eq:antisym} couples Fourier mode $\alpha$ with $-\alpha$, a rigid
 constraint that elevates $\Uk^2$.
 \item[(H3)] \emph{Genuine new structure}, the claimed explanation.
 \end{enumerate}
-The fix is to build one null per mechanism, each derived from how that
-mechanism generates ordering, and to ask which null the real statistic
-matches.
+We build one null per mechanism, each derived from how that mechanism
+generates ordering. All numbers below are on the clean ordinary set of
+Table~\ref{tab:p43} (Phase 43), under the pre-registered protocol of
+\S\ref{sec:stats}.
 
-\paragraph{Control for H1 (increment shuffle).} $s(k)=z(\delta(k))$ is
-the exact cumulative sum of its first differences $d(k)=s(k+1)-s(k)$.
-Shuffle $d$, rebuild $s'$ by re-summing in the new order, recompute
-$\Uk^2$; the increment multiset is identical, only the order changes.
-Table~\ref{tab:p40} (Phase 40). For all primes with sequence length
-$L\ge 66$ the shuffled-increment prefix sums sit \emph{at} the random
-baseline ($z(\text{incShuf vs rand})$ within $\pm 1$, range $-0.26$ to
-$+1.04$), while the true ordering sits $+4$ to $+12$ above them, growing
-with $n$; the two smallest primes ($L\le 30$) are dominated by baseline
-noise and excluded. So H1 is refuted: the digit nonlinearity destroys the
-random walk's low-frequency mass, and the signal is in the \emph{specific}
-order, not in summation.
+\paragraph{H1 (increment shuffle).} $s(k)=z(\delta(k))$ is the exact
+cumulative sum of its first differences $d(k)=s(k+1)-s(k)$. Shuffle $d$,
+re-sum in the new order, recompute $\Uk^2$; the increment multiset is
+identical, only the order changes. The shuffled-increment prefix sums sit
+\emph{at} the random baseline ($z(\text{incShuf vs rand})\in[-0.3,+0.5]$
+on every curve), while the true ordering sits $+3.5$ to $+12.5$ above
+them, growing with $n$ (Table~\ref{tab:p43}, cols.\ 4--5). H1 is refuted:
+the digit nonlinearity destroys the walk's low-frequency mass, so the
+signal is in the \emph{specific} order, not in summation.
 
-\paragraph{Control for H2 (half-sequence).} The reflection
-\eqref{eq:antisym} relates each $k$ to $n-k$. Restricting to the first
-half $k=1,\dots,\lfloor(n-1)/2\rfloor$ removes every reflection pair from
-the window, so H2 predicts no internal constraint there; H3 (an intrinsic
-ordering structure) predicts the signal persists. Re-running the Phase 40
-control on the half (Phase 40b): the elevation \emph{vanishes},
-$z(\text{real vs incShuf})$ scattering in $[-2.4,+2.1]$ with no growth in
-$n$. At matched sample size the contrast is decisive: $p=257$ gives
-$z\approx+8$ on the full sequence ($L=256$) and $z\approx+0.1$ to $+0.6$
-on the half ($L=128$).
+\paragraph{H2 (half-sequence).} The reflection \eqref{eq:antisym} relates
+each $k$ to $n-k$. On the first half $k=1,\dots,\lfloor(n-1)/2\rfloor$
+every reflection partner lies outside the window, so H2 predicts no
+internal constraint there while H3 predicts the signal persists.
+Re-running the increment-shuffle control on the half collapses the
+elevation to noise ($z(\text{half vs incShuf})\in[-1.3,+1.5]$, no growth
+in $n$; Table~\ref{tab:p43}, col.\ 6).
+
+\paragraph{H2, positive control (the decisive test).} Absence of signal
+on the half is necessary but not sufficient. We therefore test H2
+\emph{constructively}: generate synthetic sequences that impose
+\emph{only} the reflection, $s(k)$ i.i.d.\ uniform on the first half and
+$s(n-k)=C-s(k)$ with $C=z([n]\tau(G))$, carrying no other structure, and
+measure their $\Uk^2$. If reflection alone is the mechanism, these must
+reproduce the real statistic. They do, quantitatively: the synthetic
+$\Uk^2$ is elevated $+3.8$ to $+12.5$ over the random baseline---tracking
+the real elevation across the whole range of $n$---and the real sequences
+are statistically indistinguishable from them
+($z(\text{real vs syn})\in[-1.4,+1.5]$; Table~\ref{tab:p43}, cols.\
+7--8). The match on the $\Uk^2$ elevation and its growth with $n$ is the
+substance of the positive control, and it is exact (cols.\ 7--8). The
+finer digit-dependent Fourier decay is only \emph{partially} reproduced:
+fitting $|\hat f|\sim C n^{-\beta}$ across the seven curves, the real
+sequences give $\beta_{\mathrm{real}}\approx\{0.34,0.45,0.36\}$ for
+digits $1,2,3$, whereas the reflection-only synthetic draws give a nearly
+flat $\beta_{\mathrm{syn}}\approx\{0.41,0.41,0.40\}$. Reflection alone
+thus reproduces the overall power-law decay ($\beta\approx0.4$, the same
+order as the real exponents) but not its digit-to-digit variation; we do
+\emph{not} claim the spectra match in detail. The decisive evidence that
+H2 is the mechanism is the $\Uk^2$ match, which is genuine.
 
 \paragraph{Verdict.} The anomaly is the Fourier-domain shadow of the
-exact, universal, public identity \eqref{eq:antisym}: H2, not H1 or H3.
-It is real but not new, and---being a known public consequence of the
-curve's geometry that yields only a $2$-to-$1$ search reduction---carries
-no cryptanalytic advantage. The varying ``decay exponent''
-$\beta\in[0.28,0.47]$ and its apparent curve-family dependence are
-finite-size noise around a single reflection-induced spectrum; nothing
-family-specific survives the half-sequence control.
+exact, public identity \eqref{eq:antisym}: H2, not H1 or H3. It is real
+but not new, and---being a public consequence of the curve's geometry
+that yields only a $2$-to-$1$ search reduction---carries no cryptanalytic
+advantage. The varying ``decay exponent'' and its apparent curve-family
+dependence in the internal report are finite-size scatter around a single
+reflection-induced spectrum; nothing family-specific survives.
 
 \begin{table}[t]
 \centering
 \small
-\begin{tabular}{rrrr}
+\begin{tabular}{rrrrrrrr}
 \toprule
-$p$ & $L$ & $z(\text{real vs incShuf})$ & $z(\text{incShuf vs rand})$\\
+& & & \multicolumn{3}{c}{negative controls ($z$)} & \multicolumn{2}{c}{positive ($z$)}\\
+\cmidrule(lr){4-6}\cmidrule(lr){7-8}
+$p$ & $n$ & $L$ & real/inc & inc/rand & half/inc & syn/rand & real/syn\\
 \midrule
-67  & 78  & $+3.8$ to $+6.4$  & $-0.24$ to $+0.05$\\
-97  & 78  & $+3.6$ to $+6.2$  & $+0.17$ to $+0.48$\\
-167 & 166 & $+6.6$ to $+8.2$  & $+0.09$ to $+0.67$\\
-257 & 256 & $+6.7$ to $+8.4$  & $-0.11$ to $+0.99$\\
-521 & 520 & $+10.3$ to $+11.9$& $-0.07$ to $+0.35$\\
+ 67 &  79 &  78 & $+3.5..6.7$  & $-0.3..0.2$ & $-0.6..1.5$ & $+3.8..4.1$  & $-0.4..1.2$\\
+163 & 139 & 138 & $+3.7..7.4$  & $+0.0..0.5$ & $-0.4..1.0$ & $+5.4..5.4$  & $-0.9..1.5$\\
+211 & 199 & 198 & $+5.1..7.8$  & $+0.1..0.3$ & $-0.8..0.5$ & $+5.8..5.9$  & $-0.3..0.8$\\
+349 & 313 & 312 & $+5.4..7.1$  & $-0.0..0.1$ & $-1.3..0.2$ & $+7.5..7.6$  & $-1.4..-0.4$\\
+433 & 397 & 396 & $+8.2..9.6$  & $-0.1..0.2$ & $-0.4..0.6$ & $+8.4..8.6$  & $-0.1..0.7$\\
+577 & 613 & 612 & $+7.8..11.5$ & $+0.1..0.2$ & $-0.5..1.1$ & $+10.2..10.4$& $-1.2..0.8$\\
+823 & 829 & 828 & $+10.5..12.5$& $+0.1..0.2$ & $-0.9..0.0$ & $+12.2..12.5$& $-0.9..0.7$\\
 \bottomrule
 \end{tabular}
-\caption{Phase 40 increment-shuffle control (digits $j=1,2,3$). The
-shuffled-increment prefix sums match the random baseline (right column
-$\approx 0$); the true ordering is far above and grows with $n$ (middle).
-H1 (prefix-sum artifact) is refuted. The half-sequence control
-(Phase 40b) then collapses the middle column to noise, localizing the
-signal to the antisymmetry \eqref{eq:antisym}.}
-\label{tab:p40}
+\caption{Phase 43, clean ordinary $j{=}0$ curves $y^2=x^3+7$
+($p\equiv 1\bmod 3$, $n=\#E(\Fp)$ prime, so $\gcd(n,p)=1$ and the curve
+is neither supersingular nor anomalous); $L$ is the number of usable
+$k\in[1,n-1]$ after the pre-registered degeneracy filter
+(\S\ref{sec:stats}); here $L=n-1$ (no drops). Ranges are over digits
+$j=1,2,3$. Negative controls: shuffling increments leaves $\Uk^2$ at the
+random baseline (inc/rand) and the true ordering far above it (real/inc),
+which vanishes on the half (half/inc). Positive control: synthetic
+reflection-only sequences reproduce the elevation (syn/rand) and the real
+sequences match them (real/syn). The entire effect is the antisymmetry
+\eqref{eq:antisym}.}
+\label{tab:p43}
 \end{table}
+
+\section{Statistical protocol}\label{sec:stats}
+
+All quantities in \S\ref{sec:controls} follow one pre-registered protocol
+(fixed before the clean re-run; seed $20260609$). Precision $e=4$; digits
+$j\in\{1,2,3\}$. The $S^1$-random baseline draws $300$ sequences
+$g(k)=e^{i\theta_k}$, $\theta_k$ uniform on $[0,2\pi)$, of the same length
+$L$; ``$\sigma$'' and ``$z$'' are the standard deviation and standardized
+deviation \emph{of the relevant null}: incShuf uses $300$ increment
+shuffles, syn uses $300$ synthetic draws, rand uses the $300$ baselines.
+The Gowers $\Uk^2$ is computed exactly by its FFT formula. \emph{Exclusion
+rule (pre-specified):} a value $z(\delta(k))$ is dropped iff its
+projective lift is degenerate---$Y$ a non-unit, or $z\not\equiv 0\bmod p$
+(a kernel element must have $z\equiv 0$); these are arithmetic failures of
+the pure-Python lift, flagged automatically, and on the clean ordinary set
+none occurred ($L=n-1$ throughout). The clean set is the seven ordinary
+$j{=}0$ curves $y^2=x^3+7$ with $p\equiv 1\bmod 3$ and $n=\#E(\Fp)$ prime
+(hence $\gcd(n,p)=1$, neither supersingular nor anomalous); the smallest
+has $n=79$, so $L\ge 78$ throughout. No further size-based filter is
+applied---every such curve in the run is reported.
+We make no multiplicity correction and therefore do \emph{not} claim
+discovery from any single elevated $\Uk^2$; the paper's logic is the
+opposite---every elevation is traced to a named mechanism and shown to be
+identity-or-artifact, and the controls are designed to \emph{remove}
+signal, not to find it.
 
 \section{Why it had to be a false positive: an inertness theorem}
 \label{sec:theorem}
 
-The episode above was not luck. For $\gcd(n,p)=1$ \emph{every}
-secret-dependent feature of a section lift error is forced into a
-coordinate the public data cannot see, so any apparent ``structure'' in
-$\delta$ that is computable from $(E,G,Q)$ must reduce to a public
-identity or an artifact. We make this precise.
+For $\gcd(n,p)=1$ the secret-dependent part of any section lift error is
+forced into a coordinate the attacker cannot compute, so any
+``structure'' in $\delta$ that \emph{is} computable from $(E,G,Q)$ must
+reduce to a public identity or an artifact. We make this precise.
 
 \begin{lemma}[Canonical lift]\label{lem:can}
 If $\gcd(n,p)=1$, the order-$n$ subgroup $\langle G\rangle$ lifts
 uniquely to $\langle\widetilde G\rangle\subset E(\Z/p^e)$ of order $n$
 with $\red(\widetilde G)=G$, and $jG\mapsto[j]\widetilde G$ is a
 homomorphism (so $\delta_{\tau_{\mathrm{can}}}\equiv 0$). Explicitly
-$\widetilde G=[m]\tau(G)$ for any section $\tau$, where $m\equiv 1\ (\bmod\,n)$,
-$m\equiv 0\ (\bmod\,p^{e-1})$.
+$\widetilde G=[m]\tau(G)$ for any section $\tau$, where
+$m\equiv 1\ (\bmod\,n)$, $m\equiv 0\ (\bmod\,p^{e-1})$.
 \end{lemma}
 
 \begin{proof}
 $E(\Z/p^e)[n]$ injects into $E(\Fp)[n]$ (an $n$-torsion element of
-$\Ehat$ is killed by $\gcd(n,p^{e-1})=1$) and surjects onto it (étale
-$n$-torsion lifts by Hensel), so reduction is an isomorphism on
-$n$-torsion and $\widetilde G$ is the unique order-$n$ lift of $G$.
-Writing $\tau(G)=\widetilde G+c$ with $c\in\Ehat$,
+$\Ehat$ is killed by $\gcd(n,p^{e-1})=1$, hence trivial) and surjects
+onto it (étale $n$-torsion lifts by Hensel), so reduction is an
+isomorphism on $n$-torsion and $\widetilde G$ is the unique order-$n$
+lift of $G$. Writing $\tau(G)=\widetilde G+c$ with $c\in\Ehat$,
 $[m]\tau(G)=[m\bmod n]\widetilde G+[m\bmod p^{e-1}]c=\widetilde G$.
 \end{proof}
 
@@ -314,57 +378,71 @@ Let $\tau$ be any section and $c:=\tau(G)-\widetilde G\in\Ehat$. Then:
 \item[(b)] $[k]c$ depends on $k$ only through $k\bmod p^{e-1}$;
 $\log([k]c)=k\log(c)$ has additive order a power of $p$ dividing
 $p^{e-1}$.
-\item[(c)] Since $\gcd(n,p^{e-1})=1$, the residues $k\bmod n$ (fixed by
-$Q$) and $k\bmod p^{e-1}$ (governing $[k]c$) are independent coordinates
-of $k$; no value of $[k]c$ is determined by $(E,G,Q)$.
+\item[(c)] $\gcd(n,p^{e-1})=1$, so by CRT, for $k$ uniform on
+$\Z/np^{e-1}\Z$ the residues $k\bmod n$ (fixed by $Q$) and $k\bmod
+p^{e-1}$ (governing $[k]c$) are independent. The public data $(E,G,Q)$
+fixes only $k\bmod n$; hence over this natural lift $[k]c$, a function of
+$k\bmod p^{e-1}$, is not determined by the public data, and no efficient
+algorithm computing it from $(E,G,Q)$ is known.
 \item[(d)] $\delta_\tau$ is a well-defined function of the instance
 (i.e.\ of $k\bmod n$) iff $c=0$ (i.e.\ $\tau$ canonical on
 $\langle G\rangle$), in which case $\delta_\tau\equiv 0$. For $c\neq 0$,
-$\delta_\tau(k+n)-\delta_\tau(k)=[n]c=[n]\tau(G)\neq O$, the exact
-antisymmetry constant of \eqref{eq:antisym}.
+$\delta_\tau(k+n)-\delta_\tau(k)=[n]c=[n]\tau(G)\neq O$, the antisymmetry
+constant of \eqref{eq:antisym}.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 (a) $[k](\widetilde G+c)-([k]\widetilde G+c_k)=[k]c-c_k$. (b) $c\in\Ehat$
-has order dividing $p^{e-1}$; apply $\log$. (c) CRT. (d) $c_k$ is a
-function of $kG$, hence of $k\bmod n$; thus $\delta_\tau$ factors through
-$k\bmod n$ iff $k\mapsto[k]c$ does, iff $[n]c=O$, iff (as
-$\gcd(n,p^{e-1})=1$) $c=O$. The shift equals $[n]c=[n]\tau(G)$ because
-$[n]\widetilde G=O$.
+has order dividing $p^{e-1}$; apply $\log$, whose order as a map
+$k\mapsto k\log(c)$ on $(p\Z/p^e,+)$ is $p^e/\gcd(\log(c),p^e)$, a power
+of $p$ dividing $p^{e-1}$ since $\log(c)\in p\Z$. (c) Since
+$\gcd(n,p^{e-1})=1$, CRT gives $\Z/np^{e-1}\Z\cong\Z/n\Z\times\Z/p^{e-1}\Z$,
+so for $k$ uniform on the left the residues $k\bmod n$ and $k\bmod
+p^{e-1}$ are independent; as $(E,G,Q)$ determines only $k\bmod n$, it
+leaves $k\bmod p^{e-1}$ (and hence $[k]c$) information-theoretically
+unconstrained over this lift. We make no claim of a reduction beyond
+this. (d) $c_k$ is a function of $kG$, hence of
+$k\bmod n$; so $\delta_\tau$ factors through $k\bmod n$ iff
+$k\mapsto[k]c$ does, iff $[n]c=O$, iff (as $\gcd(n,p^{e-1})=1$) $c=O$. The
+shift equals $[n]c=[n]\tau(G)$ since $[n]\widetilde G=O$.
 \end{proof}
 
-\begin{corollary}
-For $\gcd(n,p)=1$ no section lift error is a function of $(E,G,Q)$ that
-depends on the secret: it is either identically zero (canonical) or
-multivalued with ambiguity $[n]\tau(G)\neq O$ (non-canonical). The
-$p$-adic canonical lift moves the ECDLP without weakening it.
+\begin{corollary}\label{cor:main}
+For $\gcd(n,p)=1$ no section lift error yields an efficiently computable
+function of $(E,G,Q)$ that depends on the secret: it is either
+identically zero (canonical) or not a function of the instance at all
+(non-canonical, ambiguity $[n]\tau(G)\neq O$). The $p$-adic canonical
+lift moves the ECDLP without weakening it.
 \end{corollary}
 
-This is exactly why the Gowers anomaly was forced to be artifact-or-%
-identity. The only secret-bearing object, $[k]c$, is invisible to the
-attacker; the visible $\delta$ is either zero or, taken as a function of
-the integer $k$, periodic-with-shift $[n]\tau(G)$---and that shift is the
-reflection \eqref{eq:antisym} whose Fourier signature Phase 37
-rediscovered.
+This is why the Gowers anomaly was forced to be artifact-or-identity. The
+only secret-bearing object, $[k]c$, is not publicly computable; the
+visible $\delta$, taken as a function of the integer $k$, is either zero
+or periodic-with-shift $[n]\tau(G)$---and that shift is the reflection
+\eqref{eq:antisym} whose Fourier signature the probe rediscovered.
+
+\paragraph{Remark (on clause (c)).} We deliberately do \emph{not} claim
+$[k]c$ is information-theoretically independent of $(E,G,Q)$: once a
+canonical representative $k\in[1,n-1]$ is fixed, $k\bmod p^{e-1}$ and
+hence $[k]c$ are determined. The claim is computational---no efficient
+algorithm produces $[k]c$ from the public data short of solving the
+ECDLP---which is what matters for security and what the experiments probe.
 
 \section{The boundary is sharp}\label{sec:boundary}
 
-Theorem~\ref{thm:main} hinges on the single inequality $\gcd(n,p)=1$.
-Set $n=p$ (an anomalous curve, $\#E(\Fp)=p$) and every clause degenerates
-toward the attacker: $k\bmod n=k\bmod p$ now coincides with the residue
+Theorem~\ref{thm:main} hinges on $\gcd(n,p)=1$. Set $n=p$ (an anomalous
+curve, $\#E(\Fp)=p$): $k\bmod n=k\bmod p$ now coincides with the residue
 the formal group sees, and the obstruction $[n]c=[p]c$ \emph{vanishes}
 because $c\in\Ehat(p\Z/p^2)$ has order dividing $p$. The lift error
 becomes well-defined and the formal logarithm of $[p]\cdot(\text{lift})$
-is a homomorphism $E(\Fp)\to\Fp$ recovering $k$---Smart's attack.
-
-We verified both sides numerically (Table~\ref{tab:boundary}). On every
-ordinary test curve the obstruction $[n]\tau(G)$ is a nonzero kernel
-element of \emph{maximal} order $p^{e-1}$ (valuation $1$); on an
-anomalous curve $y^2=x^3+4x+7$ over $\mathbb F_{53}$ the obstruction
-vanishes and Smart's attack recovers $k$ with $100\%$ success ($12/12$
-random secrets). The same code path that is inert for $\gcd(n,p)=1$
-becomes a total break the instant $n=p$.
+is a homomorphism $E(\Fp)\to\Fp$ recovering $k$---Smart's attack. We
+verified both sides (Table~\ref{tab:boundary}): on every ordinary test
+curve the obstruction $[n]\tau(G)$ is a nonzero kernel element of
+\emph{maximal} order $p^{e-1}$ (valuation $1$), while on the anomalous
+$y^2=x^3+4x+7$ over $\mathbb F_{53}$ it vanishes and Smart's attack
+recovers $k$ for $12/12$ random secrets. The same code path that is inert
+for $\gcd(n,p)=1$ is a total break the instant $n=p$.
 
 \begin{table}[t]
 \centering
@@ -373,7 +451,7 @@ becomes a total break the instant $n=p$.
 \toprule
 Regime & curves & $\gcd(n,p)$ & obstruction $[n]\tau(G)$ & ECDLP\\
 \midrule
-Ordinary (ECDSA) & $p=31$--$163$, $j{=}0$ & $1$ &
+Small ordinary, $\gcd(n,p)=1$ & $p=31$--$163$, $j{=}0$ & $1$ &
   nonzero, $\ord=p^{e-1}$ & inert\\
 Anomalous (Smart) & $y^2{=}x^3{+}4x{+}7/\mathbb F_{53}$ & $p$ &
   $O$ (vanishes) & broken, $12/12$\\
@@ -381,54 +459,67 @@ Anomalous (Smart) & $y^2{=}x^3{+}4x{+}7/\mathbb F_{53}$ & $p$ &
 \end{tabular}
 \caption{Phases 41--42. The well-definedness obstruction of
 Theorem~\ref{thm:main}(d) is nonzero of maximal order on ordinary curves
-and vanishes on anomalous curves, where Smart's attack succeeds. The
-hypothesis $\gcd(n,p)=1$ is the exact boundary.}
+and vanishes on anomalous curves, where Smart's attack succeeds.
+$\gcd(n,p)=1$ is the exact boundary. Theorem~\ref{thm:main} is
+regime-agnostic---it holds for any $\gcd(n,p)=1$---so these small ordinary
+curves (chosen for exact-arithmetic reach) suffice to verify it; the
+relevance to large-prime ECDSA curves is through the theorem's generality,
+not through these particular orders.}
 \label{tab:boundary}
 \end{table}
 
 \section{Numerical verification}\label{sec:verification}
 
-Theorem~\ref{thm:main} was checked on the secp256k1 family
-$y^2=x^3+7$ at $e=4$ for ten primes $p=31,\dots,163$ with $\gcd(n,p)=1$
-(Phase 41). All kernel arithmetic was done through the additive
-$z$-coordinate to avoid projective degeneracy on deep kernel points. On
-every prime: the obstruction $C_n:=z([n]\tau(G))$ is nonzero and lies in
-$p\Z$ with valuation $1$, of additive order exactly $p^{e-1}$ (clause d,
-b); the antisymmetry $z(\delta(k))+z(\delta(n-k))\equiv C_n$ holds for
-all $k$ (clause d / \eqref{eq:antisym}); the integer-representative shift
+Theorem~\ref{thm:main} was checked on $y^2=x^3+7$ at $e=4$ for ten
+small ordinary curves over $\Fp$, $p=31,\dots,163$, all with
+$\gcd(n,p)=1$ (Phase 41). These test orders are deliberately small and
+several are composite---$n\in\{21,31,79,67,79,111,129,133,86,139\}$, five
+of them composite---chosen for exact-arithmetic reach rather than to model
+the large-prime ECDSA regime; since the theorem is regime-agnostic (it
+needs only $\gcd(n,p)=1$), they suffice to verify it. Adding one
+large-prime-order ordinary curve would strengthen the demonstration but is
+not required for correctness. All kernel arithmetic is done through the
+additive $z$-coordinate to avoid projective degeneracy on deep kernel
+points. On every prime: the
+obstruction $C_n:=z([n]\tau(G))$ is nonzero in $p\Z$ of valuation $1$ and
+additive order exactly $p^{e-1}$ (clauses (d),(b)); the antisymmetry
+$z(\delta(k))+z(\delta(n-k))\equiv C_n$ holds for all $k$ (clause (d) /
+\eqref{eq:antisym}); the integer-representative shift
 $z(\delta(k+n))-z(\delta(k))\equiv C_n$ holds on all eight
-arithmetically-reliable primes (clause d; it is a group identity, and on
-the two remaining primes the deep multiply degenerates in exact
-arithmetic, flagged by a self-consistency probe); and $\gcd(n,p^{e-1})=1$
-(clause c). The canonical-lift case $\delta_{\mathrm{can}}\equiv 0$
-(Lemma~\ref{lem:can}) was confirmed independently in an exact $p$-adic
-computation. Anomalous recovery is Phase 42 (\S\ref{sec:boundary}).
+arithmetically-reliable primes (a group identity; on two primes the deep
+multiply degenerates in exact arithmetic, flagged by a self-consistency
+probe); and $\gcd(n,p^{e-1})=1$ (clause (c)). The canonical case
+$\delta_{\mathrm{can}}\equiv 0$ (Lemma~\ref{lem:can}) was confirmed in an
+exact $p$-adic computation. Anomalous recovery is Phase 42
+(\S\ref{sec:boundary}).
 
 \section{Discussion}\label{sec:discussion}
 
 \paragraph{For negative cryptanalysis.} The reusable lesson is narrow and
 practical. (i) A control tests exactly one alternative---the one its null
-recomputes. Before trusting it, enumerate the mechanisms that could
-generate the observed statistic and check whether the control separates
-them; the permutation test here failed precisely because three
-mechanisms collapsed under it. (ii) Build one null per mechanism,
-\emph{derived from how that mechanism generates the statistic}: H1 from
-the prefix-sum structure (shuffle increments, re-sum), H2 from the
-reflection's reach (restrict to a half). (iii) Beware cumulative
-statistics: any running sum manufactures low-frequency autocorrelation,
-so ``looks autocorrelated'' is the null, not the finding. (iv) Where a
-structural theorem is available, it bounds what controls can ever find;
-Theorem~\ref{thm:main} says no honest control will turn $\delta$ into an
-oracle for $\gcd(n,p)=1$.
+recomputes; before trusting it, enumerate the mechanisms that could
+generate the statistic and check whether the control separates them. The
+permutation test here failed because three mechanisms collapsed under it.
+(ii) Build one null per mechanism, derived from how that mechanism
+generates the statistic: H1 from the prefix-sum structure (shuffle
+increments, re-sum), H2 from the reflection's reach (restrict to a half),
+and---decisively---a \emph{positive} control synthesizing the surviving
+mechanism (reflection-only sequences) and showing it reproduces the
+statistic. (iii) Beware cumulative statistics: any running sum
+manufactures low-frequency autocorrelation, so ``looks autocorrelated''
+is the null, not the finding. (iv) Where a structural theorem is
+available it bounds what controls can find; Theorem~\ref{thm:main} says no
+honest control turns $\delta$ into an oracle for $\gcd(n,p)=1$.
 
-\paragraph{For automated and AI-assisted exploration.} Pipelines that
-fan out many structural probes and surface the ``most anomalous'' are
-increasingly common, and they are false-positive engines: with enough
-encodings and transforms, an apparent $5$--$11\sigma$ effect is cheap.
-The safeguard is not more probes but mechanism-derived nulls and, where
-possible, a closed-form reason the probe must be inert. The value of the
-theorem in this study is exactly that: it converts ``we tried forty
-things and they failed'' into ``here is the one-line reason they had to.''
+\paragraph{For automated and AI-assisted exploration.} Pipelines that fan
+out many probes and surface the most anomalous are false-positive
+engines: with enough encodings and transforms an apparent $5$--$11\sigma$
+effect is cheap, and a plausible-sounding control can launder it into a
+``finding.'' The safeguard is not more probes but mechanism-derived nulls,
+a positive control for any surviving signal, and---where possible---a
+closed-form reason the probe must be inert. The theorem's value here is
+exactly that: it turns ``we tried forty things and they failed'' into
+``here is the one-line reason they had to.''
 
 \paragraph{Honest scope.} Theorem~\ref{thm:main} is not new mathematics.
 It is an explicit instance, in the lift-error language, of the principle
@@ -437,49 +528,84 @@ transports the ECDLP; the anomalous degeneration is Smart's attack
 \cite{smart}. It concerns section lift errors only; pairing-based
 functionals are a separate mechanism (inert here for the independent
 reason of huge embedding degree). We claim novelty only for the
-methodology and for the explicit identification of the obstruction with
-the antisymmetry constant.
+methodology---the mechanism-derived controls and the positive control
+that localizes the anomaly---and for the explicit identification of the
+obstruction with the antisymmetry constant.
 
 \section{Conclusion}
 
-A long negative exploration of $p$-adic ECDLP lifting produced one
-seductive anomaly. A standard control endorsed it; mechanism-derived
-controls killed it, attributing it entirely to an exact public identity;
-and an inertness theorem explains why no such anomaly on ordinary curves
-can ever be more than artifact-or-identity, with the boundary falling
-exactly at the anomalous curves where the lift attack genuinely works.
-The cryptanalytic verdict is the expected negative one. The transferable
-result is a discipline: name your alternative hypotheses, build a null
-for each from its mechanism, and prefer a structural reason for inertness
-over an accumulation of passed tests.
+A long negative exploration produced one seductive anomaly. A standard
+control endorsed it; mechanism-derived controls, capped by a positive
+control, killed it and attributed it entirely to an exact public
+identity; and an inertness theorem explains why no such anomaly on
+ordinary curves can be more than artifact-or-identity, with the boundary
+falling exactly at the anomalous curves where the lift attack genuinely
+works. The cryptanalytic verdict is the expected negative one. The
+transferable result is a discipline: name your alternative hypotheses,
+build a null for each from its mechanism, synthesize the survivor to
+confirm it, and prefer a structural reason for inertness over an
+accumulation of passed tests.
+
+\appendix
+\section{Phase index}\label{app:phases}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{rll}
+\toprule
+Phase(s) & Target & Verdict\\
+\midrule
+1--2   & injectivity / pseudorandomness of $\delta$ & injective, pseudorandom\\
+3--4   & Smart--SSSA; homomorphic section from $H^2$ & section exists, attack does not\\
+5--6   & CM-linearization; HNP on cocycle & pseudorandom; no bias\\
+7--10  & MOV; poly fit; LLL coords; ord/ss bridge & inapplicable / no leak\\
+11--13 & genus-2 Jacobian; GLV-CRT; Weil pairing & no new lever\\
+14     & Aut$(E)$-equivariance rank law of $\delta$-digit & public, no advantage\\
+15--20 & triple cocycle; DFT; Berlekamp--Massey; valuation; mult. & all inert\\
+21b    & antisymmetry $\delta(k)+\delta(n-k)=[n]\tau(G)$ & exact, public\\
+22--29 & coord change; formal log; Mazur--Tate; Mahler & no structure\\
+30--36 & Sage validation; $2$-cocycle; canonical lift; Iwasawa & inert\\
+37     & Gowers $\Uk^2$ anomaly & false positive (this paper)\\
+40,40b & increment-shuffle and half-sequence controls & localizes to 21b\\
+41     & numerical verification of Theorem~\ref{thm:main} & confirmed\\
+42     & anomalous boundary (Smart) & $12/12$ recovery\\
+43     & clean-ordinary re-run + positive control & confirms \S\ref{sec:controls}\\
+\bottomrule
+\end{tabular}
+\caption{Index of the exploration. Full scripts, fixed seeds, and JSON
+outputs are in the \texttt{ecdsa-lift} repository.}
+\end{table}
 
 \begin{thebibliography}{9}
 \bibitem{silverman4faces} J.~H.~Silverman. \emph{The Four Faces of
-Lifting for the Elliptic Curve Discrete Logarithm Problem.} Talk, ECC
-2007.
+Lifting for the Elliptic Curve Discrete Logarithm Problem.} Invited talk,
+ECC 2007; slides available via the author's page. (Surveyed in
+\cite{silvermanlift}.)
 \bibitem{silvermanlift} J.~H.~Silverman. \emph{Lifting and Elliptic Curve
-Discrete Logarithms.} SAC 2008, LNCS 5381, Springer, 2009.
+Discrete Logarithms.} Selected Areas in Cryptography (SAC) 2008, LNCS
+5381, Springer, 2009, pp.\ 82--102.
 \bibitem{gadiyarpadma} H.~G.~Gadiyar and R.~Padma. \emph{The discrete
 logarithm problem over prime fields: the safe prime case. The Smart
-attack, non-canonical lifts and logarithmic derivatives.}
-arXiv:1702.07107, 2017. (See also Gadiyar, Maini, Padma, INDOCRYPT 2004.)
+attack, non-canonical lifts and logarithmic derivatives.} Czechoslovak Math.\ J.\ 68 (2018),
+1115--1124 (arXiv:1702.07107); cf.\ Gadiyar, Maini, Padma, INDOCRYPT 2004,
+LNCS 3348, 305--314.
 \bibitem{smart} N.~P.~Smart. \emph{The discrete logarithm problem on
 elliptic curves of trace one.} J.~Cryptology 12 (1999), 193--196.
 \bibitem{satoharaki} T.~Satoh and K.~Araki. \emph{Fermat quotients and
 the polynomial time discrete log algorithm for anomalous elliptic
-curves.} Comm.\ Math.\ Univ.\ Sancti Pauli 47 (1998), 81--92.
+curves.} Comment.\ Math.\ Univ.\ St.\ Pauli 47 (1998), 81--92.
 \bibitem{semaev} I.~A.~Semaev. \emph{Evaluation of discrete logarithms on
 some elliptic curves.} Math.\ Comp.\ 67 (1998), 353--356.
 \bibitem{lst} J.~Lubin, J.-P.~Serre, J.~Tate. \emph{Elliptic curves and
-formal groups.} Woods Hole, 1964.
+formal groups.} Woods Hole Summer Institute, 1964 (lecture notes).
 \bibitem{satohcount} T.~Satoh. \emph{The canonical lift of an ordinary
 elliptic curve over a finite field and its point counting.} J.~Ramanujan
 Math.\ Soc.\ 15 (2000), 247--270.
 \bibitem{silvermanaec} J.~H.~Silverman. \emph{The Arithmetic of Elliptic
 Curves}, 2nd ed., GTM 106, Springer, 2009.
-\bibitem{greentao} W.~T.~Gowers; B.~Green and T.~Tao. \emph{Inverse
-theorems for the Gowers norms.} (For the $\Uk^2$/Fourier correspondence
-used in \S\ref{sec:falsepos}.)
+\bibitem{taovu} T.~Tao and V.~Vu. \emph{Additive Combinatorics.}
+Cambridge Univ.\ Press, 2006. (For the $\Uk^2$/Fourier correspondence.)
 \end{thebibliography}
 
 \end{document}

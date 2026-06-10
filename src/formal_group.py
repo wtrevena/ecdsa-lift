@@ -46,7 +46,7 @@ def formal_log(E: Curve, z: int, terms: int = 20) -> int:
     and integrating dx/(2y + ... ) but for a first pass we use the
     known truncated form:
 
-        log(z) = z + (a/5) z^5 + (b/7) z^7 + (a^2/9) z^9 + ...
+        log(z) = z + (a/5) z^5 + (3b/7) z^7 + ...   (for y^2=x^3+b, a=0)
 
     This is the canonical differential's antiderivative; coefficients
     come from expanding dx/y in terms of z. For our small-p
@@ -64,12 +64,18 @@ def formal_log(E: Curve, z: int, terms: int = 20) -> int:
     # z^9 coefficient: a^2/9
     # z^11 coefficient: (ab)/11
     # z^13 coefficient: (a^3 + 2b^2)/13
+    # For y^2 = x^3 + b (a=0) the invariant differential is
+    #   omega = (1 + 3 b z^6 + ...) dz   =>   log(z) = z + (3b/7) z^7 + ...
+    # (verified symbolically; see paper Sec. 2). The z^7 coefficient is
+    # 3b/7, NOT b/7; and the z^7-free z^13 coefficient is 15b^2/13, NOT
+    # 2b^2/13 (both verified by exact series reversion of w=z^3+b w^3).
+    # The a != 0 terms below are placeholders and are not
+    # exercised by the j=0 experiments (at precision e <= 4 the z^7 term
+    # already vanishes for kernel inputs z in pZ). Use pari.ellformallog
+    # for anything requiring the exact higher-order series.
     coeffs = {
-        5: (a, 5),
-        7: (b, 7),
-        9: (a * a, 9),
-        11: (a * b, 11),
-        13: (a * a * a + 2 * b * b, 13),
+        7: (3 * b, 7),
+        13: (15 * b * b, 13),
     }
     z_pow = pow(z, 1, N)
     z_sq = (z * z) % N

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.6.4)  9 JUN 2026 23:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.6.4)  10 JUN 2026 02:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -381,45 +381,58 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7]
-(./ecdsa_lift_paper.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (15.73438pt too wide) in paragraph at lines 111--115
+[]\OT1/cmr/m/n/10.95 A sharp-boundary demon-stra-tion (\TS1/cmr/m/n/10.95 §[]\O
+T1/cmr/m/n/10.95 8[]): the same con-struc-tion on an anoma-lous curve ($[](\OML
+/cmm/m/it/10.95 n; p\OT1/cmr/m/n/10.95 ) =
+ []
+
+[2] [3] [4] [5] [6] [7]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8] [9] (./ecdsa_lift_paper.aux)
 Package rerunfilecheck Info: File `ecdsa_lift_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 94B63933F36BE848C9C8338D44781B5C;1707.
+(rerunfilecheck)             Checksum: C64109E0BBEC9C61FA22EC3F4168D8B5;1958.
  ) 
 Here is how much of TeX's memory you used:
- 9296 strings out of 480247
- 142779 string characters out of 5896152
- 445371 words of memory out of 5000000
- 27090 multiletter control sequences out of 15000+600000
- 483647 words of font info for 83 fonts, out of 8000000 for 9000
+ 9310 strings out of 480247
+ 142930 string characters out of 5896152
+ 446069 words of memory out of 5000000
+ 27095 multiletter control sequences out of 15000+600000
+ 484150 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,12n,63p,624b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
- </sessions/modest-nifty-pascal/.texlive2021/texmf-var/fonts/pk/ljfour/jknapp
-en/ec/tcrm1095.600pk> </sessions/modest-nifty-pascal/.texlive2021/texmf-var/fon
-ts/pk/ljfour/jknappen/ec/tcrm0600.600pk> </sessions/modest-nifty-pascal/.texliv
-e2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0800.600pk></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb>
-Output written on ecdsa_lift_paper.pdf (7 pages, 257265 bytes).
+ 60i,11n,63p,1101b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </sessions/peaceful-wizardly-ride/.texlive2021/texmf-var/fonts/pk/ljfour/jkn
+appen/ec/tcrm1000.600pk> </sessions/peaceful-wizardly-ride/.texlive2021/texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </sessions/peaceful-wizardly-rid
+e/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0600.600pk> </sessions
+/peaceful-wizardly-ride/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm
+0800.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb>
+Output written on ecdsa_lift_paper.pdf (9 pages, 290984 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 218 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 260 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
