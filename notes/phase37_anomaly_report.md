@@ -128,4 +128,11 @@ requiring exhaustive enumeration to measure.
 2. **Why is j=1728 strongest?**  The CM by Z[i] automorphism has order 4;
    j=0 has order 6.  Does larger Aut suppress or enhance the spectral
    anomaly?  (Our data: |Aut|=4 gives β=0.28; |Aut|=6 gives β=0.44;
-   |Aut|=2 gives β=0.31.  No 
+   |Aut|=2 gives β=0.31.  No obvious monotone relationship.)
+3. **Is the anomaly present for non-Teichmüller lifts?**  The canonical
+   lift τ_can is a homomorphism with δ ≡ 0.  For "random" sections σ
+   (e.g. Hensel lift), does the anomaly persist or change?
+4. **Can the anomaly be accessed indirectly?**  E.g., via pairings,
+   isogenies, or multi-party protocols that allow computing functions
+   of k without knowing k.  (We conjecture no, but this is the most
+   important open question.)

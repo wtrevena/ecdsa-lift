@@ -129,4 +129,16 @@ So the single inequality `gcd(n,p)=1` is exactly the line between
 "lift is inert" (ordinary ECDSA curves) and "lift breaks the DLP"
 (anomalous curves). This is verified numerically in Phase 41 (the
 obstruction `[n]τ(G)` is a nonzero `p`-power-order kernel element on
-every ordinary test curve) and Phase 42 (th
+every ordinary test curve) and Phase 42 (the obstruction vanishes and
+Smart's attack recovers `k` with 100% success on an anomalous curve).
+
+## Scope and limitations
+
+- The theorem concerns **section lift errors** (the canonical-lift /
+  Teichmüller / Hensel family). Pairing-based functionals (Weil/Tate on
+  the lift) are a different mechanism; for ordinary `j=0` curves they
+  are inert for the independent reason that the embedding degree is
+  enormous (Phase 7), but the theorem does not subsume them.
+- It is an **instance of known principle** (Silverman; Gadiyar–Padma),
+  not new mathematics. Its value is as a precise, verified, unifying
+  statement that explains why the 40 empirical phases were all inert.

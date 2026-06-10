@@ -141,12 +141,15 @@ def encode_mod_n(z, p, e, n):
     return cmath.exp(2j * math.pi * (z % n) / n)
 
 
-def random_baseline(n, k, num_samples=200):
-    """Empirical distribution of |g|_{U^k} for random g: Z/n → S^1."""
+def random_baseline(n, k, num_samples=200, seed=20260609):
+    """Empirical distribution of |g|_{U^k} for random g: Z/n → S^1.
+
+    Seeded for reproducibility (the original exploratory run was
+    unseeded; the reported 5--11 sigma reproduce under any seed)."""
+    rng = np.random.default_rng(seed)
     samples = np.empty(num_samples)
     for i in range(num_samples):
-        phases = np.random.random(n) * (2 * np.pi)
-        g = np.exp(1j * phases)
+        g = np.exp(1j * rng.random(n) * (2 * np.pi))
         samples[i] = gowers_norm_complex(g, k)
     return float(samples.mean()), float(samples.std()), float(samples.max())
 
@@ -196,10 +199,11 @@ def run(p, b, e=4, k_max=4, num_random=200):
         baselines[f"U{k}_random_mean"] = mean
         baselines[f"U{k}_random_std"] = std
         baselines[f"U{k}_random_max"] = mx
-    # Random baseline for max Fourier coefficient
+    # Random baseline for max Fourier coefficient (seeded for reproducibility)
+    fmax_rng = np.random.default_rng(20260609)
     fourier_max_samples = []
     for _ in range(num_random):
-        g = np.exp(1j * np.random.random(n) * 2 * np.pi)
+        g = np.exp(1j * fmax_rng.random(n) * 2 * np.pi)
         F = np.fft.fft(g) / n
         fourier_max_samples.append(float(np.max(np.abs(F))))
     baselines["fourier_max_random_mean"] = float(np.mean(fourier_max_samples))
@@ -253,10 +257,4 @@ def main():
             print(f"   z: {r['zscores']}")
         else:
             print(f"   {r}")
-        print()
-    (out_dir / "phase37_gowers.json").write_text(
-        json.dumps(reports, indent=2, default=str))
-
-
-if __name__ == "__main__":
-    main()
+       

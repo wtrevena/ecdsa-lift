@@ -80,7 +80,7 @@ on j = 0 curves.
 
 After the Phase 1–39 negative sweep, three phases closed the loop and
 became the basis of a short paper (`paper/ecdsa_lift_paper.tex`, builds
-to a 7-page PDF):
+to an 11-page PDF):
 
 - **Phase 40 / 40b** — *mechanism-derived controls* that overturn the
   Phase 37 "Gowers anomaly." The increment-shuffle null (40) refutes the
@@ -95,13 +95,12 @@ to a 7-page PDF):
   kernel element `[n]τ(G)` of maximal order `p^{e−1}`. All core claims
   pass on every test prime (pure-Python `z`-coordinate arithmetic).
 - **Phase 42** — the boundary is **sharp**: on an anomalous curve
-  (`#E(F_p)=p`, `gcd(n,p)=p`) the obstruction vanishes and Smart's attack
-  recovers `k` with 100% success (12/12). The single inequality
-  `gcd(n,p)=1` is the exact line between inert and broken.
-
-The paper's thesis is methodological: in structure-hunting cryptanalysis
-a control is valid only against a *named* alternative hypothesis, and
-nulls must be derived from mechanisms. The inertness theorem (an explicit
-instance of Silverman's "Four Faces of Lifting" and Gadiyar–Padma, not
-new mathematics — see `notes/literature_check.md`) is what certifies,
-after the fact, that the suspicion was structurally forced.
+  (`#E(F_p)=p`, `gcd(n,p)=p`) it is the *ambiguity* that is annihilated —
+  `[p]c = O` for every kernel element `c` — so `[p]τ(G)` becomes
+  section-independent, **nonzero**, and linear in the secret, and Smart's
+  attack (which requires `φ(G) ≠ 0`) recovers `k` with 100% success
+  (12/12). The single inequality `gcd(n,p)=1` is the exact line between
+  inert and broken.
+- **Phase 47** — large-prime-order confirmatory curve (`p=10477`,
+  `n=N=10639` prime, the smallest such `p ≥ 10^4`): every Theorem-1
+  clause check passes unchanged, and the Phase-43 control pattern extend

@@ -1,0 +1,93 @@
+{
+  "phase": 48,
+  "seed": 20260609,
+  "nrep": 400,
+  "claim": "reflection inflates U2^4 mass by exactly 3/2; z(syn/rand)=K*sqrt(n)",
+  "mass_ratio_mean": 1.4972,
+  "K_mean": 0.4339,
+  "grid": [
+    {
+      "L": 78,
+      "p_alphabet": 10007,
+      "U2^4*L_rand": 1.9937,
+      "U2^4*L_syn": 2.9331,
+      "mass_ratio": 1.4712,
+      "z_syn_rand": 3.853,
+      "K=z/sqrt(L)": 0.4362
+    },
+    {
+      "L": 198,
+      "p_alphabet": 10007,
+      "U2^4*L_rand": 1.9921,
+      "U2^4*L_syn": 2.9912,
+      "mass_ratio": 1.5016,
+      "z_syn_rand": 6.136,
+      "K=z/sqrt(L)": 0.4361
+    },
+    {
+      "L": 612,
+      "p_alphabet": 10007,
+      "U2^4*L_rand": 2.0012,
+      "U2^4*L_syn": 3.0147,
+      "mass_ratio": 1.5065,
+      "z_syn_rand": 10.758,
+      "K=z/sqrt(L)": 0.4349
+    },
+    {
+      "L": 828,
+      "p_alphabet": 10007,
+      "U2^4*L_rand": 1.9986,
+      "U2^4*L_syn": 2.9884,
+      "mass_ratio": 1.4952,
+      "z_syn_rand": 12.677,
+      "K=z/sqrt(L)": 0.4406
+    },
+    {
+      "L": 2000,
+      "p_alphabet": 10007,
+      "U2^4*L_rand": 1.9989,
+      "U2^4*L_syn": 3.003,
+      "mass_ratio": 1.5023,
+      "z_syn_rand": 19.171,
+      "K=z/sqrt(L)": 0.4287
+    },
+    {
+      "L": 10638,
+      "p_alphabet": 10007,
+      "U2^4*L_rand": 2.0003,
+      "U2^4*L_syn": 2.998,
+      "mass_ratio": 1.4988,
+      "z_syn_rand": 44.018,
+      "K=z/sqrt(L)": 0.4268
+    },
+    {
+      "L": 612,
+      "p_alphabet": 211,
+      "U2^4*L_rand": 1.9987,
+      "U2^4*L_syn": 2.9936,
+      "mass_ratio": 1.4978,
+      "z_syn_rand": 10.854,
+      "K=z/sqrt(L)": 0.4388
+    },
+    {
+      "L": 612,
+      "p_alphabet": 99991,
+      "U2^4*L_rand": 1.999,
+      "U2^4*L_syn": 3.0071,
+      "mass_ratio": 1.5043,
+      "z_syn_rand": 11.312,
+      "K=z/sqrt(L)": 0.4572
+    }
+  ],
+  "predicted_syn_rand_K_sqrt_n": {
+    "79": 3.83,
+    "139": 5.1,
+    "199": 6.11,
+    "313": 7.66,
+    "397": 8.63,
+    "613": 10.73,
+    "829": 12.48,
+    "10639": 44.75
+  },
+  "note": "mass ratio is 3/2 independent of L and value alphabet; sqrt(n) growth therefore carries no curve information - it is the signature of the antisymmetry artifact."
+}

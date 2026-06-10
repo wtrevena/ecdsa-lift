@@ -1,0 +1,744 @@
+{
+  "phase": 45,
+  "title": "alternative coordinates / uniformizers for the lift error",
+  "seed": 45,
+  "precision_e": 8,
+  "candidates": [
+    [
+      31,
+      3
+    ],
+    [
+      43,
+      7
+    ],
+    [
+      67,
+      2
+    ],
+    [
+      73,
+      13
+    ],
+    [
+      79,
+      3
+    ],
+    [
+      97,
+      5
+    ],
+    [
+      103,
+      5
+    ]
+  ],
+  "presentation_A": {
+    "p31_b3": {
+      "prime": 31,
+      "curve_b": 3,
+      "e": 8,
+      "N": 852891037441,
+      "g_ord": 43,
+      "max_k": 42,
+      "log_series_low_terms": {
+        "1": "1",
+        "7": "9/7",
+        "13": "135/13",
+        "19": "2268/19"
+      },
+      "presentations": {
+        "A0_identity_z": {
+          "samples": 42,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/42",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 3.609,
+          "bm_linear_complexity": 21,
+          "bm_max_possible": 42,
+          "verdict": "still pseudorandom"
+        },
+        "A1_formal_log": {
+          "samples": 42,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/42",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.954,
+          "bm_linear_complexity": 22,
+          "bm_max_possible": 42,
+          "verdict": "still pseudorandom"
+        },
+        "A2_mobius_a3": {
+          "samples": 42,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/42",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.837,
+          "bm_linear_complexity": 21,
+          "bm_max_possible": 42,
+          "verdict": "still pseudorandom"
+        },
+        "A3_quadratic_c2": {
+          "samples": 42,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/42",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.209,
+          "bm_linear_complexity": 21,
+          "bm_max_possible": 42,
+          "verdict": "still pseudorandom"
+        },
+        "A4_cubic_c2": {
+          "samples": 42,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/42",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.435,
+          "bm_linear_complexity": 21,
+          "bm_max_possible": 42,
+          "verdict": "still pseudorandom"
+        },
+        "A5_xy_norm_s1": {
+          "samples": 42,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/42",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.929,
+          "bm_linear_complexity": 21,
+          "bm_max_possible": 42,
+          "verdict": "still pseudorandom"
+        }
+      }
+    },
+    "p43_b7": {
+      "prime": 43,
+      "curve_b": 7,
+      "e": 8,
+      "N": 11688200277601,
+      "g_ord": 31,
+      "max_k": 30,
+      "log_series_low_terms": {
+        "1": "1",
+        "7": "3",
+        "13": "735/13",
+        "19": "28812/19"
+      },
+      "presentations": {
+        "A0_identity_z": {
+          "samples": 30,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/30",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.278,
+          "bm_linear_complexity": 15,
+          "bm_max_possible": 30,
+          "verdict": "still pseudorandom"
+        },
+        "A1_formal_log": {
+          "samples": 30,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/30",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.021,
+          "bm_linear_complexity": 15,
+          "bm_max_possible": 30,
+          "verdict": "still pseudorandom"
+        },
+        "A2_mobius_a3": {
+          "samples": 30,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/30",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 3.056,
+          "bm_linear_complexity": 15,
+          "bm_max_possible": 30,
+          "verdict": "still pseudorandom"
+        },
+        "A3_quadratic_c2": {
+          "samples": 30,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/30",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.941,
+          "bm_linear_complexity": 15,
+          "bm_max_possible": 30,
+          "verdict": "still pseudorandom"
+        },
+        "A4_cubic_c2": {
+          "samples": 30,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/30",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.401,
+          "bm_linear_complexity": 15,
+          "bm_max_possible": 30,
+          "verdict": "still pseudorandom"
+        },
+        "A5_xy_norm_s1": {
+          "samples": 30,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/30",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.216,
+          "bm_linear_complexity": 15,
+          "bm_max_possible": 30,
+          "verdict": "still pseudorandom"
+        }
+      }
+    },
+    "p67_b2": {
+      "prime": 67,
+      "curve_b": 2,
+      "e": 8,
+      "N": 406067677556641,
+      "g_ord": 73,
+      "max_k": 60,
+      "log_series_low_terms": {
+        "1": "1",
+        "7": "6/7",
+        "13": "60/13",
+        "19": "672/19"
+      },
+      "presentations": {
+        "A0_identity_z": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.055,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A1_formal_log": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.31,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A2_mobius_a3": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.23,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A3_quadratic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.126,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A4_cubic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.47,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A5_xy_norm_s1": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.857,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        }
+      }
+    },
+    "p73_b13": {
+      "prime": 73,
+      "curve_b": 13,
+      "e": 8,
+      "N": 806460091894081,
+      "g_ord": 67,
+      "max_k": 60,
+      "log_series_low_terms": {
+        "1": "1",
+        "7": "39/7",
+        "13": "195",
+        "19": "184548/19"
+      },
+      "presentations": {
+        "A0_identity_z": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.743,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A1_formal_log": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 3.15,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A2_mobius_a3": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.032,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A3_quadratic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.271,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A4_cubic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.987,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A5_xy_norm_s1": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.514,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        }
+      }
+    },
+    "p79_b3": {
+      "prime": 79,
+      "curve_b": 3,
+      "e": 8,
+      "N": 1517108809906561,
+      "g_ord": 97,
+      "max_k": 60,
+      "log_series_low_terms": {
+        "1": "1",
+        "7": "9/7",
+        "13": "135/13",
+        "19": "2268/19"
+      },
+      "presentations": {
+        "A0_identity_z": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.321,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A1_formal_log": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.775,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A2_mobius_a3": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.661,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A3_quadratic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.984,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A4_cubic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.766,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A5_xy_norm_s1": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.428,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        }
+      }
+    },
+    "p97_b5": {
+      "prime": 97,
+      "curve_b": 5,
+      "e": 8,
+      "N": 7837433594376961,
+      "g_ord": 79,
+      "max_k": 60,
+      "log_series_low_terms": {
+        "1": "1",
+        "7": "15/7",
+        "13": "375/13",
+        "19": "10500/19"
+      },
+      "presentations": {
+        "A0_identity_z": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.036,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A1_formal_log": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.961,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A2_mobius_a3": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.12,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A3_quadratic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.613,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A4_cubic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.634,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A5_xy_norm_s1": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.37,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        }
+      }
+    },
+    "p103_b5": {
+      "prime": 103,
+      "curve_b": 5,
+      "e": 8,
+      "N": 12667700813876161,
+      "g_ord": 97,
+      "max_k": 60,
+      "log_series_low_terms": {
+        "1": "1",
+        "7": "15/7",
+        "13": "375/13",
+        "19": "10500/19"
+      },
+      "presentations": {
+        "A0_identity_z": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.831,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A1_formal_log": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.313,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A2_mobius_a3": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 1.797,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A3_quadratic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.388,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A4_cubic_c2": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.089,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        },
+        "A5_xy_norm_s1": {
+          "samples": 60,
+          "best_poly_degree": 8,
+          "best_poly_hits": "9/60",
+          "poly_perfect_fit": false,
+          "first_diff_linear": false,
+          "first_diff_quadratic": false,
+          "dft_peak_over_mean": 2.431,
+          "bm_linear_complexity": 30,
+          "bm_max_possible": 60,
+          "verdict": "still pseudorandom"
+        }
+      }
+    }
+  },
+  "presentation_B": {
+    "edwards_montgomery_feasibility": {
+      "p31_b3": {
+        "group_order": 43,
+        "group_order_prime": true,
+        "has_rational_2_torsion": false,
+        "four_divides_order": false,
+        "montgomery_feasible": false,
+        "edwards_feasible": false,
+        "reason": "prime group order => no nontrivial 2- or 4-torsion; Montgomery requires order-2, Edwards requires order-4. Both INFEASIBLE for these j=0 curves."
+      },
+      "p43_b7": {
+        "group_order": 31,
+        "group_order_prime": true,
+        "has_rational_2_torsion": false,
+        "four_divides_order": false,
+        "montgomery_feasible": false,
+        "edwards_feasible": false,
+        "reason": "prime group order => no nontrivial 2- or 4-torsion; Montgomery requires order-2, Edwards requires order-4. Both INFEASIBLE for these j=0 curves."
+      },
+      "p67_b2": {
+        "group_order": 73,
+        "group_order_prime": true,
+        "has_rational_2_torsion": false,
+        "four_divides_order": false,
+        "montgomery_feasible": false,
+        "edwards_feasible": false,
+        "reason": "prime group order => no nontrivial 2- or 4-torsion; Montgomery requires order-2, Edwards requires order-4. Both INFEASIBLE for these j=0 curves."
+      },
+      "p73_b13": {
+        "group_order": 67,
+        "group_order_prime": true,
+        "has_rational_2_torsion": false,
+        "four_divides_order": false,
+        "montgomery_feasible": false,
+        "edwards_feasible": false,
+        "reason": "prime group order => no nontrivial 2- or 4-torsion; Montgomery requires order-2, Edwards requires order-4. Both INFEASIBLE for these j=0 curves."
+      },
+      "p79_b3": {
+        "group_order": 97,
+        "group_order_prime": true,
+        "has_rational_2_torsion": false,
+        "four_divides_order": false,
+        "montgomery_feasible": false,
+        "edwards_feasible": false,
+        "reason": "prime group order => no nontrivial 2- or 4-torsion; Montgomery requires order-2, Edwards requires order-4. Both INFEASIBLE for these j=0 curves."
+      },
+      "p97_b5": {
+        "group_order": 79,
+        "group_order_prime": true,
+        "has_rational_2_torsion": false,
+        "four_divides_order": false,
+        "montgomery_feasible": false,
+        "edwards_feasible": false,
+        "reason": "prime group order => no nontrivial 2- or 4-torsion; Montgomery requires order-2, Edwards requires order-4. Both INFEASIBLE for these j=0 curves."
+      },
+      "p103_b5": {
+        "group_order": 97,
+        "group_order_prime": true,
+        "has_rational_2_torsion": false,
+        "four_divides_order": false,
+        "montgomery_feasible": false,
+        "edwards_feasible": false,
+        "reason": "prime group order => no nontrivial 2- or 4-torsion; Montgomery requires order-2, Edwards requires order-4. Both INFEASIBLE for these j=0 curves."
+      }
+    },
+    "verdict_edwards_montgomery": "INFEASIBLE for all candidates (prime group order => no rational 2-/4-torsion). Documented, not a failure.",
+    "positive_control_twisted_edwards_sanity": {
+      "model": "planted linear sequence t(k)=A*k+B mod p^e",
+      "p": 31,
+      "e": 4,
+      "N": 923521,
+      "A": 12345,
+      "B": 678,
+      "probe_result": {
+        "samples": 40,
+        "best_poly_degree": 1,
+        "best_poly_hits": "40/40",
+        "poly_perfect_fit": true,
+        "first_diff_linear": true,
+        "first_diff_quadratic": true,
+        "dft_peak_over_mean": 5.117,
+        "bm_linear_complexity": 13,
+        "bm_max_possible": 40,
+        "verdict": "STRUCTURE FOUND"
+      },
+      "control_passes": true
+    }
+  },
+  "overall_verdict_presentation_A": "ALL presentations still pseudorandom -- clean null"
+}

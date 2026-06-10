@@ -1,0 +1,49 @@
+{
+  "phase": 47,
+  "seed": 20260609,
+  "e": 4,
+  "nrep": 300,
+  "curve": {
+    "p": 10477,
+    "a": 0,
+    "b": 7,
+    "n": 10639,
+    "G": [
+      3,
+      731
+    ]
+  },
+  "Cn_mod_pe": 1632407088162203,
+  "theorem_checks": {
+    "antisymmetry_single_value": true,
+    "antisymmetry_equals_Cn": true,
+    "Cn_valuation": 1,
+    "Cn_additive_order_is_p^(e-1)": true,
+    "L": 10638,
+    "drops": 0
+  },
+  "u2_z_scores_by_digit": {
+    "1": {
+      "real_vs_inc": 44.11,
+      "inc_vs_rand": 0.04,
+      "half_vs_inc": 0.63,
+      "syn_vs_rand": 44.68,
+      "real_vs_syn": 0.65
+    },
+    "2": {
+      "real_vs_inc": 42.96,
+      "inc_vs_rand": -0.01,
+      "half_vs_inc": 1.78,
+      "syn_vs_rand": 44.48,
+      "real_vs_syn": -1.21
+    },
+    "3": {
+      "real_vs_inc": 42.65,
+      "inc_vs_rand": 0.03,
+      "half_vs_inc": -1.14,
+      "syn_vs_rand": 44.78,
+      "real_vs_syn": -2.02
+    }
+  },
+  "elapsed_s": 5.2
+}

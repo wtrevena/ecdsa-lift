@@ -8,7 +8,8 @@ The conceptual core of our "inertness theorem" is established:
 
 1. **Silverman, "The Four Faces of Lifting for the ECDLP"** (ECC 2007
    talk) and **"Lifting and Elliptic Curve Discrete Logarithms"**
-   (Springer LNCS 5747, 2009). This is *the* reference that
+   (SAC 2008, Springer LNCS 5381, 2009, pp. 82–102). This is *the*
+   reference that
    systematically frames the four lifting strategies (local/global
    field × torsion/non-torsion points) and explains why each fails.
    Our setting — local field, p-adic canonical/Teichmüller lift — is

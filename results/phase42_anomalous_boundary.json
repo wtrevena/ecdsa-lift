@@ -1,0 +1,105 @@
+{
+  "curve": {
+    "p": 53,
+    "a": 4,
+    "b": 7,
+    "order": 53,
+    "anomalous": true
+  },
+  "G": [
+    0,
+    22
+  ],
+  "smart_attack": [
+    {
+      "k": 8,
+      "recovered": 8,
+      "ok": true
+    },
+    {
+      "k": 21,
+      "recovered": 21,
+      "ok": true
+    },
+    {
+      "k": 33,
+      "recovered": 33,
+      "ok": true
+    },
+    {
+      "k": 33,
+      "recovered": 33,
+      "ok": true
+    },
+    {
+      "k": 42,
+      "recovered": 42,
+      "ok": true
+    },
+    {
+      "k": 7,
+      "recovered": 7,
+      "ok": true
+    },
+    {
+      "k": 15,
+      "recovered": 15,
+      "ok": true
+    },
+    {
+      "k": 39,
+      "recovered": 39,
+      "ok": true
+    },
+    {
+      "k": 40,
+      "recovered": 40,
+      "ok": true
+    },
+    {
+      "k": 36,
+      "recovered": 36,
+      "ok": true
+    },
+    {
+      "k": 27,
+      "recovered": 27,
+      "ok": true
+    },
+    {
+      "k": 51,
+      "recovered": 51,
+      "ok": true
+    }
+  ],
+  "smart_attack_success_rate": 1.0,
+  "obstruction_vanishes": true,
+  "boundary_invariant_paper_curve": {
+    "p": 53,
+    "a": 4,
+    "b": 7,
+    "G": [
+      0,
+      22
+    ],
+    "e": 2,
+    "z_pTauG_mod_pe": 795,
+    "leading_digit_c": 15,
+    "factorization": "15*53",
+    "valuation": 1,
+    "phi_G_nonzero": true,
+    "sections": {
+      "teichmuller_x": 795,
+      "naive_x": 795,
+      "shift_x+17p": 795,
+      "shift_x+29p": 795
+    },
+    "section_independent": true
+  },
+  "contrast": {
+    "p": 67,
+    "order": 79,
+    "gcd_n_p": 1,
+    "attack_applies": false
+  }
+}

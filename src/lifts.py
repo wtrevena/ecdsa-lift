@@ -136,8 +136,12 @@ def splitting_section_proj(E_p: Curve, E_lifted_proj, P: Point, p_power_e: int):
 
 
 def _extract_prime(N: int) -> int:
-    """Given N = p^k with p prime, recover p. Small primes only."""
-    for p in range(2, 1000):
-        if N % p == 0:
-            return p
+    """Given N = p^k with p prime, recover p (its smallest prime factor)."""
+    i = 2
+    while i * i <= N:
+        if N % i == 0:
+            return i
+        i += 1
+    if N > 1:
+        return N  # N already prime (k = 1)
     raise ValueError(f"Could not factor {N} to extract the prime")

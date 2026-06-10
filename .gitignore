@@ -1,6 +1,10 @@
 .venv/
 __pycache__/
 *.pyc
-results/*.json
-!results/.gitkeep
 .DS_Store
+
+# Result JSON is part of the artifact and IS committed (the paper footnote
+# promises "code, data, and a per-phase index"). Do not ignore results/.
+
+# Cowork scratchpad (not part of the repo)
+outputs/
