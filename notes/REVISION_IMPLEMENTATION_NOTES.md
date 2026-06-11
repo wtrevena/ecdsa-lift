@@ -1,6 +1,32 @@
-# Revision Implementation Notes (v3 → v4)
+# Revision Implementation Notes (v3 → v4 → v4r2)
 
-**Maintainer:** referee-implementation pass (Claude/Cowork). **Last updated:** 2026-06-11.
+**Maintainer:** referee-implementation pass (Claude/Cowork). **Last updated:** 2026-06-11 (post-R3 round).
+
+---
+
+## ⏭️ NEXT STEP (user-directed, NOT YET STARTED — do not begin until user says go)
+
+**Review `C:\Users\willi\repos\ecdsa-lift\20260611_7.28am_PST_feedback.txt`** (new feedback file, 2026-06-11 7:28am PST). Treatment per user: *consider it as feedback and make any additional revisions deemed appropriate; this is the FINAL round before declaring the paper ready to publish.*
+
+Pickup plan:
+1. Read the feedback file in full. (Have NOT read it yet — file untouched.)
+2. Triage each point: already addressed in v4r2 (cite §6 below + tex location) / new valid issue / disagree-with-rationale. Note prior rounds' pattern: each reviewer found ~1 genuinely new technical point (R2: τ′ not a section → Phase 60; R3: conjugation essential → Phase 63 + Prop 1 rewrite). Look hard for the one real issue.
+3. Implement what survives triage; this discretion is explicitly granted ("revisions you deem appropriate").
+4. Recompile (workflow in "CURRENT STATE" below), commit, merge to master, push, retag.
+5. Declare publish-ready: final summary of what the paper claims, remaining external items (DOI), venue suggestion (R3 suggested AAECC / Designs Codes & Crypto / J. Cryptographic Engineering with methodology framing).
+
+---
+
+## 📍 CURRENT STATE SNAPSHOT (everything below = context for resuming)
+
+- **Paper:** `paper/ecdsa_lift_paper_v4.tex` = single canonical source (1354 lines, "v4, second revision"); compiled `paper/ecdsa_lift_paper_v4.pdf` (20 pp, 0 errors/0 undefined refs, 451,504 bytes). Copy at repo root. Old drafts in `paper/archive/`.
+- **Git:** master = `4686938` (= tags `paper-v4`, `paper-v4r2`), pushed to origin (github.com/wtrevena/ecdsa-lift). Branch `referee-revision-v4` also pushed (note: its local ref may lag master; master is authoritative).
+- **Experiments:** phases 1–63 all committed with JSON results. New this engagement: 60 (genuine kernel-offset converse+sham), 61 (Dirichlet Var(M)=4/L³), 62 (figure), 63 (conjugation essential + finite-alphabet invariance).
+- **Repo hygiene:** README (rewritten, methodology framing), requirements.txt, LICENSE (MIT — author should confirm), CITATION.cff (version paper-v4r2), .gitignore covers LaTeX artifacts. DOI = pending, external.
+- **Feedback files processed so far:** `feedback.txt` (R2, pre-engagement), `referee_report_ecdsa_lift.md` (R1, pre-engagement), `referee_report_ecdsa_lift_v3.md` (my own v3 review), `20260610_10.48pm_PST_feedback.txt` (R3 — fully implemented, see §6). **NOT processed: `20260611_7.28am_PST_feedback.txt`.**
+- **Compile workflow (sync-glitch-proof):** mounts desync between Windows file tools and sandbox bash; large multi-edit passes on the tex are safest done by (a) committing current state via Desktop Commander, (b) `git show <ref>:paper/ecdsa_lift_paper_v4.tex > /tmp/v4.tex` in sandbox, (c) Python search/replace scripts with exact-count asserts (`/tmp/apply_r3.py` pattern), (d) compile in `/sessions/.../outputs/v4build/` (needs `fig_artifact.pdf` alongside), (e) copy tex+pdf back into mount, verify line/byte counts from Windows via Desktop Commander, commit there.
+- **Git ops:** ALWAYS via Desktop Commander (sandbox git hits un-unlinkable .lock files). Identity: `-c user.name='wtrevena' -c user.email='trevenaw7@gmail.com'`.
+- **Standing user instructions:** keep final state merged on master & pushed; save WIP continuously; maintain these notes. The "skip verification pass" instruction applied to the v4 round; treat the next round's verification depth as my judgment call unless user says otherwise.
 **Purpose:** track the implementation of the v3 referee report's recommendations so work can resume after any interruption. Update this file every time a step finishes.
 
 ---
