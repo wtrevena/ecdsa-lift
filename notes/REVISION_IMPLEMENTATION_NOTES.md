@@ -93,10 +93,21 @@ File: `experiments/phase61_mass_variance.py`; results: `results/phase61_mass_var
 - **Delta method:** empirical SD(norm) matches 2^{−7/4}L^{−3/4} within 1–4%.
 Conclusion: the constant is correct; the missing proof step is the Parseval⇒Dirichlet factor-5 variance reduction. Tex fix = insert this derivation into Prop 2's proof and separate mass-SD (Θ(L^{−3/2})) from norm-SD (Θ(L^{−3/4})), and phrase 3/2 as the limiting factor + dispatch finite-L edge modes (zero mode, ξ=L/2 self-paired, odd-L midpoint — all O(1/L)).
 
-### ⏳ NEXT (in order)
-1. **Figure** (minor #2): matplotlib 3-panel → `paper/fig_artifact.pdf` (+ a phase script `experiments/phase62_figure.py` so it's reproducible). Data from phases 43/47/48/60/61.
-2. **v4 tex** (task 10): copy v3→v4, apply M2/M3/M4/M5/M6/M7 + minors + Phase-60 converse rewrite + creative directions paragraph. Keep all numbers consistent with JSON.
-3. **Compile v4 + final verification** (task 11): pdflatex if available in sandbox; cross-check every edited number against results JSON; present files.
+### ✅ Figure (Phase 62) — `experiments/phase62_figure.py` → `paper/fig_artifact.pdf/.png`. 3 panels: nulls @L=828, 0.427√L law (near-perfect fit), hypothesis×control matrix.
+
+### ✅ v4 paper — `paper/ecdsa_lift_paper_v4.tex` (+compiled PDF, 18pp)
+All edits applied: title softened; v4 date + full repo URL/commit/tag; abstract rewritten (wrong-null vs look-elsewhere, MRNP named, Phase-60 converse/sham); contributions updated; notation table (Tab.~notation); prior-art extended (Yasuda + stats refs paragraph); 2-to-1 caveat after eq(3); **converse paragraph fully rewritten on Phase 60** (incl. honest Phase-49/49b cautionary record); **Prop 2 restated (limiting 3/2) + proof completed with Dirichlet Var(M)=4/L³ + delta method + edge modes**, Phase 61 cited; figure float added; U³ softened to counting heuristic; carry model demoted to model (q_j not universal); calibration (i) wrong-null distinction, (ii) TOST fully specified (norm statistic, Δ_excl=(max(0,z)+1.645)s_syn, per-digit, fraction of E), (iii) power numbers (MDE z=2.80, targets 2.5–8.8, observed [-1.3,1.5]); **Corollary 1 split** (formal corollary + "Consequence (under ECDLP-hardness)"); AI-assisted disclosure added (Discussion); scope: protocol named "Mechanism-Resolved Null Protocol", design-tool sentence, "Where a genuine signal could still live" paragraph (D1/D2/D3); reproducibility rewritten (URL, 40-char hash, tag paper-v4, minimal repro commands, runtimes, 44–46 frozen/unused); conclusion updated; phase index rows 49→49,49b superseded; +60/61/62; bibliography +8 (yasuda, good, lipsitch, gelmanloken, simonsohn, steegen, nistsp) and {99} width.
+
+NOTE: title-page/repro commit hash `566a48...` = the results/data-freeze commit; tag `paper-v4` points at final master merge (75100a4). Verification pass explicitly SKIPPED per user instruction.
+
+### ✅ Compile + publish
+- Sandbox↔Windows mount sync lag bit us: file-tool edits (Windows) appeared truncated in sandbox. WORKAROUND: commit on Windows via Desktop Commander, then `git show <hash>:path` in sandbox to extract full content; compile in /sessions/.../outputs/v4build.
+- pdflatex 2 passes clean, 0 errors, 18 pages, 436KB. PDF at `paper/ecdsa_lift_paper_v4.pdf` (+ copy at repo root).
+- Git: branch `referee-revision-v4` merged into `master` (fast-forward to 75100a4), pushed master + branch + tag `paper-v4` to origin (github.com/wtrevena/ecdsa-lift). Desktop Commander used for all git ops (sandbox git had un-unlinkable stale .lock files).
+
+### Remaining (deliberately not done)
+- Final independent verification pass — skipped at user request.
+- Zenodo DOI minting; AI-disclosure specifics should be reviewed by author for factual accuracy; βreal/βsyn numbers in §5 positive-control paragraph unchanged from v3 (not re-derived).
 
 ---
 
