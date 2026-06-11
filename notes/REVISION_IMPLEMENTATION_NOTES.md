@@ -109,6 +109,37 @@ NOTE: title-page/repro commit hash `566a48...` = the results/data-freeze commit;
 - Final independent verification pass — skipped at user request.
 - Zenodo DOI minting; AI-disclosure specifics should be reviewed by author for factual accuracy; βreal/βsyn numbers in §5 positive-control paragraph unchanged from v3 (not re-derived).
 
+## 5. NEXT UP (user-directed, not yet started)
+
+**Review `C:\Users\willi\repos\ecdsa-lift\20260610_10.48pm_PST_feedback.txt`** — new feedback file dropped at repo root (timestamped 2026-06-10 10:48pm PST). Plan when we pick this up:
+1. Read the feedback file in full.
+2. Triage each point: already addressed in v4 (cite where) / new must-fix / new should-fix / disagree-with-rationale.
+3. Cross-reference against the v4 changes logged in §3 of these notes and against `referee_report_ecdsa_lift_v3.md` — much of it may overlap with what v4 already fixed (Phase 60 converse, Prop 2 variance, corollary split, etc.).
+4. Implement what survives triage on a fresh branch off `master` (currently `f5e39dd`), same commit/push discipline (Desktop Commander for git; `git show` workaround for sandbox sync lag if editing tex).
+5. Recompile as needed (v4 in place or v5 per user preference — ask).
+
+Status: IN PROGRESS (triage below).
+
+### Triage of 20260610_10.48pm_PST_feedback.txt (reviewer R3)
+
+R3 reviewed the v4 PDF + GitHub repo (did NOT rerun). Verdict: major revision; reframe as methodology paper. Point-by-point:
+
+| R3 point | Status | Action |
+|---|---|---|
+| **1. Prop 2 missing conjugation** | **VALID & important** | Verified (scratch `conj_check.py`): conj reflection → mass·L=3.0, per-mode `<\|ρ\|/σ²>=1.00`; NON-conj → mass·L=2.0, ratio 0.008 (NO inflation). v4's Prop 2 value-statement already has `\overline{f(k)}` ✓, but **Prop 1's proof mis-describes the Fourier mechanism as a ξ↔−ξ coupling** `Z_{-ξ}=β\overline{Z_ξ}`. Correct mechanism = per-mode self-impropriety `Z_ξ=(phase)\overline{Z_ξ}` (each mode improper, |ρ(ξ)|=σ²). REWRITE Prop 1 statement+proof. Conclusion (3/2, 0.427) UNCHANGED. |
+| **4. Phase 60 converse overclaim (half_binary)** | **VALID** | JSON: `genuine_half_binary` is non-odd, single-valued=False, yet retains big U² (p=10477: +38/38/19; p=823: +8/4/11). Paper says "breaking oddness destroys identity+elevation together" — too broad. FIX: half_binary is a degenerate/low-complexity even offset that imposes its OWN low-rank constraint (ties back to Prop 1: ANY low-rank index constraint inflates). State: non-odd is necessary not sufficient; must remove reflection WITHOUT adding a new low-rank constraint; the generic offsets x, x+7y (full-entropy) collapse, half_binary doesn't. Also say "four representative curves (67,211,823,10477)" not "same curves". |
+| 3. Thm 1(c) "not determined by public data" too strong | PARTIAL (v4 split Corollary + added Consequence/remark) | Soften 1(c) statement wording to section-invariance/computability. |
+| 2. Dirichlet/variance exact vs asymptotic | MOSTLY DONE in v4 (has +O(L⁻⁴), "asymptotically Dirichlet", Phase 61) | Tighten: explicitly label the Dirichlet step an asymptotic approximation confirmed numerically. |
+| 5. Repo/versioning cleanup (2 .tex, README stale, no reqs/LICENSE/CITATION/DOI) | TODO | Make v4 the single canonical source; archive old base-name `ecdsa_lift_paper.tex`+old PDFs to `paper/archive/`; add `requirements.txt`, `LICENSE`, `CITATION.cff`; rewrite README. DOI = external (note pending). |
+| 6. "pre-registered" too strong | TODO | → "pre-specified fixed analysis plan" (no external timestamp). |
+| 7. Still sounds like security claim | PARTIAL | Soften "ECDSA regime"/"terminates one attack schema" phrasings. |
+| Req. add #5: Phase 50 table in paper | TODO | Add j=1728 + non-CM table (data in results/phase50_noncm.json: 4 curves, all reproduce 3/2 + real≈syn). |
+| Rec. add: finite-alphabet baseline (p-th roots vs S¹) | TODO | Phase 63 — preempt null-distribution objection. |
+| Rec. add: pseudocode for null models | TODO | Appendix pseudocode (perm, inc-shuffle, half, syn, kernel-offset converse). |
+| Rec. add: attack-schema definition + proof-map | TODO | Short def of what adversary computes from (E,G,Q); one-para prior-art/new/empirical map. |
+
+Version decision: keep `ecdsa_lift_paper_v4.tex` as the SINGLE canonical source (R3 wants one); bump internal version string to "v4, revision 2"; reference release TAG not hardcoded hash on title page (avoids self-reference loop). Archive duplicates.
+
 ---
 
 ## 3b. Working-tree merge analysis (user request) — DONE
@@ -141,3 +172,6 @@ Analyzed the author's uncommitted working-tree changes and merged them into bran
 - Hasse dichotomy: only p=5 has N=2p; none p=7..29 with p|N,N≠p.
 - All 8 references real and correctly characterized.
 - RCB complete formulas degenerate over Z/p⁴ for deep kernel points → corroborates the paper's additive-z discipline (and is why Phase 60 uses additive z).
+
+## 6. R3 round COMPLETE (2026-06-11)
+Implemented 20260610_10.48pm_PST_feedback.txt. Phase 63 added (conjugation essential: per-mode |rho|/sigma^2=1.00 conj vs 0.009 non-conj/random; alphabet-invariance S^1 vs p-th roots all ratio~1.50). v4.tex corrected: Prop 1 mechanism = per-mode conjugacy (NOT xi<->-xi coupling) - the conjugation is essential and now correct; Prop 2 conjugation+alphabet note; Dirichlet labeled asymptotic approx; Phase 60 converse qualified (generic full-entropy non-odd offsets collapse, binary low-rank offset does NOT - ties to Prop 1; 'four representative curves' not 'same'); Thm 1(c) -> section-invariance wording; pre-registered -> fixed analysis plan; ECDSA-regime phrasings softened; attack-schema definition added; proof-map paragraph; App: CM-independence table (Phase 50) + null-model pseudocode; Phase 63 index row; title/repro reference release tag not hardcoded hash. Compiled clean: 20 pp, 0 errors, 0 undefined refs. Repo hygiene: README rewritten, requirements.txt/LICENSE(MIT)/CITATION.cff added, old drafts -> paper/archive/, LaTeX artifacts gitignored. NOTE: file-tool truncated working v4.tex mid-session (sync glitch); recovered from git paper-v4 and re-applied all edits via Python (deterministic, /tmp/apply_r3.py + insert_r3.py). DOI still pending (external). Final verification pass still skipped per earlier user instruction.

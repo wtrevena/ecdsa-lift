@@ -31,9 +31,9 @@ Code, data, and a per-phase index:
 \texttt{paper-v4}; an archival DOI will accompany the camera-ready).}}
 
 \date{June 2026\\[2pt]
-{\small Revised version (v4). Code and data:
-\url{https://github.com/wtrevena/ecdsa-lift}, commit
-\texttt{566a48939199cb870bc9c069696063008130dd79} (tag \texttt{paper-v4}).}}
+{\small Revised version (v4, second revision incorporating referee
+feedback, June 2026). Code, data, and exact commit: the release tagged
+\texttt{paper-v4} at \url{https://github.com/wtrevena/ecdsa-lift}.}}
 
 \begin{document}
 \maketitle
@@ -98,7 +98,8 @@ computes many encodings of a lift invariant and reports the most unusual
 will, after enough nulls, return an ``anomaly,'' and the analyst must
 decide whether it is signal. We conducted a long, deliberately exhaustive
 negative exploration of the canonical-lift attack surface for ordinary
-curves with large prime-order subgroups---the ECDSA regime---and hit
+prime-order curves with $\gcd(n,p)=1$---the structural setting of
+ECDSA-type groups, though our experiments are at toy sizes---and hit
 exactly this case: a higher-order Fourier probe returned a clear
 $5$--$11\sigma$ effect on the original sweep, a textbook control endorsed
 it, and only a more careful experiment overturned it. The overturning, and the reason the
@@ -307,7 +308,7 @@ constraint that elevates $\Uk^2$.
 \end{enumerate}
 We build one null per mechanism, each derived from how that mechanism
 generates ordering. All numbers below are on the clean ordinary set of
-Table~\ref{tab:p43} (Phase 43), under the pre-registered protocol of
+Table~\ref{tab:p43} (Phase 43), under the pre-specified protocol of
 \S\ref{sec:stats}.
 
 \paragraph{H1 (increment shuffle).} $s(k)=z(\delta(k))$ is the exact
@@ -397,20 +398,36 @@ $\tau'$ is a genuine section, $\delta_{\tau'}(k)$ stays in the kernel for
 all $k$, and the usable length is the full $n-1$ with zero drops. Oddness
 fails exactly when $h$ is not odd, and in $z$-coordinates the new lift
 error is computable in closed form,
-$z(\delta'(k))=z(\delta(k))+(k\,h(G)-h(kG))\,C_n \bmod p^e$. The result
-(Phase~60, same curves, same secrets, same encoding) is a double
-dissociation. With non-odd offsets ($h(P)=x(P)$ or $h(P)=x(P)+7y(P)$
-mod $p^{e-1}$): the antisymmetry sum $z(\delta'(k))+z(\delta'(n-k))$
+$z(\delta'(k))=z(\delta(k))+(k\,h(G)-h(kG))\,C_n \bmod p^e$. We ran four
+representative curves, $p\in\{67,211,823,10477\}$ (Phase~60, same secrets
+and encoding as Table~\ref{tab:p43}). With a \emph{generic} non-odd
+offset---one whose values fill the kernel, $h(P)=x(P)$ or $h(P)=x(P)+7y(P)
+\bmod p^{e-1}$---the antisymmetry sum $z(\delta'(k))+z(\delta'(n-k))$
 ceases to be single-valued ($\lfloor(n-1)/2\rfloor$ distinct values, one
-per pair), and the $\Uk^2$ elevation collapses from $z(\text{real vs
-rand})$ of $+3.6,+6.6,+11.8,+45.9$ (digit-$1$ values across
-$p=67,211,823,10477$) to baseline ($z\in[-1.6,+1.9]$ across all curves
-and digits). With an \emph{odd} offset ($h(P)=y(P)$, a sham control for
-which $\tau'$ remains odd): the identity remains single-valued and the
-elevation remains ($+3.4,+4.7,+9.5,+47.8$ at digit~$1$). Breaking oddness
-destroys identity and elevation together; preserving oddness under an
-equally disruptive kernel perturbation preserves both. The mechanism is
-the reflection---and nothing else about $\delta$.
+per pair) and the $\Uk^2$ elevation collapses from $z(\text{real vs
+rand})$ of $+3.6,+6.6,+11.8,+45.9$ (digit-$1$ values across the four
+curves) to baseline ($z\in[-1.6,+1.9]$ across all curves and digits).
+With an \emph{odd} offset ($h(P)=y(P)$, a sham control for which $\tau'$
+remains odd) the identity stays single-valued and the elevation remains
+($+3.4,+4.7,+9.5,+47.8$ at digit~$1$). Breaking oddness with a generic
+offset destroys identity and elevation together; preserving oddness under
+an equally disruptive kernel perturbation preserves both.
+
+One caveat keeps the claim honest, and it is exactly what
+Prop.~\ref{prop:pseudovar} predicts. Destroying the reflection's
+single-valuedness is \emph{necessary} but not \emph{sufficient}: a
+non-odd offset that is itself \emph{low-rank} can substitute one index
+constraint for another and so keep $\Uk^2$ elevated for a different
+reason. We see this with a deliberately degenerate binary offset
+($h(P)\in\{0,1\}$ by a half-plane rule): single-valuedness is lost, yet
+$\Uk^2$ stays elevated (e.g.\ $+38,+38,+19$ at $p=10477$), because the
+two-valued offset imposes its own low-pseudo-variance constraint. The
+correct reading is therefore the pseudo-variance one: what collapses the
+elevation is removing the per-mode conjugacy \emph{without introducing a
+new low-rank index constraint}, which the generic full-entropy offsets
+$x$ and $x+7y$ do and the binary offset does not. The mechanism is the
+reflection---read off the constraint's action on Fourier indices, not off
+single-valuedness alone.
 
 \paragraph{The growth law is itself an artifact signature.} The elevation
 does not merely persist with $n$; it \emph{grows}, from $\sim3$ at $n=79$
@@ -427,8 +444,12 @@ each nonzero mode $Z_\xi:=\hat f(\xi)$ is a mean-zero complex Gaussian
 characterized by two second moments: the \emph{variance}
 $\sigma^2=\mathbb E|Z_\xi|^2=1/L$ and the \emph{pseudo-variance}
 $\rho(\xi)=\mathbb E[Z_\xi^2]$, the latter zero for a proper
-(circularly symmetric) mode and nonzero exactly when a constraint couples
-$\xi$ to $-\xi$.
+(circularly symmetric) mode and nonzero exactly when a real-linear
+constraint ties $Z_\xi$ to its conjugate $\overline{Z_\xi}$ (equivalently,
+confines the mode to a line in $\mathbb C$). The distinction is essential
+and is the point a conjugation makes: a value-domain reflection
+\emph{with} conjugation produces this; the same reflection \emph{without}
+it does not (Phase~63, and the proof below).
 
 \begin{proposition}[Pseudo-variance classification of $\Uk^2$
 inflation]\label{prop:pseudovar}
@@ -447,10 +468,15 @@ mass-inflation factor relative to the i.i.d.\ baseline is
 \text{INFLATION}\;=\;1+\frac{\langle|\rho(\xi)|^2\rangle}{2\sigma^4}\;\in\;[1,\tfrac32].
 \end{equation}
 The upper bound $|\rho|\le\sigma^2$ (Cauchy--Schwarz) is attained, giving
-the maximal $3/2$, \emph{iff} $|\rho(\xi)|=\sigma^2$ a.e.---the case of an
-index-reversing constraint $\hat f(-\xi)=\beta\,\overline{\hat f(\xi)}$;
-a constraint that fixes each mode (e.g.\ a translation $k\mapsto k+s$)
-gives $\rho\equiv0$ and no inflation.
+the maximal $3/2$, \emph{iff} $|\rho(\xi)|=\sigma^2$ a.e.---the case of a
+per-mode conjugacy constraint $\hat f(\xi)=\beta_\xi\,\overline{\hat
+f(\xi)}$ ($\beta_\xi\in S^1$), each mode confined to a line, which is the
+Fourier image of a value-domain \emph{conjugate} reflection
+$f(c-k)=\beta\,\overline{f(k)}$. A constraint that merely fixes or
+permutes modes without tying them to their conjugates (e.g.\ a
+translation $k\mapsto k+s$, or the non-conjugate reflection
+$f(c-k)=\beta f(k)$, which couples $\xi$ to $-\xi$ but leaves each mode
+proper) gives $\rho\equiv0$ and no inflation.
 \end{proposition}
 
 \begin{proof}
@@ -462,20 +488,32 @@ $\mathbb E|Z|^4=\mathbb E[(X^2+Y^2)^2]=3a^2+3b^2+2ab+4c^2
 =2(a+b)^2+(a-b)^2+4c^2=2\sigma^4+|\rho|^2$, proving \eqref{eq:fourth}.
 Summing over modes and using $\sigma^2=1/L$ gives the mass and
 \eqref{eq:infl}; the bound $|\rho|\le\sigma^2$ is Cauchy--Schwarz on
-$\mathbb E[Z^2]$ versus $\mathbb E|Z|^2$. The index-reversing constraint
-forces $Z_{-\xi}=\beta\,\overline{Z_\xi}$, hence
-$\mathbb E[Z_\xi^2]$ has modulus $\mathbb E|Z_\xi|^2=\sigma^2$; a constraint
-fixing each mode leaves $\mathbb E[Z_\xi^2]=0$.
+$\mathbb E[Z^2]$ versus $\mathbb E|Z|^2$. A value-domain conjugate
+reflection $f(c-k)=\beta\,\overline{f(k)}$ forces, per mode,
+$Z_\xi=\beta\,\omega^{-c\xi}\,\overline{Z_\xi}$ ($\omega=e^{2\pi i/L}$),
+confining $Z_\xi$ to a line; hence $\mathbb E[Z_\xi^2]$ has modulus
+$\mathbb E|Z_\xi|^2=\sigma^2$. Without the conjugation the constraint
+$f(c-k)=\beta f(k)$ instead forces $Z_\xi=\beta\,\omega^{-c\xi}Z_{-\xi}$,
+which couples $\xi$ to $-\xi$ but leaves each mode proper, so
+$\mathbb E[Z_\xi^2]=0$ and there is no inflation. We confirmed both
+numerically: the per-mode ratio $\langle|\rho(\xi)|\rangle/\sigma^2$ is
+$1.00$ for the conjugate reflection and $0.01$ for the non-conjugate one
+and for i.i.d.\ phases (Phase~63).
 \end{proof}
 
 \begin{proposition}[The reflection inflates the $\Uk^2$ mass by a
 limiting factor of exactly $3/2$]\label{prop:scaling}
 Let $f\colon\Z/L\to S^1$ be subject to \emph{only} the antisymmetry
 constraint $f(L{+}1{-}k)=\beta\,\overline{f(k)}$ ($\beta\in S^1$ fixed, the
-free half i.i.d.\ $S^1$-uniform)---the reflection-only synthetic of the
-positive control. Then $\mathbb E\big[\|f\|_{\Uk^2}^4\big]=3/L+o(1/L)$,
-versus $2/L+o(1/L)$ for i.i.d.\ $S^1$-uniform entries; the limiting mass
-ratio is exactly $3/2$, independent of the value alphabet. The
+free half i.i.d.\ uniform)---the reflection-only synthetic of the
+positive control. (The conjugation is the phase image of the value
+identity $s(n{-}k)=C-s(k)$, since
+$e^{2\pi i(C-s)/p}=e^{2\pi iC/p}\,\overline{e^{2\pi is/p}}$; it is
+essential---the non-conjugate $f(L{+}1{-}k)=\beta f(k)$ gives no
+inflation.) Then $\mathbb E\big[\|f\|_{\Uk^2}^4\big]=3/L+o(1/L)$,
+versus $2/L+o(1/L)$ for i.i.d.\ uniform entries; the limiting mass
+ratio is exactly $3/2$, independent of the value alphabet (continuous
+$S^1$ or uniform $p$-th roots of unity alike; Phase~63). The
 standardized synthetic-vs-random gap, measured on the $\Uk^2$
 \emph{norm} against the i.i.d.\ null, is
 $z(\mathrm{syn/rand})=2^{7/4}\big(3^{1/4}-2^{1/4}\big)\sqrt L+o(\sqrt L)
@@ -483,9 +521,10 @@ $z(\mathrm{syn/rand})=2^{7/4}\big(3^{1/4}-2^{1/4}\big)\sqrt L+o(\sqrt L)
 \end{proposition}
 
 \begin{proof}
-\emph{Mean.} The constraint is index-reversing, so by
-Prop.~\ref{prop:pseudovar} the inflation factor is $3/2$, i.e.\
-$\mathbb E[\|f\|_{\Uk^2}^4]=3/L+o(1/L)$. The finitely many exceptional
+\emph{Mean.} The conjugate reflection confines every mode to a line
+(per-mode conjugacy), so by Prop.~\ref{prop:pseudovar} the inflation
+factor is $3/2$, i.e.\ $\mathbb E[\|f\|_{\Uk^2}^4]=3/L+o(1/L)$. The
+finitely many exceptional
 modes (the zero mode, whose magnitude is $O_P(L^{-1})$ in mass either
 way; the self-paired mode $\xi=L/2$ for even $L$; the fixed physical
 midpoint for odd $L$) each contribute $O(1/L^2)$ to the mass and are
@@ -494,10 +533,11 @@ absorbed in the $o(1/L)$.
 \emph{Variance of the i.i.d.\ mass---the step that fixes the constant.}
 Write $M=\sum_\xi p_\xi^2$ with $p_\xi=|\hat f(\xi)|^2$. Parseval forces
 $\sum_\xi p_\xi=\tfrac1L\sum_k|f(k)|^2=1$ \emph{exactly}, so the
-periodogram is a random point on the simplex; for random phases it is
-asymptotically a uniform $\mathrm{Dirichlet}(1,\dots,1)$ vector on $L$
-parts, \emph{not} a vector of independent exponentials. The Dirichlet
-moment formula
+periodogram is a random point on the simplex; for random phases it is,
+in the large-$L$ limit, well approximated by a uniform
+$\mathrm{Dirichlet}(1,\dots,1)$ vector on $L$ parts---\emph{not} a vector
+of independent exponentials, the approximation we make and then confirm
+numerically. Under it, the Dirichlet moment formula
 $\mathbb E[\prod_i p_i^{a_i}]=\prod_i a_i!\cdot\Gamma(L)/\Gamma(L+\sum
 a_i)$ gives
 \[
@@ -605,7 +645,8 @@ extra automorphisms---we re-ran the full protocol on $j{=}1728$ and on
 generic non-CM curves ($j\in\{6,316,446\}$, prime order, $\gcd(n,p)=1$):
 the $3/2$ inflation, the syn/rand tracking, and the real-vs-syn
 equivalence reproduce identically, confirming the mechanism is the
-antisymmetry and not the CM structure (Phase~50).
+antisymmetry and not the CM structure (Phase~50; per-curve numbers in
+Table~\ref{tab:p50}, Appendix~\ref{app:p50}).
 
 \begin{table}[t]
 \centering
@@ -630,7 +671,7 @@ $p$ & $n$ & $L$ & real/inc & inc/rand & half/inc & syn/rand & real/syn\\
 \caption{Phase 43, clean ordinary $j{=}0$ curves $y^2=x^3+7$
 ($p\equiv 1\bmod 3$, $n=\#E(\Fp)$ prime, so $\gcd(n,p)=1$ and the curve
 is neither supersingular nor anomalous); $L$ is the number of usable
-$k\in[1,n-1]$ after the pre-registered degeneracy filter
+$k\in[1,n-1]$ after the pre-specified degeneracy filter
 (\S\ref{sec:stats}); here $L=n-1$ (no drops). Ranges are over digits
 $j=1,2,3$. Negative controls: shuffling increments leaves $\Uk^2$ at the
 random baseline (inc/rand) and the true ordering far above it (real/inc),
@@ -639,14 +680,17 @@ reflection-only sequences reproduce the elevation (syn/rand) and the real
 sequences match them (real/syn). The entire effect is the antisymmetry
 \eqref{eq:antisym}. The last row ($\dagger$, Phase 47, $p=10477$) is a
 post-hoc confirmatory run under the identical protocol, reported
-separately from the pre-registered seven-curve set.}
+separately from the pre-specified seven-curve set.}
 \label{tab:p43}
 \end{table}
 
 \section{Statistical protocol}\label{sec:stats}
 
-All quantities in \S\ref{sec:controls} follow one pre-registered protocol
-(fixed before the clean re-run; seed $20260609$). Precision $e=4$; digits
+All quantities in \S\ref{sec:controls} follow one fixed analysis plan
+(pre-specified before the clean re-run as an immutable seed and protocol
+in the repository, seed $20260609$; we call it ``fixed'' rather than
+``pre-registered'' as there is no external timestamped registration).
+Precision $e=4$; digits
 $j\in\{1,2,3\}$. The $S^1$-random baseline draws $300$ sequences
 $g(k)=e^{i\theta_k}$, $\theta_k$ uniform on $[0,2\pi)$, of the same length
 $L$; ``$\sigma$'' and ``$z$'' are the standard deviation and standardized
@@ -675,8 +719,9 @@ probabilities; we use them only comparatively, never as discovery
 statistics.
 
 \paragraph{Calibration.} Three checks make the evidential language
-precise. (i) \emph{Look-elsewhere.} The exploration spans $\sim$$47$
-phases $\times$ $3$ digits $\times$ $8$ curves $\times$ several encodings;
+precise. (i) \emph{Look-elsewhere.} The exploration spans the original $47$-phase sweep
+$\times$ $3$ digits $\times$ $8$ curves $\times$ several encodings (the
+later phases $48$--$63$ are controls and calibration, not search);
 the expected maximum $|z|$ of a generic random baseline over a battery of
 this size is $\approx3.2$--$3.6$ by extreme-value theory, and an empirical
 $10$-statistic battery on i.i.d.\ surrogates reached $|z|=5.0$ (Phase~54).
@@ -752,8 +797,12 @@ $p^{e-1}$.
 \item[(c)] $\gcd(n,p^{e-1})=1$, so by CRT, for $k$ uniform on
 $\Z/np^{e-1}\Z$ the residues $k\bmod n$ (fixed by $Q$) and $k\bmod
 p^{e-1}$ (governing $[k]c$) are independent. The public data $(E,G,Q)$
-fixes only $k\bmod n$; hence over this natural lift $[k]c$, a function of
-$k\bmod p^{e-1}$, is not determined by the public data.
+fixes only $k\bmod n$; hence $[k]c$ is not a section-invariant function
+of the public instance---it varies with the choice of lift through
+$k\bmod p^{e-1}$, which $(E,G,Q)$ does not pin down. (This is a
+section-invariance / well-definedness statement; the stronger
+computational claim is deferred to the Remark and the Consequence
+following Corollary~\ref{cor:main}.)
 \item[(d)] $\delta_\tau$ is a well-defined function of the instance
 (i.e.\ of $k\bmod n$) iff $c=0$ (i.e.\ $\tau$ canonical on
 $\langle G\rangle$), in which case $\delta_\tau\equiv 0$. For $c\neq 0$,
@@ -909,7 +958,7 @@ small ordinary curves over $\Fp$, $p=31,\dots,163$, all with
 $\gcd(n,p)=1$ (Phase 41). These test orders are deliberately small and
 several are composite---$n\in\{21,31,79,67,79,111,129,133,86,139\}$, five
 of them composite---chosen for exact-arithmetic reach rather than to model
-the large-prime ECDSA regime; since the theorem is regime-agnostic (it
+cryptographic-scale orders; since the theorem is regime-agnostic (it
 needs only $\gcd(n,p)=1$), they suffice to verify it. (Here $n$ denotes
 the order of the chosen $G$ and may be a proper divisor of $N=\#E(\Fp)$,
 e.g.\ $n=86$ with $N=172$ at $p=157$; the clean set of
@@ -986,12 +1035,36 @@ artifact (Prop.~\ref{prop:pseudovar})---and for the explicit
 identification of the obstruction with the antisymmetry constant. The
 precise boundary of what this refutes is drawn next.
 
+\paragraph{Proof map (prior art / new / empirical).} For the reader in a
+hurry: \emph{prior art}---that lifting transports the ECDLP, that the
+canonical lift is information-free, and the anomalous (Smart) attack
+\cite{silvermanlift,silverman4faces,gadiyarpadma,smart,satoharaki,semaev};
+\emph{new (proved)}---the pseudo-variance classification of $\Uk^2$
+inflation (Prop.~\ref{prop:pseudovar}), its $3/2$/$0.427\sqrt L$
+specialization (Prop.~\ref{prop:scaling}), and the lift-error packaging of
+inertness with its sharp $\gcd(n,p)=1$ boundary
+(Thm.~\ref{thm:main}, \S\ref{sec:boundary}); \emph{new (methodological)}---the
+mechanism-derived nulls and the positive/converse/sham controls that
+localize the anomaly to \eqref{eq:antisym}; \emph{empirical}---every
+$z$-value and ratio in Table~\ref{tab:p43} and Phases~47--63, plus the
+carry model (a stated modelling assumption, not proved).
+
 \section{What this refutes, what it does not, and how to search next}
 \label{sec:scope}
 
-\paragraph{The killed schema.} The result terminates one specific attack
-schema: secret extraction from deterministic statistics of section lift
-errors $\delta_\tau(k)$---digit, phase, Fourier/Gowers, prefix-sum,
+\paragraph{The attack schema, defined.} By an attack in this schema we
+mean: an adversary, given only the public instance $(E,G,Q)$, computes a
+section lift error sequence and a deterministic statistic of it, and uses
+that statistic to recover $k$. The crucial point is that the labeled
+sequence $(k,\delta_\tau(k))$ is an \emph{analyst-side} object---an
+adversary cannot form it from $Q$ without already knowing $k$---so the
+schema is really ``offline analysis of a labeled sequence,'' and what we
+ask is whether any section-invariant, publicly computable statistic of it
+depends on the secret.
+
+\paragraph{The schema this addresses.} The result speaks to one specific
+attack schema: secret extraction from deterministic statistics of section
+lift errors $\delta_\tau(k)$---digit, phase, Fourier/Gowers, prefix-sum,
 spectral, recurrence, or machine-discovered structure in the ordered
 sequence $(k,\delta_\tau(k))$---on ordinary curves with $\gcd(n,p)=1$. By
 Theorem~\ref{thm:main}(c,d) and Corollary~\ref{cor:main}, any such signal
@@ -1166,11 +1239,65 @@ Phase(s) & Target & Verdict\\
 60     & genuine kernel-offset asymmetric section (converse + sham) & collapse iff oddness broken\\
 61     & $\Uk^2$ mass variance: Dirichlet $4/L^3$, delta method & closes Prop.~\ref{prop:scaling}\\
 62     & figure generation from committed results & Fig.~\ref{fig:artifact}\\
+63     & conjugation \& finite-alphabet checks (Props.~\ref{prop:pseudovar}--\ref{prop:scaling}) & per-mode $|\rho|/\sigma^2{=}1$; alphabet-free\\
 \bottomrule
 \end{tabular}
 \caption{Index of the exploration. Full scripts, fixed seeds, and JSON
 outputs are in the \texttt{ecdsa-lift} repository.}
 \end{table}
+
+\section{CM-independence: \texorpdfstring{$j{=}1728$}{j=1728} and non-CM curves}
+\label{app:p50}
+The clean set of Table~\ref{tab:p43} is $j{=}0$ ($y^2=x^3+7$), which has
+extra automorphisms. Table~\ref{tab:p50} repeats the protocol on a
+$j{=}1728$ curve and three generic non-CM curves; the $3/2$ inflation and
+the real-vs-synthetic equivalence reproduce regardless of CM
+(Phase~50), confirming the mechanism is the antisymmetry and not the CM
+structure.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{rrrrrrr}
+\toprule
+$p$ & $j$ & $n$ & $L$ & real/inc & syn/rand & real/syn\\
+\midrule
+181 & $1728$ & 101 & 100 & $+2.6..4.9$ & $+4.1..4.4$ & $-0.8..0.3$\\
+163 & $6$    & 173 & 172 & $+4.2..5.1$ & $+5.3..5.5$ & $-0.3..-0.1$\\
+521 & $316$  & 479 & 478 & $+6.6..11.8$& $+9.6..9.8$ & $-1.4..1.3$\\
+653 & $446$  & 613 & 612 & $+6.7..11.3$& $+10.2..10.3$&$-2.1..0.5$\\
+\bottomrule
+\end{tabular}
+\caption{Phase 50, $z$-ranges over digits $1,2,3$. Each curve has prime
+generator order $n$ with $\gcd(n,p)=1$; the $j{=}1728$ row uses the
+largest prime-order subgroup ($y^2{=}x^3{+}ax$ always has even $\#E$).
+The reflection signature and the positive-control match are
+CM-independent.}
+\label{tab:p50}
+\end{table}
+
+\section{Null-model pseudocode}\label{app:pseudo}
+Each control recomputes $\Uk^2$ under a different null; the input is the
+real sequence $s(k)=z(\delta(k))$, $k=1,\dots,n-1$, and digit $j$.
+\begin{itemize}
+\item \textbf{Value permutation:} apply a uniform random permutation
+$\pi$ to the multiset $\{s(k)\}$, re-index, recompute $\Uk^2$. (Tests
+``value distribution vs.\ ordering''; cannot separate H1/H2/H3.)
+\item \textbf{Increment shuffle (H1):} $d(k)=s(k{+}1)-s(k)$; draw a random
+permutation of $\{d(k)\}$, re-sum to a new walk $s'$, recompute $\Uk^2$.
+(Same increment multiset, only order changes.)
+\item \textbf{Half-sequence (H2):} restrict to $k=1,\dots,\lfloor(n-1)/2\rfloor$
+(no reflection partner in-window), recompute the increment-shuffle
+comparison at half length.
+\item \textbf{Reflection-only synthetic (positive):} draw the free half
+$s(k)$ i.i.d.\ uniform, set $s(n{-}k)=C-s(k)$ with $C=z([n]\tau(G))$,
+encode digit $j$, recompute $\Uk^2$.
+\item \textbf{Kernel-offset converse / sham:} form $\tau'(P)=\tau(P)+[h(P)]K_1$
+with $K_1=[n]\tau(G)$; set $z(\delta'(k))=z(\delta(k))+(k\,h(G)-h(kG))C_n
+\bmod p^e$; encode and recompute. Converse: $h$ non-odd and full-entropy
+($x$, $x{+}7y$). Sham: $h$ odd ($y$).
+\end{itemize}
+The empirical null for each is $300$ draws; ``$z$'' is the standardized
+gap of the real statistic against that null's mean and SD.
 
 \begin{thebibliography}{99}
 \bibitem{silverman4faces} J.~H.~Silverman. \emph{The Four Faces of

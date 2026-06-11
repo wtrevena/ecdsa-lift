@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.6.4)  10 JUN 2026 04:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.6.4)  11 JUN 2026 03:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ecdsa_lift_paper.tex
-(./ecdsa_lift_paper.tex
+**ecdsa_lift_paper_v3.tex
+(./ecdsa_lift_paper_v3.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -301,27 +301,27 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count294
 \l__pdf_internal_box=\box54
 )
-(./ecdsa_lift_paper.aux)
-\openout1 = `ecdsa_lift_paper.aux'.
+(./ecdsa_lift_paper_v3.aux)
+\openout1 = `ecdsa_lift_paper_v3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -357,7 +357,7 @@ LaTeX Font Info:    ... okay on input line 33.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 33.
+Package hyperref Info: Link coloring OFF on input line 35.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -369,21 +369,21 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count295
 )
-LaTeX Info: Redefining \ref on input line 33.
-LaTeX Info: Redefining \pageref on input line 33.
-LaTeX Info: Redefining \nameref on input line 33.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
 
-(./ecdsa_lift_paper.out) (./ecdsa_lift_paper.out)
+(./ecdsa_lift_paper_v3.out) (./ecdsa_lift_paper_v3.out)
 \@outlinefile=\write3
-\openout3 = `ecdsa_lift_paper.out'.
+\openout3 = `ecdsa_lift_paper_v3.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -391,69 +391,78 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (15.73438pt too wide) in paragraph at lines 119--123
+Overfull \hbox (15.73438pt too wide) in paragraph at lines 138--142
 []\OT1/cmr/m/n/10.95 A sharp-boundary demon-stra-tion (\TS1/cmr/m/n/10.95 §[]\O
 T1/cmr/m/n/10.95 8[]): the same con-struc-tion on an anoma-lous curve ($[](\OML
 /cmm/m/it/10.95 n; p\OT1/cmr/m/n/10.95 ) =
  []
 
 [2] [3] [4]
-Overfull \hbox (9.1972pt too wide) in paragraph at lines 341--352
-[]\OT1/cmr/m/n/10.95 Numerically the con-stant is $\OML/cmm/m/it/10.95 z\OT1/cm
-r/m/n/10.95 ([]) \OMS/cmsy/m/n/10.95 ^^Y \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.9
-5 :\OT1/cmr/m/n/10.95 43[]$ (ver-i-fied $\OML/cmm/m/it/10.95 p$\OT1/cmr/m/n/10.
-95 - and $\OML/cmm/m/it/10.95 L$\OT1/cmr/m/n/10.95 -independent, $\OML/cmm/m/it
-/10.95 L \OMS/cmsy/m/n/10.95 2 \OT1/cmr/m/n/10.95 [78\OML/cmm/m/it/10.95 ; \OT1
-/cmr/m/n/10.95 10638]$;
+Overfull \hbox (19.16908pt too wide) in paragraph at lines 337--359
+ []\OT1/cmr/bx/n/10.95 The con-verse con-trol (break-ing the re-flec-tion).[] \
+OT1/cmr/m/n/10.95 A pos-i-tive con-trol can be ac-cused of circularity---
  []
 
-[5] [6] [7]
-Overfull \hbox (25.73116pt too wide) in paragraph at lines 562--584
+[5] [6] [7] [8] [9] [10]
+Overfull \hbox (25.73116pt too wide) in paragraph at lines 736--758
  [][] 
  []
 
-[8] [9] [10] [11] (./ecdsa_lift_paper.aux)
-Package rerunfilecheck Info: File `ecdsa_lift_paper.out' has not changed.
-(rerunfilecheck)             Checksum: C64109E0BBEC9C61FA22EC3F4168D8B5;1958.
+[11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 889--890
+[]\OT1/cmr/m/n/10 Statistics of $\OML/cmm/m/it/10 ^^N[]\OT1/cmr/m/n/10 (\OML/cm
+m/m/it/10 k\OT1/cmr/m/n/10 )$ and its
+ []
+
+
+Underfull \hbox (badness 5802) in paragraph at lines 889--890
+\OT1/cmr/m/n/10 digit/phase/Fourier en-cod-ings,
+ []
+
+[13] [14] [15] (./ecdsa_lift_paper_v3.aux)
+Package rerunfilecheck Info: File `ecdsa_lift_paper_v3.out' has not changed.
+(rerunfilecheck)             Checksum: 0B7BC92C59C9578D1E3DADBFE65AB1E7;2451.
  ) 
 Here is how much of TeX's memory you used:
- 9394 strings out of 480247
- 144244 string characters out of 5896152
- 452060 words of memory out of 5000000
- 27170 multiletter control sequences out of 15000+600000
- 484150 words of font info for 85 fonts, out of 8000000 for 9000
+ 9425 strings out of 480247
+ 144628 string characters out of 5896152
+ 451728 words of memory out of 5000000
+ 27182 multiletter control sequences out of 15000+600000
+ 485019 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,11n,63p,1270b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
- </sessions/vigilant-eager-curie/.texlive2021/texmf-var/fonts/pk/ljfour/jknap
-pen/ec/tcrm1000.600pk> </sessions/vigilant-eager-curie/.texlive2021/texmf-var/f
-onts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </sessions/vigilant-eager-curie/.tex
-live2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0600.600pk> </sessions/vigil
-ant-eager-curie/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0800.600
-pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/symbols/msbm10.pfb>
-Output written on ecdsa_lift_paper.pdf (11 pages, 314094 bytes).
+ 60i,12n,63p,1273b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </sessions/sleepy-beautiful-hawking/.texlive2021/texmf-var/fonts/pk/ljfour/j
+knappen/ec/tcrm1000.600pk> </sessions/sleepy-beautiful-hawking/.texlive2021/tex
+mf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </sessions/sleepy-beautiful-
+hawking/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0600.600pk> </se
+ssions/sleepy-beautiful-hawking/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen
+/ec/tcrm0800.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
+12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/symbols/msbm10.pfb>
+Output written on ecdsa_lift_paper_v3.pdf (15 pages, 360952 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
- 285 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 97 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 437 PDF objects out of 1000 (max. 8388607)
+ 358 compressed objects within 4 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 

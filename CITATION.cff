@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the paper."
+title: "ecdsa-lift: mechanism-resolved nulls for a false positive in p-adic ECDLP cryptanalysis"
+authors:
+  - family-names: Trevena
+    given-names: W. T.
+repository-code: "https://github.com/wtrevena/ecdsa-lift"
+version: "paper-v4r2"
+date-released: "2026-06-11"
+license: MIT
+preferred-citation:
+  type: article
+  title: "When a Control Does Not Control: Mechanism-Derived Nulls for a False Positive in p-adic ECDLP Cryptanalysis"
+  authors:
+    - family-names: Trevena
+      given-names: W. T.
+  year: 2026

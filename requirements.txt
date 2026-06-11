@@ -1,0 +1,5 @@
+# ecdsa-lift — exact versions used for the paper (tag paper-v4r2)
+numpy==2.2.6
+sympy==1.14.0
+matplotlib==3.10.9
+# Python 3.10

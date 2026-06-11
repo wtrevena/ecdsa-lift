@@ -1,0 +1,54 @@
+{
+  "params": {
+    "seed": 20260609,
+    "note": "per-mode pseudovariance and finite-alphabet invariance"
+  },
+  "conjugation_test": [
+    {
+      "case": "random",
+      "mass_mean_times_L": 1.9974,
+      "pseudovar_ratio_mean": 0.0087
+    },
+    {
+      "case": "conj_reflection",
+      "mass_mean_times_L": 2.9919,
+      "pseudovar_ratio_mean": 1.0
+    },
+    {
+      "case": "nonconj_reflection",
+      "mass_mean_times_L": 2.0003,
+      "pseudovar_ratio_mean": 0.0091
+    }
+  ],
+  "alphabet_invariance": [
+    {
+      "alphabet": "S1",
+      "rand_mass_mean_times_L": 1.997,
+      "refl_mass_mean_times_L": 2.9912,
+      "inflation_ratio": 1.4978,
+      "refl_pseudovar_ratio": 1.0
+    },
+    {
+      "alphabet": "67",
+      "rand_mass_mean_times_L": 1.9955,
+      "refl_mass_mean_times_L": 2.9937,
+      "inflation_ratio": 1.5002,
+      "refl_pseudovar_ratio": 1.0
+    },
+    {
+      "alphabet": "211",
+      "rand_mass_mean_times_L": 1.9973,
+      "refl_mass_mean_times_L": 2.9885,
+      "inflation_ratio": 1.4963,
+      "refl_pseudovar_ratio": 1.0
+    },
+    {
+      "alphabet": "823",
+      "rand_mass_mean_times_L": 1.9966,
+      "refl_mass_mean_times_L": 2.9874,
+      "inflation_ratio": 1.4962,
+      "refl_pseudovar_ratio": 1.0
+    }
+  ],
+  "elapsed_s": 2.3
+}

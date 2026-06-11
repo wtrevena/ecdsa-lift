@@ -8,3 +8,12 @@ __pycache__/
 
 # Cowork scratchpad (not part of the repo)
 outputs/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+paper/v4_pass*.log
+paper/synctest_from_bash.txt
