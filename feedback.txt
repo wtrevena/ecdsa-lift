@@ -1,0 +1,519 @@
+This version is **much stronger than the previous one**. It directly addresses most of the earlier referee-level objections: it sharpens the novelty claim, adds the scope section, pins a commit, separates the ECDSA-scale caveat, adds the pseudo-variance derivation, adds a converse control, adds non-CM checks, adds equivalence/power/look-elsewhere calibration, and explicitly says the theorem is not new mathematics. Those are substantial improvements. The remaining issues are now much narrower, but one of them is potentially serious.
+
+My updated recommendation would be:
+
+**Major revision, but now close to publishable.**
+If the asymmetric-section converse control is mathematically cleaned up, and if Corollary 1 is softened or split from the theorem, I would be inclined toward **accept after revision** at an appropriate negative-results / methodology-friendly cryptography venue.
+
+The paper’s contribution is now much clearer: not a new ECDLP attack, not a new general impossibility theorem, but a rigorous case study in mechanism-resolved falsification of an automated p-adic cryptanalytic false positive, with a reusable U² artifact signature and a sharp anomalous-curve boundary. The abstract and introduction now say this much more explicitly than the previous version. 
+
+---
+
+# 1. High-level assessment
+
+The revised paper is no longer vulnerable to the biggest earlier critique, namely that it oversold a negative result as a broad ECDSA statement. It now states that the experiments are diagnostic, not an empirical security evaluation of deployed curves, and that the extension to ECDSA-type curves is through the structural theorem rather than through cryptographic-scale experiments. 
+
+The revised contribution list is also much better. It now identifies the actual contributions as:
+
+1. a worked example of a control that fails to control,
+2. mechanism-derived nulls,
+3. a positive control and converse control,
+4. a closed-form U² artifact law,
+5. an inertness theorem stated at abelian-group-extension generality,
+6. a sharp anomalous-curve boundary,
+7. and a scope map saying what is and is not refuted. 
+
+That is the right positioning.
+
+The paper is now strongest as a **methodological cryptanalysis paper**. It is weaker as a pure number theory paper and still probably not enough for a venue expecting a new cryptanalytic attack or a genuinely new theorem. But as a negative-result / methodology / reproducibility paper, it is now substantially more compelling.
+
+---
+
+# 2. The biggest remaining issue: the asymmetric-section converse control may be mathematically invalid as written
+
+This is the most important problem I see.
+
+The paper says it replaces the x-Teichmüller section with an asymmetric section τ′ that chooses the Hensel y-root by a “negation-insensitive rule,” namely smaller integer representative, so that τ′(−P) ≠ −τ′(P). It then reports that the antisymmetry ceases to be single-valued and that the U² elevation collapses. 
+
+That would be an excellent converse control **if τ′ is genuinely a section**.
+
+But the manuscript then says:
+
+> “With τ′ exactly half the lift errors leave the kernel of reduction…”
+
+That sentence is a red flag. If τ′ is actually a section, then for every k,
+
+[
+\delta_{\tau'}(k)=[k]\tau'(G)-\tau'(kG)
+]
+
+must reduce to
+
+[
+kG-kG=O
+]
+
+mod p. Therefore δτ′(k) must lie in the kernel of reduction for every k. If half the lift errors leave the kernel, then either:
+
+1. τ′ is not actually a section,
+2. the lift-error computation is not computing the group difference claimed,
+3. the degeneracy filter is misclassifying kernel elements,
+4. or the “smaller integer representative” rule is selecting a Hensel root that does not reduce to the original point P.
+
+The fourth possibility seems especially likely. If you lift x and then choose the smaller of the two y-roots without enforcing the residue class y mod p, then for roughly half the points you have not lifted P, you have lifted −P. That is not a section of E(Fp) → E(Z/pe). It is a lift rule, but not a section.
+
+This matters because the paper’s converse control is meant to show:
+
+> Break τ(−P)=−τ(P) while preserving the same section-lift-error attack surface.
+
+But if τ′ is not a section, the experiment instead shows:
+
+> A non-section, partially wrong lift rule destroys the identity and the statistic.
+
+That is much less probative. A hostile referee will attack this immediately.
+
+## How to fix it
+
+Construct a genuine asymmetric section by adding kernel offsets to a valid odd section:
+
+[
+\tau'(P)=\tau(P)+u(P),
+]
+
+where (u(P)\in \widehat E(p\mathbb Z/p^e)), but choose u so that
+
+[
+u(-P)\neq -u(P).
+]
+
+Then red(τ′(P)) = P for every P, so τ′ remains a true section, but τ′(−P)=−τ′(P) generally fails. Under this construction, δτ′(k) should always remain in the kernel. Then re-run the converse control. If the U² elevation still collapses, the converse test becomes very strong.
+
+Until this is fixed, I would mark the converse-control claim as **not yet acceptable**.
+
+---
+
+# 3. Theorem 1 is improved, but Corollary 1 still overreaches slightly
+
+The theorem section is much better than before. It now cleanly separates the algebraic CRT/well-definedness statement from the computational “no efficient algorithm known” remark. It also states explicitly that the computational part is state-of-knowledge rather than a theorem. 
+
+However, **Corollary 1 still sounds too strong**:
+
+> “For gcd(n,p)=1 no section lift error yields an efficiently computable function of (E,G,Q) that depends on the secret…”
+
+That is not a corollary of the group-theoretic theorem alone. It depends on the standard computational hardness assumption. The theorem proves that the non-canonical lift error does not factor cleanly through the public instance without choosing secret-dependent representative information. It does not prove that no efficient algorithm can compute the relevant [k]c term.
+
+The paper knows this and says so in the remark, but the word “Corollary” gives the statement more formal force than it earns. I would change it to one of:
+
+**Option A: Rename it.**
+
+> Consequence under the standard ECDLP-hardness assumption.
+
+**Option B: Split it.**
+
+Formal corollary:
+
+[
+\delta_\tau \text{ factors through } k\bmod n \iff c=0.
+]
+
+Computational remark:
+
+> For c≠0, exploiting [k]c would require producing secret-dependent residue information not determined by the public instance; no efficient method is known short of solving the ECDLP.
+
+This distinction matters because reviewers in cryptography are sensitive to exactly this boundary between algebraic non-canonicity and computational impossibility.
+
+---
+
+# 4. The paper’s core mathematical contribution is now much stronger
+
+The new pseudo-variance treatment is a major improvement. Proposition 1 gives a clean identity:
+
+[
+E|Z|^4=2\sigma^4+|\rho|^2,
+]
+
+then uses pseudo-variance to classify U² mass inflation by index-coupling constraints. This turns the artifact into a general discriminator: no pseudo-variance gives the random baseline, maximal pseudo-variance gives the 3/2 reflection inflation. 
+
+That is much better than the previous empirical/semi-empirical account. The closed-form 0.427√L growth law also gives the paper a genuinely quotable result. 
+
+This is probably the paper’s most publishable technical artifact.
+
+However, I would still make several refinements.
+
+## A. “Exactly 3/2” should be phrased carefully
+
+Proposition 2 says the reflection inflates the U² mass by exactly 3/2 and then gives asymptotic expressions with (o(1/L)). 
+
+Those two phrasings are slightly in tension. For finite L and finite alphabets, there are usually lower-order corrections from the zero mode, self-paired modes, parity, and alphabet moments. The ratio is asymptotically 3/2 unless the model has been defined in a way that makes the exact finite-L ratio literal.
+
+Suggested revision:
+
+> The leading asymptotic inflation is exactly 3/2.
+
+or
+
+> The mass is (3/L+o(1/L)) versus (2/L+o(1/L)), hence the limiting inflation factor is exactly 3/2.
+
+That is safer.
+
+## B. Edge cases should be handled explicitly
+
+The proof should explicitly say what happens to:
+
+* the zero Fourier mode,
+* the (L/2) self-reversing mode when L is even,
+* the midpoint in the physical index domain when L is odd,
+* finite μp-valued alphabets versus S¹-valued phases,
+* whether the Fourier domain is (\mathbb Z/L) while the original sequence is indexed by (1,\ldots,n-1).
+
+These are probably not fatal, but they are the kind of small mathematical edge cases that number-theory referees notice.
+
+## C. The U³ claim needs either proof or softer wording
+
+The paper now says U³ and higher sit at baseline because the reflection constraint affects only an (O(1/L)) fraction of shift-position pairs. That is plausible, but it is currently presented more like a derived result than a heuristic. If this is important, add a short lemma or appendix proof. If not, soften it:
+
+> Heuristically, and confirmed numerically, the U³ excess decays like (1/L).
+
+---
+
+# 5. The carry model is useful but should be demoted slightly
+
+The carry model is a nice addition because it addresses the earlier problem that the ideal reflection model does not exactly commute with base-p digit extraction. The paper now says digit 1 reflects exactly, while interior digits have borrow-induced deficits, with q2 and q3 around 0.2 on the clean set. 
+
+This is good, but it should be presented as a **model**, not as a theorem unless fully proved.
+
+Specific concerns:
+
+1. The borrow probability qj likely depends on the constant C, the digit distribution, p, and the curve/sample. A fixed “≈0.2” should not be made to sound universal.
+2. The formula ((2+(1-q_j)^2)/L) assumes failed-reflection pairs behave independently. That is plausible but should be stated as a modelling assumption.
+3. The prediction “L ≳ 3000 should resolve digit 1 at 3.0 and digits 2,3 at 2.7” is useful, but reviewers may ask why the existing large row at L≈10638 does not already settle this in Table 1. If Phase 58 does settle it, summarize the actual result rather than only saying it is a prediction.
+
+Suggested wording:
+
+> A simple independence model for borrow failures predicts…
+
+not:
+
+> Modelling the rest as independent gives…
+
+The latter sounds more definitive.
+
+---
+
+# 6. The statistical protocol is much improved, but still incomplete
+
+The new §6 is substantially better. It now says z-values are standardized effect sizes against 300-draw empirical nulls, not calibrated Gaussian tail probabilities, and it includes look-elsewhere, equivalence, and half-sequence power checks. 
+
+That directly addresses the previous critique.
+
+But several improvements remain.
+
+## A. The look-elsewhere analysis is too weak for the claim
+
+The paper says the exploration spans roughly 47 phases × 3 digits × 8 curves × several encodings, that extreme-value theory gives an expected max |z|≈3.2–3.6, and that an empirical 10-statistic i.i.d. surrogate battery reached |z|=5.0. 
+
+This does not fully support the abstract’s rhetorical claim that an apparent 5–11σ separation is “cheap.” A 5σ-looking effect may be cheap under a large, flexible exploration. An 11σ-looking effect is not explained by ordinary independent-test look-elsewhere arithmetic. The better explanation is that the baseline was wrong and a public algebraic identity generated a real non-random effect.
+
+So the paper should distinguish two different mechanisms:
+
+1. **Look-elsewhere false positives**: many probes make moderate z outliers likely.
+2. **Wrong-null false positives**: a real public identity can create huge z against the wrong null.
+
+The Gowers anomaly is mostly the second, not merely the first.
+
+Suggested abstract revision:
+
+> With enough encodings and transforms, apparently anomalous separations from a generic random baseline are cheap; they may arise either from multiple probing or, as here, from a real public structure tested against the wrong null.
+
+## B. Equivalence testing needs more details
+
+The paper says TOST excludes residual non-reflection H3 components larger than about 0.9 of the elevation at the smallest curve and about 0.25 at p=823. 
+
+That is a good addition, but it needs enough detail to be auditable:
+
+* What is the equivalence margin?
+* Is the test on U² mass or U² norm?
+* Is the residual defined additively in raw statistic, standardized z, or fraction of elevation?
+* Are the 300 synthetic draws enough for the claimed interval?
+* Are digits pooled or tested separately?
+
+Right now the statement is useful but underspecified.
+
+## C. The half-sequence power claim should be tied to actual numbers
+
+The paper says an intrinsic H3 signal would appear at (z_{\text{full}}/\sqrt 2), and that the half test retained 4–9σ power on 6 of 7 curves. Good. But give a tiny table or parenthetical:
+
+[
+z_{\text{expected half}}, z_{\text{observed half}}
+]
+
+for each curve or at least min/max.
+
+Otherwise the claim is plausible but not independently checkable from Table 1 alone.
+
+---
+
+# 7. The scope section is excellent and should stay
+
+The new §11 is one of the strongest revisions. It now precisely states the killed schema: deterministic statistics of section lift errors δτ(k), including digit/phase/Fourier/Gowers/prefix-sum/spectral/recurrence/machine-discovered structure, on ordinary curves with gcd(n,p)=1. It also explicitly lists what is not killed: nonce leakage, side channels, invalid-curve/twist attacks, small-subgroup attacks, pairings, quantum algorithms, weakened curves, extension-field cases, and non-section-based global lift constructions. 
+
+This section solves the two biggest framing risks:
+
+* overclaim: “this kills all p-adic ECDLP work,”
+* underclaim: “this only debugs one private false positive.”
+
+It now says the right thing:
+
+> This schema is structurally dead; the reusable contribution is the falsification protocol.
+
+That should remain.
+
+Minor improvement: give the protocol a name. For example:
+
+**Section-Invariance Protocol**
+or
+**Mechanism-Resolved Null Protocol**
+
+Then use that name in the abstract, §11, and conclusion. It will make the methodology easier to cite.
+
+---
+
+# 8. Reproducibility is better, but still not journal-grade
+
+The paper now names a commit, software versions, seeds, and a reproduction script. That is a big improvement. It says the code/data are at commit 674750a, Python 3.10, NumPy 2.2, SymPy 1.14, with phase scripts and JSON records, and `run all.sh` reproduces Table 1 and Proposition figures. 
+
+Remaining issues:
+
+1. The repository URL is still not explicit in the extracted text. “ecdsa-lift repository” is not enough for a static paper. Put the full URL and, ideally, a Zenodo DOI.
+2. “release tagged with this paper” and “commit 674750a” should be unified. Use both if available: tag name + full commit hash.
+3. Phases 44–46 are still listed as “post-submission, see repository.” That is awkward in a static artifact. Either freeze them, delete them, or move them to a separate “not part of this paper” paragraph.
+4. `run all.sh` may be a typo or shell-hostile name. If the file is literally `run_all.sh`, write that. If it is `run all.sh` with a space, rename it.
+5. Add expected runtime and hardware.
+6. Add a “minimal reproduction” command for the main claims, not only all phases.
+
+Given that the paper’s thesis is about false-positive control, artifact reproducibility matters unusually much.
+
+---
+
+# 9. Prior literature is still too thin on the statistics/methodology side
+
+The math/crypto references are reasonable, but the methodology claim now deserves more support. The paper says a control is valid only against a named alternative, and that mechanism-derived nulls and positive controls are the transferable lesson. That is true, but it needs statistical-methodology citations.
+
+Add references to:
+
+* exchangeability requirements for permutation tests,
+* negative controls,
+* placebo tests,
+* specification-curve / multiverse analysis,
+* multiple-comparison and forking-path problems,
+* null-model selection controversies in networks/ecology,
+* randomness-test batteries in cryptography.
+
+This is not decorative. It protects the paper from the objection:
+
+> “This is just textbook statistics.”
+
+The answer should be:
+
+> Yes, the statistical principle is textbook; the contribution is importing it into this cryptanalytic workflow and showing, to the constant, what went wrong.
+
+That distinction should be explicit.
+
+---
+
+# 10. AI-assisted angle remains underdeveloped
+
+The paper now has a discussion subsection titled “For automated and AI-assisted exploration,” but it does not clearly say whether the 47-phase pipeline was actually LLM-assisted, agent-generated, script-generated, or simply manually automated. 
+
+If AI was genuinely involved, this is a major opportunity. The paper could become a case study in AI-assisted mathematical/cryptanalytic false positives. Add:
+
+* what the AI/automation generated,
+* what the internal report concluded,
+* where human audit intervened,
+* what the final protocol would require from future agents,
+* what failure mode this represents.
+
+If AI was not materially involved, remove or soften “AI-assisted.” Otherwise it sounds like opportunistic positioning.
+
+---
+
+# 11. The title is still slightly risky
+
+The current title is good rhetorically:
+
+> When a Control Does Not Control: A Mechanism-Derived Refutation of a False Positive in p-adic Cryptanalysis of the ECDLP
+
+But “Refutation” can sound like the paper refutes an external attack or a research program. Since the paper refutes an internally generated false positive, a slightly safer title would be:
+
+> When a Control Does Not Control: Mechanism-Derived Nulls for a False Positive in p-adic ECDLP Cryptanalysis
+
+or
+
+> Mechanism-Derived Nulls for Automated Cryptanalytic Search: A False Positive in p-adic ECDLP Lifting
+
+The current title is probably acceptable, but if the target venue is conservative, I would soften “Refutation.”
+
+---
+
+# 12. Abstract is now accurate but too dense
+
+The abstract is much improved but overloaded. It contains:
+
+* the false-positive story,
+* all effect sizes,
+* the positive control,
+* the converse control,
+* pseudo-variance identity,
+* U² mass classification,
+* 0.427√L constant,
+* inertness theorem,
+* anomalous boundary,
+* ECDSA caveat,
+* transferable lesson.
+
+That is a lot for one abstract. It is technically impressive, but it may overwhelm readers.
+
+I would shorten the abstract by moving some details into the introduction. Keep:
+
+1. false positive from wrong null,
+2. mechanism-derived nulls localize to antisymmetry,
+3. pseudo-variance gives 3/2 and √L,
+4. theorem explains inertness for gcd(n,p)=1 and Smart boundary,
+5. methodology lesson.
+
+Move the exact coefficient, 52/52, and detailed theorem phrasing out of the abstract unless the venue allows long abstracts.
+
+---
+
+# 13. Table 1 is good, but it needs one more companion table or figure
+
+Table 1 is useful and now much clearer. It shows negative controls and positive controls across curves, with Phase 47 marked post-hoc. 
+
+But the paper still needs a figure. A methodology paper should not rely only on dense tables.
+
+The most important figure would be:
+
+**Panel A:** U² norm/mass null distributions: random, increment-shuffle, synthetic reflection, with real marked.
+**Panel B:** z(syn/rand) and z(real/rand) versus √L with the 0.427√L line.
+**Panel C:** hypothesis × control matrix.
+
+This would make the paper dramatically easier to understand.
+
+---
+
+# 14. Section-by-section critique
+
+## Abstract
+
+Strong but dense. It now correctly states that the experiments are diagnostic and that ECDSA-scale relevance comes from theorem generality, not empirical testing. That is a major improvement. 
+
+Main remaining problem: “5–11σ is cheap” should be nuanced because the huge z-values are not merely multiple-testing artifacts, they are wrong-null artifacts caused by real public structure.
+
+## Introduction
+
+Much improved. The contribution list is now honest and defensible. The sentence “The theorem is not new mathematics” is exactly the right move. 
+
+Remaining issue: the introduction could more explicitly say that the ordered sequence ((k,\delta(k))) is an analyst-labeled object, not something an attacker can compute from Q without already knowing k.
+
+## Background
+
+Mostly fine. The notation is compact but acceptable for the likely audience.
+
+Potential issue: “section” is defined rigorously here, which makes the later asymmetric “section” problem more serious. If τ′ fails red∘τ′=id for half the points, it violates the definition introduced in §2.
+
+## Exploration
+
+The phase summary is useful, but the 47-phase list still feels slightly like a private lab notebook. The revised paper should separate “results used in the argument” from “exploratory attempts in the broader project.”
+
+## False positive
+
+This section is conceptually strong. The statement that the permutation control only distinguishes value distribution from ordering, but cannot distinguish H1/H2/H3, is the core methodological point.
+
+## Mechanism-derived controls
+
+This is the heart of the paper. H1, H2, positive control, and growth law are persuasive. The converse control would be excellent if repaired.
+
+The paper should add the hypothesis × control matrix. It will make this section much clearer.
+
+## Propositions 1 and 2
+
+Strongest mathematical contribution. Needs edge-case cleanup and careful finite/asymptotic wording.
+
+## Statistical protocol
+
+Much improved. Needs more detail on equivalence margins, half-test power, and full-battery look-elsewhere calibration.
+
+## Inertness theorem
+
+Good, but rename or split Corollary 1.
+
+## Boundary section
+
+Very good. The “ordinary inert / anomalous broken” contrast is compelling. The all-k 52/52 check is a cleaner implementation validation than the previous 12/12 random-secret claim.
+
+## Scope section
+
+Excellent. Keep it.
+
+## Reproducibility
+
+Much better. Needs URL/DOI, exact command names, runtime, and freezing/removing phases 44–46.
+
+---
+
+# 15. Priority revision list
+
+Here is what I would ask for as a referee, in order.
+
+## Must fix
+
+1. **Repair the asymmetric-section converse control.**
+   Prove τ′ is a genuine section, or replace it with a genuine asymmetric section built by adding kernel offsets. If δτ′ leaves the kernel, the current construction is not acceptable.
+
+2. **Rename or weaken Corollary 1.**
+   The “no efficient algorithm” claim is not a formal corollary of the theorem. Make it assumption/state-of-knowledge language.
+
+3. **Clarify finite versus asymptotic claims in Proposition 2.**
+   “Exactly 3/2” should mean leading asymptotic unless finite-L exactness is proved.
+
+4. **Add missing statistical/methodological references.**
+   The methodology needs scholarship beyond crypto references.
+
+5. **Provide full reproducibility coordinates.**
+   Full repo URL, full commit hash, tag, expected runtime, exact commands, and archive DOI if possible.
+
+## Should fix
+
+6. **Add a figure for the null distributions and growth law.**
+
+7. **Name the protocol.**
+
+8. **Give more detail on TOST/equivalence and half-sequence power.**
+
+9. **Either freeze or remove Phases 44–46 from the static paper.**
+
+10. **Demote the carry model slightly unless proved.**
+
+## Nice to have
+
+11. Add an appendix proof of the U³ baseline claim.
+
+12. Add a tiny notation table for δ, z(δ), digits, phase encodings, U² mass/norm.
+
+13. Add a short paragraph explaining that the reflection gives at most the usual k ↔ n−k negation symmetry, not a new search reduction.
+
+14. Add a clear AI-assisted-discovery disclosure if applicable.
+
+---
+
+# 16. Updated review decision
+
+My updated referee recommendation would be:
+
+**Major revision, leaning positive.**
+
+The revision has materially strengthened the paper. The novelty is now correctly framed, the artifact mechanism is analytic rather than merely empirical, the scope is well bounded, and the anomalous boundary is clear. The paper now has a coherent publishable identity: a mechanism-resolved falsification protocol for automated cryptanalytic false positives, demonstrated on a p-adic ECDLP lifting anomaly.
+
+However, I would not accept the paper as-is because the asymmetric-section converse control appears mathematically inconsistent with the definition of a section: if τ′ is a true section, δτ′ must remain in the kernel for every k. The statement that half the lift errors leave the kernel strongly suggests the construction is not actually a section, which would confound the converse control. The formal theorem/corollary boundary also needs one more cleanup to avoid presenting a computational hardness assertion as a theorem.
+
+Fix those two issues, add a few statistical/reproducibility details, and this becomes a strong submission for the right venue.

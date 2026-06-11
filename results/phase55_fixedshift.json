@@ -1,0 +1,43 @@
+{
+  "phase": 55,
+  "seed": 20260609,
+  "nrep": 400,
+  "p_alphabet": 10007,
+  "claim": "reflection (xi->-xi involution) inflates U^2 mass to 3/L (ratio 3/2); fixed-shift involution k<->k+L/2 (xi->xi) leaves it at 2/L (ratio ~1).",
+  "rows": [
+    {
+      "L": 200,
+      "M*L_rand": 1.9898,
+      "M*L_reflection(xi->-xi)": 2.982,
+      "ratio_reflection": 1.4987,
+      "M*L_fixedshift_involution(k<->k+L/2)": 1.9895,
+      "ratio_fixedshift": 0.9999,
+      "caveat_chained_shift_m": 3,
+      "M*L_chained_shift_longorbit": 148.527,
+      "ratio_chained_shift": 74.645
+    },
+    {
+      "L": 612,
+      "M*L_rand": 1.9939,
+      "M*L_reflection(xi->-xi)": 2.9873,
+      "ratio_reflection": 1.4982,
+      "M*L_fixedshift_involution(k<->k+L/2)": 2.0066,
+      "ratio_fixedshift": 1.0064,
+      "caveat_chained_shift_m": 7,
+      "M*L_chained_shift_longorbit": 455.199,
+      "ratio_chained_shift": 228.291
+    },
+    {
+      "L": 1000,
+      "M*L_rand": 1.9983,
+      "M*L_reflection(xi->-xi)": 2.9964,
+      "ratio_reflection": 1.4995,
+      "M*L_fixedshift_involution(k<->k+L/2)": 1.9881,
+      "ratio_fixedshift": 0.9949,
+      "caveat_chained_shift_m": 3,
+      "M*L_chained_shift_longorbit": 751.973,
+      "ratio_chained_shift": 376.304
+    }
+  ],
+  "caveat": "chained_shift_longorbit is NOT the discriminator: chaining s(k+m)=C-s(k) over a long single orbit forces a period-2 pattern giving M*L ~ L/3 (separate periodicity artifact). The clean fixed-shift involution is k<->k+L/2."
+}

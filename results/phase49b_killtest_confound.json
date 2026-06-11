@@ -1,0 +1,195 @@
+{
+  "note": "unfiltered confound check; see module docstring",
+  "seed": 20260609,
+  "curves": [
+    {
+      "p": 67,
+      "n": 79,
+      "sections": {
+        "standard": {
+          "L_all": 78,
+          "in_kernel": 78,
+          "frac_in_kernel": 1.0,
+          "digits_zmodpe": {
+            "d1": {
+              "U2": 0.43405,
+              "z_real_vs_rand": 3.62
+            },
+            "d2": {
+              "U2": 0.46281,
+              "z_real_vs_rand": 6.54
+            },
+            "d3": {
+              "U2": 0.45018,
+              "z_real_vs_rand": 5.26
+            }
+          }
+        },
+        "asym_smaller_rep": {
+          "L_all": 78,
+          "in_kernel": 39,
+          "frac_in_kernel": 1.0,
+          "digits_zmodpe": {
+            "d1": {
+              "U2": 0.5308,
+              "z_real_vs_rand": 13.45
+            },
+            "d2": {
+              "U2": 0.53486,
+              "z_real_vs_rand": 13.87
+            },
+            "d3": {
+              "U2": 0.54156,
+              "z_real_vs_rand": 14.55
+            }
+          }
+        },
+        "asym_even_lsd": {
+          "L_all": 78,
+          "in_kernel": 39,
+          "frac_in_kernel": 1.0,
+          "digits_zmodpe": {
+            "d1": {
+              "U2": 0.53188,
+              "z_real_vs_rand": 13.56
+            },
+            "d2": {
+              "U2": 0.53713,
+              "z_real_vs_rand": 14.1
+            },
+            "d3": {
+              "U2": 0.57903,
+              "z_real_vs_rand": 18.35
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 211,
+      "n": 199,
+      "sections": {
+        "standard": {
+          "L_all": 198,
+          "in_kernel": 198,
+          "frac_in_kernel": 1.0,
+          "digits_zmodpe": {
+            "d1": {
+              "U2": 0.35321,
+              "z_real_vs_rand": 6.56
+            },
+            "d2": {
+              "U2": 0.3471,
+              "z_real_vs_rand": 5.48
+            },
+            "d3": {
+              "U2": 0.35816,
+              "z_real_vs_rand": 7.43
+            }
+          }
+        },
+        "asym_smaller_rep": {
+          "L_all": 198,
+          "in_kernel": 99,
+          "frac_in_kernel": 1.0,
+          "digits_zmodpe": {
+            "d1": {
+              "U2": 0.49952,
+              "z_real_vs_rand": 32.33
+            },
+            "d2": {
+              "U2": 0.53502,
+              "z_real_vs_rand": 38.59
+            },
+            "d3": {
+              "U2": 0.52638,
+              "z_real_vs_rand": 37.07
+            }
+          }
+        },
+        "asym_even_lsd": {
+          "L_all": 198,
+          "in_kernel": 99,
+          "frac_in_kernel": 1.0,
+          "digits_zmodpe": {
+            "d1": {
+              "U2": 0.53237,
+              "z_real_vs_rand": 38.12
+            },
+            "d2": {
+              "U2": 0.56371,
+              "z_real_vs_rand": 43.64
+            },
+            "d3": {
+              "U2": 0.53113,
+              "z_real_vs_rand": 37.9
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 823,
+      "n": 829,
+      "sections": {
+        "standard": {
+          "L_all": 828,
+          "in_kernel": 828,
+          "frac_in_kernel": 1.0,
+          "digits_zmodpe": {
+            "d1": {
+              "U2": 0.24513,
+              "z_real_vs_rand": 11.82
+            },
+            "d2": {
+              "U2": 0.24187,
+              "z_real_vs_rand": 10.16
+            },
+            "d3": {
+              "U2": 0.24736,
+              "z_real_vs_rand": 12.95
+            }
+          }
+        },
+        "asym_smaller_rep": {
+          "L_all": 828,
+          "in_kernel": 414,
+          "frac_in_kernel": 1.0,
+          "digits_zmodpe": {
+            "d1": {
+              "U2": 0.49012,
+              "z_real_vs_rand": 136.41
+            },
+            "d2": {
+              "U2": 0.50711,
+              "z_real_vs_rand": 145.04
+            },
+            "d3": {
+              "U2": 0.51399,
+              "z_real_vs_rand": 148.54
+            }
+          }
+        },
+        "asym_even_lsd": {
+          "L_all": 828,
+          "in_kernel": 414,
+          "frac_in_kernel": 1.0,
+          "digits_zmodpe": {
+            "d1": {
+              "U2": 0.51543,
+              "z_real_vs_rand": 149.27
+            },
+            "d2": {
+              "U2": 0.49388,
+              "z_real_vs_rand": 138.31
+            },
+            "d3": {
+              "U2": 0.5078,
+              "z_real_vs_rand": 145.39
+            }
+          }
+        }
+      }
+    }
+  ]
+}

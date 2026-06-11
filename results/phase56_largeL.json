@@ -1,0 +1,50 @@
+{
+  "phase": 56,
+  "seed": 20260609,
+  "p_alphabet": 10007,
+  "closed_form_const": 0.4267276788012862,
+  "const_expr": "2^(7/4)*(3^(1/4)-2^(1/4))",
+  "sd_diagnostic_const": 0.29730177875068026,
+  "sd_diagnostic_expr": "1/2^(7/4)",
+  "standardization": "NORM: z=(E[U2_syn]-E[U2_rand])/SD[U2_rand], U2=M^(1/4)",
+  "rows": [
+    {
+      "L": 10000,
+      "nrep": 3000,
+      "M_rand_x_L": 2.00069,
+      "M_syn_x_L": 2.99845,
+      "mass_ratio": 1.49871,
+      "SD_U2_rand_x_L^0.75": 0.28738,
+      "z_norm": 44.044,
+      "z_norm_over_sqrtL": 0.44044,
+      "target_const": 0.42673,
+      "rel_err_pct": 3.21
+    },
+    {
+      "L": 100000,
+      "nrep": 600,
+      "M_rand_x_L": 2.00007,
+      "M_syn_x_L": 2.99993,
+      "mass_ratio": 1.49991,
+      "SD_U2_rand_x_L^0.75": 0.30371,
+      "z_norm": 132.074,
+      "z_norm_over_sqrtL": 0.41766,
+      "target_const": 0.42673,
+      "rel_err_pct": -2.13
+    },
+    {
+      "L": 1000000,
+      "nrep": 120,
+      "M_rand_x_L": 1.99994,
+      "M_syn_x_L": 3.00003,
+      "mass_ratio": 1.50006,
+      "SD_U2_rand_x_L^0.75": 0.27439,
+      "z_norm": 462.401,
+      "z_norm_over_sqrtL": 0.4624,
+      "target_const": 0.42673,
+      "rel_err_pct": 8.36
+    }
+  ],
+  "note": "gap E[U2_syn]-E[U2_rand]=L^(-1/4)(3^.25-2^.25) is exact from the mass ratio; only SD[U2_rand]~0.29730*L^(-3/4) is Monte-Carlo. The SD*L^0.75 diagnostic is the robust convergence check; raw z/sqrt(L) at L=10^6 carries ~10% sampling error from the SD over ~120 draws.",
+  "conclusion": "mass ratio -> 3/2 (1.499..1.500), SD*L^0.75 -> 0.2973, and z_norm/sqrt(L) -> 0.42673; Prop-1 constant confirmed to L=10^6."
+}

@@ -1,0 +1,431 @@
+{
+  "params": {
+    "e": 4,
+    "digits": [
+      1,
+      2,
+      3
+    ],
+    "random_baselines": 300,
+    "seed": 20260609,
+    "canon_rules": [
+      "smaller_rep",
+      "even_lsd"
+    ]
+  },
+  "curves": [
+    {
+      "p": 67,
+      "expected_n": 79,
+      "n": 79,
+      "sections": {
+        "standard": {
+          "L": 78,
+          "dropped": 0,
+          "Cn": 12151388,
+          "antisymmetry_single_valued": true,
+          "antisymmetry_num_distinct_sums": 1,
+          "antisymmetry_num_pairs": 39,
+          "antisymmetry_sample_sums": [
+            12151388,
+            12151388,
+            12151388,
+            12151388,
+            12151388,
+            12151388,
+            12151388,
+            12151388
+          ],
+          "digits": {
+            "d1": {
+              "U2_real": 0.43405,
+              "U2_rand_mean": 0.39843,
+              "U2_rand_std": 0.00984,
+              "z_real_vs_rand": 3.62
+            },
+            "d2": {
+              "U2_real": 0.46281,
+              "U2_rand_mean": 0.39843,
+              "U2_rand_std": 0.00984,
+              "z_real_vs_rand": 6.54
+            },
+            "d3": {
+              "U2_real": 0.45018,
+              "U2_rand_mean": 0.39843,
+              "U2_rand_std": 0.00984,
+              "z_real_vs_rand": 5.26
+            }
+          }
+        },
+        "asym_smaller_rep": {
+          "L": 39,
+          "dropped": 39,
+          "Cn": 7999733,
+          "antisymmetry_single_valued": false,
+          "antisymmetry_num_distinct_sums": 0,
+          "antisymmetry_num_pairs": 0,
+          "antisymmetry_sample_sums": [],
+          "digits": {
+            "d1": {
+              "U2_real": 0.49916,
+              "U2_rand_mean": 0.47464,
+              "U2_rand_std": 0.01746,
+              "z_real_vs_rand": 1.4
+            },
+            "d2": {
+              "U2_real": 0.48111,
+              "U2_rand_mean": 0.47464,
+              "U2_rand_std": 0.01746,
+              "z_real_vs_rand": 0.37
+            },
+            "d3": {
+              "U2_real": 0.4734,
+              "U2_rand_mean": 0.47464,
+              "U2_rand_std": 0.01746,
+              "z_real_vs_rand": -0.07
+            }
+          }
+        },
+        "asym_even_lsd": {
+          "L": 39,
+          "dropped": 39,
+          "Cn": 12151388,
+          "antisymmetry_single_valued": false,
+          "antisymmetry_num_distinct_sums": 0,
+          "antisymmetry_num_pairs": 0,
+          "antisymmetry_sample_sums": [],
+          "digits": {
+            "d1": {
+              "U2_real": 0.45458,
+              "U2_rand_mean": 0.47464,
+              "U2_rand_std": 0.01746,
+              "z_real_vs_rand": -1.15
+            },
+            "d2": {
+              "U2_real": 0.46548,
+              "U2_rand_mean": 0.47464,
+              "U2_rand_std": 0.01746,
+              "z_real_vs_rand": -0.53
+            },
+            "d3": {
+              "U2_real": 0.46719,
+              "U2_rand_mean": 0.47464,
+              "U2_rand_std": 0.01746,
+              "z_real_vs_rand": -0.43
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 211,
+      "expected_n": 199,
+      "n": 199,
+      "sections": {
+        "standard": {
+          "L": 198,
+          "dropped": 0,
+          "Cn": 1092223143,
+          "antisymmetry_single_valued": true,
+          "antisymmetry_num_distinct_sums": 1,
+          "antisymmetry_num_pairs": 99,
+          "antisymmetry_sample_sums": [
+            1092223143,
+            1092223143,
+            1092223143,
+            1092223143,
+            1092223143,
+            1092223143,
+            1092223143,
+            1092223143
+          ],
+          "digits": {
+            "d1": {
+              "U2_real": 0.35321,
+              "U2_rand_mean": 0.31599,
+              "U2_rand_std": 0.00568,
+              "z_real_vs_rand": 6.56
+            },
+            "d2": {
+              "U2_real": 0.3471,
+              "U2_rand_mean": 0.31599,
+              "U2_rand_std": 0.00568,
+              "z_real_vs_rand": 5.48
+            },
+            "d3": {
+              "U2_real": 0.35816,
+              "U2_rand_mean": 0.31599,
+              "U2_rand_std": 0.00568,
+              "z_real_vs_rand": 7.43
+            }
+          }
+        },
+        "asym_smaller_rep": {
+          "L": 99,
+          "dropped": 99,
+          "Cn": 1092223143,
+          "antisymmetry_single_valued": false,
+          "antisymmetry_num_distinct_sums": 0,
+          "antisymmetry_num_pairs": 0,
+          "antisymmetry_sample_sums": [],
+          "digits": {
+            "d1": {
+              "U2_real": 0.3891,
+              "U2_rand_mean": 0.37598,
+              "U2_rand_std": 0.00899,
+              "z_real_vs_rand": 1.46
+            },
+            "d2": {
+              "U2_real": 0.38912,
+              "U2_rand_mean": 0.37598,
+              "U2_rand_std": 0.00899,
+              "z_real_vs_rand": 1.46
+            },
+            "d3": {
+              "U2_real": 0.3938,
+              "U2_rand_mean": 0.37598,
+              "U2_rand_std": 0.00899,
+              "z_real_vs_rand": 1.98
+            }
+          }
+        },
+        "asym_even_lsd": {
+          "L": 99,
+          "dropped": 99,
+          "Cn": 889896298,
+          "antisymmetry_single_valued": false,
+          "antisymmetry_num_distinct_sums": 0,
+          "antisymmetry_num_pairs": 0,
+          "antisymmetry_sample_sums": [],
+          "digits": {
+            "d1": {
+              "U2_real": 0.36818,
+              "U2_rand_mean": 0.37598,
+              "U2_rand_std": 0.00899,
+              "z_real_vs_rand": -0.87
+            },
+            "d2": {
+              "U2_real": 0.36285,
+              "U2_rand_mean": 0.37598,
+              "U2_rand_std": 0.00899,
+              "z_real_vs_rand": -1.46
+            },
+            "d3": {
+              "U2_real": 0.3786,
+              "U2_rand_mean": 0.37598,
+              "U2_rand_std": 0.00899,
+              "z_real_vs_rand": 0.29
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 823,
+      "expected_n": 829,
+      "n": 829,
+      "sections": {
+        "standard": {
+          "L": 828,
+          "dropped": 0,
+          "Cn": 267658338064,
+          "antisymmetry_single_valued": true,
+          "antisymmetry_num_distinct_sums": 1,
+          "antisymmetry_num_pairs": 414,
+          "antisymmetry_sample_sums": [
+            267658338064,
+            267658338064,
+            267658338064,
+            267658338064,
+            267658338064,
+            267658338064,
+            267658338064,
+            267658338064
+          ],
+          "digits": {
+            "d1": {
+              "U2_real": 0.24513,
+              "U2_rand_mean": 0.22189,
+              "U2_rand_std": 0.00197,
+              "z_real_vs_rand": 11.82
+            },
+            "d2": {
+              "U2_real": 0.24187,
+              "U2_rand_mean": 0.22189,
+              "U2_rand_std": 0.00197,
+              "z_real_vs_rand": 10.16
+            },
+            "d3": {
+              "U2_real": 0.24736,
+              "U2_rand_mean": 0.22189,
+              "U2_rand_std": 0.00197,
+              "z_real_vs_rand": 12.95
+            }
+          }
+        },
+        "asym_smaller_rep": {
+          "L": 414,
+          "dropped": 414,
+          "Cn": 191116236177,
+          "antisymmetry_single_valued": false,
+          "antisymmetry_num_distinct_sums": 0,
+          "antisymmetry_num_pairs": 0,
+          "antisymmetry_sample_sums": [],
+          "digits": {
+            "d1": {
+              "U2_real": 0.26535,
+              "U2_rand_mean": 0.26362,
+              "U2_rand_std": 0.00308,
+              "z_real_vs_rand": 0.56
+            },
+            "d2": {
+              "U2_real": 0.26283,
+              "U2_rand_mean": 0.26362,
+              "U2_rand_std": 0.00308,
+              "z_real_vs_rand": -0.26
+            },
+            "d3": {
+              "U2_real": 0.26296,
+              "U2_rand_mean": 0.26362,
+              "U2_rand_std": 0.00308,
+              "z_real_vs_rand": -0.22
+            }
+          }
+        },
+        "asym_even_lsd": {
+          "L": 414,
+          "dropped": 414,
+          "Cn": 191116236177,
+          "antisymmetry_single_valued": false,
+          "antisymmetry_num_distinct_sums": 0,
+          "antisymmetry_num_pairs": 0,
+          "antisymmetry_sample_sums": [],
+          "digits": {
+            "d1": {
+              "U2_real": 0.26491,
+              "U2_rand_mean": 0.26362,
+              "U2_rand_std": 0.00308,
+              "z_real_vs_rand": 0.42
+            },
+            "d2": {
+              "U2_real": 0.25958,
+              "U2_rand_mean": 0.26362,
+              "U2_rand_std": 0.00308,
+              "z_real_vs_rand": -1.31
+            },
+            "d3": {
+              "U2_real": 0.2629,
+              "U2_rand_mean": 0.26362,
+              "U2_rand_std": 0.00308,
+              "z_real_vs_rand": -0.23
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 10477,
+      "expected_n": 10639,
+      "n": 10639,
+      "sections": {
+        "standard": {
+          "L": 10638,
+          "dropped": 0,
+          "Cn": 1632407088162203,
+          "antisymmetry_single_valued": true,
+          "antisymmetry_num_distinct_sums": 1,
+          "antisymmetry_num_pairs": 5319,
+          "antisymmetry_sample_sums": [
+            1632407088162203,
+            1632407088162203,
+            1632407088162203,
+            1632407088162203,
+            1632407088162203,
+            1632407088162203,
+            1632407088162203,
+            1632407088162203
+          ],
+          "digits": {
+            "d1": {
+              "U2_real": 0.12996,
+              "U2_rand_mean": 0.11709,
+              "U2_rand_std": 0.00028,
+              "z_real_vs_rand": 45.88
+            },
+            "d2": {
+              "U2_real": 0.12888,
+              "U2_rand_mean": 0.11709,
+              "U2_rand_std": 0.00028,
+              "z_real_vs_rand": 42.04
+            },
+            "d3": {
+              "U2_real": 0.12866,
+              "U2_rand_mean": 0.11709,
+              "U2_rand_std": 0.00028,
+              "z_real_vs_rand": 41.23
+            }
+          }
+        },
+        "asym_smaller_rep": {
+          "L": 5319,
+          "dropped": 5319,
+          "Cn": 1632407088162203,
+          "antisymmetry_single_valued": false,
+          "antisymmetry_num_distinct_sums": 0,
+          "antisymmetry_num_pairs": 0,
+          "antisymmetry_sample_sums": [],
+          "digits": {
+            "d1": {
+              "U2_real": 0.13991,
+              "U2_rand_mean": 0.13929,
+              "U2_rand_std": 0.0005,
+              "z_real_vs_rand": 1.25
+            },
+            "d2": {
+              "U2_real": 0.14051,
+              "U2_rand_mean": 0.13929,
+              "U2_rand_std": 0.0005,
+              "z_real_vs_rand": 2.45
+            },
+            "d3": {
+              "U2_real": 0.1384,
+              "U2_rand_mean": 0.13929,
+              "U2_rand_std": 0.0005,
+              "z_real_vs_rand": -1.8
+            }
+          }
+        },
+        "asym_even_lsd": {
+          "L": 5319,
+          "dropped": 5319,
+          "Cn": 10416503334603638,
+          "antisymmetry_single_valued": false,
+          "antisymmetry_num_distinct_sums": 0,
+          "antisymmetry_num_pairs": 0,
+          "antisymmetry_sample_sums": [],
+          "digits": {
+            "d1": {
+              "U2_real": 0.13933,
+              "U2_rand_mean": 0.13929,
+              "U2_rand_std": 0.0005,
+              "z_real_vs_rand": 0.08
+            },
+            "d2": {
+              "U2_real": 0.13921,
+              "U2_rand_mean": 0.13929,
+              "U2_rand_std": 0.0005,
+              "z_real_vs_rand": -0.17
+            },
+            "d3": {
+              "U2_real": 0.13892,
+              "U2_rand_mean": 0.13929,
+              "U2_rand_std": 0.0005,
+              "z_real_vs_rand": -0.76
+            }
+          }
+        }
+      }
+    }
+  ],
+  "elapsed_s": 35.2
+}

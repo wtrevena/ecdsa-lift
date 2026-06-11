@@ -1,0 +1,244 @@
+{
+  "phase": 53,
+  "seed": 20260609,
+  "draws": 300,
+  "digits": [
+    1,
+    2,
+    3
+  ],
+  "MDE_z_two_sided_0.05_power0.80": 2.8016,
+  "method": "half = first L/2 of the real sequence; increment-shuffle null RECOMPUTED at half length; target_z_half = z(real_full vs inc_full)/sqrt(2) is the H3 size a length-extensive signal would still show on the half.",
+  "curves": [
+    {
+      "p": 67,
+      "n": 79,
+      "L": 78,
+      "L_half": 39,
+      "digits": {
+        "d1": {
+          "z_full_real_vs_inc": 3.46,
+          "z_half_obs": -0.6,
+          "target_z_half_if_intrinsic": 2.45,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": false,
+          "intrinsic_H3_excluded": false
+        },
+        "d2": {
+          "z_full_real_vs_inc": 6.58,
+          "z_half_obs": -0.24,
+          "target_z_half_if_intrinsic": 4.66,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d3": {
+          "z_full_real_vs_inc": 4.42,
+          "z_half_obs": 1.49,
+          "target_z_half_if_intrinsic": 3.13,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": false
+        }
+      }
+    },
+    {
+      "p": 163,
+      "n": 139,
+      "L": 138,
+      "L_half": 69,
+      "digits": {
+        "d1": {
+          "z_full_real_vs_inc": 5.75,
+          "z_half_obs": 1.04,
+          "target_z_half_if_intrinsic": 4.07,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d2": {
+          "z_full_real_vs_inc": 7.82,
+          "z_half_obs": 0.14,
+          "target_z_half_if_intrinsic": 5.53,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d3": {
+          "z_full_real_vs_inc": 3.63,
+          "z_half_obs": -0.45,
+          "target_z_half_if_intrinsic": 2.57,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": false,
+          "intrinsic_H3_excluded": false
+        }
+      }
+    },
+    {
+      "p": 211,
+      "n": 199,
+      "L": 198,
+      "L_half": 99,
+      "digits": {
+        "d1": {
+          "z_full_real_vs_inc": 6.4,
+          "z_half_obs": 0.36,
+          "target_z_half_if_intrinsic": 4.52,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d2": {
+          "z_full_real_vs_inc": 5.57,
+          "z_half_obs": -0.74,
+          "target_z_half_if_intrinsic": 3.94,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d3": {
+          "z_full_real_vs_inc": 7.9,
+          "z_half_obs": -0.27,
+          "target_z_half_if_intrinsic": 5.59,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        }
+      }
+    },
+    {
+      "p": 349,
+      "n": 313,
+      "L": 312,
+      "L_half": 156,
+      "digits": {
+        "d1": {
+          "z_full_real_vs_inc": 7.03,
+          "z_half_obs": 0.05,
+          "target_z_half_if_intrinsic": 4.97,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d2": {
+          "z_full_real_vs_inc": 6.16,
+          "z_half_obs": -1.23,
+          "target_z_half_if_intrinsic": 4.36,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d3": {
+          "z_full_real_vs_inc": 5.2,
+          "z_half_obs": -0.48,
+          "target_z_half_if_intrinsic": 3.68,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        }
+      }
+    },
+    {
+      "p": 433,
+      "n": 397,
+      "L": 396,
+      "L_half": 198,
+      "digits": {
+        "d1": {
+          "z_full_real_vs_inc": 9.5,
+          "z_half_obs": -0.27,
+          "target_z_half_if_intrinsic": 6.71,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d2": {
+          "z_full_real_vs_inc": 8.34,
+          "z_half_obs": 0.43,
+          "target_z_half_if_intrinsic": 5.9,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d3": {
+          "z_full_real_vs_inc": 8.18,
+          "z_half_obs": -0.03,
+          "target_z_half_if_intrinsic": 5.79,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        }
+      }
+    },
+    {
+      "p": 577,
+      "n": 613,
+      "L": 612,
+      "L_half": 306,
+      "digits": {
+        "d1": {
+          "z_full_real_vs_inc": 8.82,
+          "z_half_obs": -0.47,
+          "target_z_half_if_intrinsic": 6.24,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d2": {
+          "z_full_real_vs_inc": 12.31,
+          "z_half_obs": 1.08,
+          "target_z_half_if_intrinsic": 8.71,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d3": {
+          "z_full_real_vs_inc": 10.3,
+          "z_half_obs": 0.15,
+          "target_z_half_if_intrinsic": 7.28,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        }
+      }
+    },
+    {
+      "p": 823,
+      "n": 829,
+      "L": 828,
+      "L_half": 414,
+      "digits": {
+        "d1": {
+          "z_full_real_vs_inc": 12.21,
+          "z_half_obs": -0.73,
+          "target_z_half_if_intrinsic": 8.63,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d2": {
+          "z_full_real_vs_inc": 10.82,
+          "z_half_obs": -0.85,
+          "target_z_half_if_intrinsic": 7.65,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        },
+        "d3": {
+          "z_full_real_vs_inc": 12.66,
+          "z_half_obs": 0.11,
+          "target_z_half_if_intrinsic": 8.95,
+          "MDE_z": 2.8,
+          "powered_to_detect_target": true,
+          "intrinsic_H3_excluded": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "cells": 21,
+    "n_powered_to_detect_intrinsic_H3": 19,
+    "n_intrinsic_H3_excluded": 18,
+    "interpretation": "where target_z_half > MDE (~2.80) we HAVE power to see a length-extensive H3 of the full-length size on the half; the observed half z sits far below target, so the collapse is NOT mere power loss -- an intrinsic H3 of that magnitude is excluded. Curves where target_z_half < MDE are genuinely underpowered (small L) and stay agnostic."
+  }
+}

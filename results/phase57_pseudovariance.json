@@ -1,0 +1,106 @@
+{
+  "phase": 57,
+  "seed": 20260609,
+  "symbolic_fourth_moment": {
+    "E_Z4": "3*a**2 + 2*a*b + 3*b**2 + 4*c**2",
+    "2sigma4_plus_rho2": "3*a**2 + 2*a*b + 3*b**2 + 4*c**2",
+    "difference": "0",
+    "identity_holds": true
+  },
+  "catalogue": [
+    {
+      "kind": "C0_none",
+      "L": 400,
+      "ratio_rho_over_sigma2": 0.0239,
+      "inflation_from_rho": 1.0004,
+      "inflation_from_mass": 0.9998,
+      "inflation_theory": 1.0
+    },
+    {
+      "kind": "C1_reflection",
+      "L": 400,
+      "ratio_rho_over_sigma2": 1.0,
+      "inflation_from_rho": 1.5,
+      "inflation_from_mass": 1.4984,
+      "inflation_theory": 1.5
+    },
+    {
+      "kind": "C1p_reflection_phase",
+      "L": 400,
+      "ratio_rho_over_sigma2": 0.0267,
+      "inflation_from_rho": 1.0004,
+      "inflation_from_mass": 1.4956,
+      "inflation_theory": 1.5
+    },
+    {
+      "kind": "C3_real",
+      "L": 400,
+      "ratio_rho_over_sigma2": 1.0,
+      "inflation_from_rho": 1.5,
+      "inflation_from_mass": 1.4991,
+      "inflation_theory": 1.5
+    },
+    {
+      "kind": "C2_shift",
+      "L": 400,
+      "ratio_rho_over_sigma2": 0.0223,
+      "inflation_from_rho": 1.0003,
+      "inflation_from_mass": 1.0006,
+      "inflation_theory": 1.0
+    },
+    {
+      "kind": "C4_partial",
+      "L": 400,
+      "ratio_rho_over_sigma2": 1.0,
+      "inflation_from_rho": 1.5,
+      "inflation_from_mass": 1.4939,
+      "q": 0.0,
+      "inflation_theory": 1.5
+    },
+    {
+      "kind": "C4_partial",
+      "L": 400,
+      "ratio_rho_over_sigma2": 0.7507,
+      "inflation_from_rho": 1.2819,
+      "inflation_from_mass": 1.279,
+      "q": 0.25,
+      "inflation_theory": 1.2812
+    },
+    {
+      "kind": "C4_partial",
+      "L": 400,
+      "ratio_rho_over_sigma2": 0.4997,
+      "inflation_from_rho": 1.125,
+      "inflation_from_mass": 1.1227,
+      "q": 0.5,
+      "inflation_theory": 1.125
+    },
+    {
+      "kind": "C4_partial",
+      "L": 400,
+      "ratio_rho_over_sigma2": 0.2512,
+      "inflation_from_rho": 1.0317,
+      "inflation_from_mass": 1.0321,
+      "q": 0.75,
+      "inflation_theory": 1.0312
+    },
+    {
+      "kind": "C4_partial",
+      "L": 400,
+      "ratio_rho_over_sigma2": 0.0219,
+      "inflation_from_rho": 1.0003,
+      "inflation_from_mass": 0.9984,
+      "q": 1.0,
+      "inflation_theory": 1.0
+    },
+    {
+      "kind": "C5_block",
+      "L": 400,
+      "ratio_rho_over_sigma2": 0.5009,
+      "inflation_from_rho": 1.1256,
+      "inflation_from_mass": 1.1262,
+      "frac": 0.5,
+      "inflation_theory": 1.125
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "phase": 54,
+  "seed": 20260609,
+  "L": 612,
+  "p_alphabet": 10007,
+  "n_surrogates": 400,
+  "battery_size": 10,
+  "battery_stats": [
+    "fft_peak",
+    "u2_mass",
+    "acf1",
+    "acf2",
+    "acf3",
+    "acf5",
+    "acf7",
+    "acf11",
+    "phase_chi2",
+    "resultant"
+  ],
+  "assumed_effective_tests": {
+    "phases": 47,
+    "digits": 3,
+    "curves": 8,
+    "encodings": "~5",
+    "product_used_in_table": "47*3*8 and 47*3*8*5",
+    "rationale": "phase index runs to ~51; each phase probes 3 digits x ~8 clean curves, often x several encodings/coordinate systems. Effective independent-ish probes ~ 10^3."
+  },
+  "extreme_value_table": [
+    {
+      "N_tests": 10,
+      "E[max z] ~ sqrt(2lnN)": 2.15,
+      "E[max z] (corrected)": 1.36,
+      "z*_95 (two-sided Bonferroni)": 2.81,
+      "P(any |z|>5)": 2.87e-06
+    },
+    {
+      "N_tests": 50,
+      "E[max z] ~ sqrt(2lnN)": 2.8,
+      "E[max z] (corrected)": 2.1,
+      "z*_95 (two-sided Bonferroni)": 3.29,
+      "P(any |z|>5)": 1.43e-05
+    },
+    {
+      "N_tests": 200,
+      "E[max z] ~ sqrt(2lnN)": 3.26,
+      "E[max z] (corrected)": 2.61,
+      "z*_95 (two-sided Bonferroni)": 3.66,
+      "P(any |z|>5)": 5.73e-05
+    },
+    {
+      "N_tests": 1000,
+      "E[max z] ~ sqrt(2lnN)": 3.72,
+      "E[max z] (corrected)": 3.12,
+      "z*_95 (two-sided Bonferroni)": 4.06,
+      "P(any |z|>5)": 0.000287
+    },
+    {
+      "N_tests": 5000,
+      "E[max z] ~ sqrt(2lnN)": 4.13,
+      "E[max z] (corrected)": 3.56,
+      "z*_95 (two-sided Bonferroni)": 4.42,
+      "P(any |z|>5)": 0.00143
+    },
+    {
+      "N_tests": 1128,
+      "E[max z] ~ sqrt(2lnN)": 3.75,
+      "E[max z] (corrected)": 3.15,
+      "z*_95 (two-sided Bonferroni)": 4.08,
+      "P(any |z|>5)": 0.000323
+    },
+    {
+      "N_tests": 5640,
+      "E[max z] ~ sqrt(2lnN)": 4.16,
+      "E[max z] (corrected)": 3.59,
+      "z*_95 (two-sided Bonferroni)": 4.44,
+      "P(any |z|>5)": 0.00162
+    }
+  ],
+  "empirical_battery": {
+    "cells_total": 4000,
+    "battery_per_surrogate": 10,
+    "max_z_within_one_surrogate_mean": 1.87,
+    "max_z_within_one_surrogate_p95": 3.03,
+    "global_max_|z|_over_all_cells": 5.0,
+    "fraction_cells_|z|>3": 0.0057,
+    "n_cells_|z|>5": 0
+  },
+  "conclusion": "Under ~10^3 independent-ish probes the expected max |z| is ~3.3-3.7 and the 95% threshold to claim significance is ~4.0-4.4 sigma; a single ~5-sigma headline picked from such an exploration is expected by chance and is therefore CHEAP. Even a 14-statistic battery on pure-noise surrogates routinely throws |z|>3 cells."
+}

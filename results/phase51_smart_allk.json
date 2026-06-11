@@ -1,0 +1,285 @@
+{
+  "label": "implementation_validation",
+  "curve": {
+    "p": 53,
+    "a": 4,
+    "b": 7,
+    "order": 53,
+    "anomalous": true
+  },
+  "G": [
+    0,
+    22
+  ],
+  "g_ord": 53,
+  "k_range": [
+    1,
+    52
+  ],
+  "num_secrets": 52,
+  "success_count": 52,
+  "success_rate": 1.0,
+  "failures": [],
+  "all_results": [
+    {
+      "k": 1,
+      "recovered": 1,
+      "ok": true
+    },
+    {
+      "k": 2,
+      "recovered": 2,
+      "ok": true
+    },
+    {
+      "k": 3,
+      "recovered": 3,
+      "ok": true
+    },
+    {
+      "k": 4,
+      "recovered": 4,
+      "ok": true
+    },
+    {
+      "k": 5,
+      "recovered": 5,
+      "ok": true
+    },
+    {
+      "k": 6,
+      "recovered": 6,
+      "ok": true
+    },
+    {
+      "k": 7,
+      "recovered": 7,
+      "ok": true
+    },
+    {
+      "k": 8,
+      "recovered": 8,
+      "ok": true
+    },
+    {
+      "k": 9,
+      "recovered": 9,
+      "ok": true
+    },
+    {
+      "k": 10,
+      "recovered": 10,
+      "ok": true
+    },
+    {
+      "k": 11,
+      "recovered": 11,
+      "ok": true
+    },
+    {
+      "k": 12,
+      "recovered": 12,
+      "ok": true
+    },
+    {
+      "k": 13,
+      "recovered": 13,
+      "ok": true
+    },
+    {
+      "k": 14,
+      "recovered": 14,
+      "ok": true
+    },
+    {
+      "k": 15,
+      "recovered": 15,
+      "ok": true
+    },
+    {
+      "k": 16,
+      "recovered": 16,
+      "ok": true
+    },
+    {
+      "k": 17,
+      "recovered": 17,
+      "ok": true
+    },
+    {
+      "k": 18,
+      "recovered": 18,
+      "ok": true
+    },
+    {
+      "k": 19,
+      "recovered": 19,
+      "ok": true
+    },
+    {
+      "k": 20,
+      "recovered": 20,
+      "ok": true
+    },
+    {
+      "k": 21,
+      "recovered": 21,
+      "ok": true
+    },
+    {
+      "k": 22,
+      "recovered": 22,
+      "ok": true
+    },
+    {
+      "k": 23,
+      "recovered": 23,
+      "ok": true
+    },
+    {
+      "k": 24,
+      "recovered": 24,
+      "ok": true
+    },
+    {
+      "k": 25,
+      "recovered": 25,
+      "ok": true
+    },
+    {
+      "k": 26,
+      "recovered": 26,
+      "ok": true
+    },
+    {
+      "k": 27,
+      "recovered": 27,
+      "ok": true
+    },
+    {
+      "k": 28,
+      "recovered": 28,
+      "ok": true
+    },
+    {
+      "k": 29,
+      "recovered": 29,
+      "ok": true
+    },
+    {
+      "k": 30,
+      "recovered": 30,
+      "ok": true
+    },
+    {
+      "k": 31,
+      "recovered": 31,
+      "ok": true
+    },
+    {
+      "k": 32,
+      "recovered": 32,
+      "ok": true
+    },
+    {
+      "k": 33,
+      "recovered": 33,
+      "ok": true
+    },
+    {
+      "k": 34,
+      "recovered": 34,
+      "ok": true
+    },
+    {
+      "k": 35,
+      "recovered": 35,
+      "ok": true
+    },
+    {
+      "k": 36,
+      "recovered": 36,
+      "ok": true
+    },
+    {
+      "k": 37,
+      "recovered": 37,
+      "ok": true
+    },
+    {
+      "k": 38,
+      "recovered": 38,
+      "ok": true
+    },
+    {
+      "k": 39,
+      "recovered": 39,
+      "ok": true
+    },
+    {
+      "k": 40,
+      "recovered": 40,
+      "ok": true
+    },
+    {
+      "k": 41,
+      "recovered": 41,
+      "ok": true
+    },
+    {
+      "k": 42,
+      "recovered": 42,
+      "ok": true
+    },
+    {
+      "k": 43,
+      "recovered": 43,
+      "ok": true
+    },
+    {
+      "k": 44,
+      "recovered": 44,
+      "ok": true
+    },
+    {
+      "k": 45,
+      "recovered": 45,
+      "ok": true
+    },
+    {
+      "k": 46,
+      "recovered": 46,
+      "ok": true
+    },
+    {
+      "k": 47,
+      "recovered": 47,
+      "ok": true
+    },
+    {
+      "k": 48,
+      "recovered": 48,
+      "ok": true
+    },
+    {
+      "k": 49,
+      "recovered": 49,
+      "ok": true
+    },
+    {
+      "k": 50,
+      "recovered": 50,
+      "ok": true
+    },
+    {
+      "k": 51,
+      "recovered": 51,
+      "ok": true
+    },
+    {
+      "k": 52,
+      "recovered": 52,
+      "ok": true
+    }
+  ]
+}

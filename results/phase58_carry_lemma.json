@@ -1,0 +1,480 @@
+{
+  "phase": 58,
+  "seed": 20260609,
+  "lemma": "E[U2^4] = (2+(1-q)^2)/L ; ratio (2+(1-q)^2)/2",
+  "curves": [
+    {
+      "p": 67,
+      "n": 79,
+      "L": 78,
+      "q": {
+        "d1": {
+          "n_pairs": 39,
+          "Cj_modal": 62,
+          "q_measured": 0.0,
+          "matched_frac_(1-q)": 1.0
+        },
+        "d2": {
+          "n_pairs": 39,
+          "Cj_modal": 26,
+          "q_measured": 0.0769,
+          "matched_frac_(1-q)": 0.9231
+        },
+        "d3": {
+          "n_pairs": 39,
+          "Cj_modal": 39,
+          "q_measured": 0.4103,
+          "matched_frac_(1-q)": 0.5897
+        }
+      },
+      "digits": {
+        "d1": {
+          "q_measured": 0.0,
+          "mass_real*L": 2.7685,
+          "pred_mass*L_(2+(1-q)^2)": 3.0,
+          "syn_mass*L_at_q": 2.9543,
+          "first_principles_q": 0.4925
+        },
+        "d2": {
+          "q_measured": 0.0769,
+          "mass_real*L": 3.5787,
+          "pred_mass*L_(2+(1-q)^2)": 2.8521,
+          "syn_mass*L_at_q": 2.8276,
+          "first_principles_q": 0.4925
+        },
+        "d3": {
+          "q_measured": 0.4103,
+          "mass_real*L": 3.2037,
+          "pred_mass*L_(2+(1-q)^2)": 2.3477,
+          "syn_mass*L_at_q": 2.3472,
+          "first_principles_q": 0.0
+        }
+      },
+      "fp": {
+        "d1": 0.4925,
+        "d2": 0.4925,
+        "d3": 0.0
+      }
+    },
+    {
+      "p": 163,
+      "n": 139,
+      "L": 138,
+      "q": {
+        "d1": {
+          "n_pairs": 69,
+          "Cj_modal": 22,
+          "q_measured": 0.0,
+          "matched_frac_(1-q)": 1.0
+        },
+        "d2": {
+          "n_pairs": 69,
+          "Cj_modal": 123,
+          "q_measured": 0.1594,
+          "matched_frac_(1-q)": 0.8406
+        },
+        "d3": {
+          "n_pairs": 69,
+          "Cj_modal": 77,
+          "q_measured": 0.1304,
+          "matched_frac_(1-q)": 0.8696
+        }
+      },
+      "digits": {
+        "d1": {
+          "q_measured": 0.0,
+          "mass_real*L": 3.3184,
+          "pred_mass*L_(2+(1-q)^2)": 3.0,
+          "syn_mass*L_at_q": 2.9936,
+          "first_principles_q": 0.4969
+        },
+        "d2": {
+          "q_measured": 0.1594,
+          "mass_real*L": 3.6163,
+          "pred_mass*L_(2+(1-q)^2)": 2.7066,
+          "syn_mass*L_at_q": 2.6889,
+          "first_principles_q": 0.4969
+        },
+        "d3": {
+          "q_measured": 0.1304,
+          "mass_real*L": 2.6407,
+          "pred_mass*L_(2+(1-q)^2)": 2.7562,
+          "syn_mass*L_at_q": 2.7366,
+          "first_principles_q": 0.0
+        }
+      },
+      "fp": {
+        "d1": 0.4969,
+        "d2": 0.4969,
+        "d3": 0.0
+      }
+    },
+    {
+      "p": 211,
+      "n": 199,
+      "L": 198,
+      "q": {
+        "d1": {
+          "n_pairs": 99,
+          "Cj_modal": 161,
+          "q_measured": 0.0,
+          "matched_frac_(1-q)": 1.0
+        },
+        "d2": {
+          "n_pairs": 99,
+          "Cj_modal": 56,
+          "q_measured": 0.2727,
+          "matched_frac_(1-q)": 0.7273
+        },
+        "d3": {
+          "n_pairs": 99,
+          "Cj_modal": 115,
+          "q_measured": 0.3636,
+          "matched_frac_(1-q)": 0.6364
+        }
+      },
+      "digits": {
+        "d1": {
+          "q_measured": 0.0,
+          "mass_real*L": 3.0817,
+          "pred_mass*L_(2+(1-q)^2)": 3.0,
+          "syn_mass*L_at_q": 2.979,
+          "first_principles_q": 0.4976
+        },
+        "d2": {
+          "q_measured": 0.2727,
+          "mass_real*L": 2.8741,
+          "pred_mass*L_(2+(1-q)^2)": 2.529,
+          "syn_mass*L_at_q": 2.5207,
+          "first_principles_q": 0.4976
+        },
+        "d3": {
+          "q_measured": 0.3636,
+          "mass_real*L": 3.258,
+          "pred_mass*L_(2+(1-q)^2)": 2.405,
+          "syn_mass*L_at_q": 2.3855,
+          "first_principles_q": 0.0
+        }
+      },
+      "fp": {
+        "d1": 0.4976,
+        "d2": 0.4976,
+        "d3": 0.0
+      }
+    },
+    {
+      "p": 349,
+      "n": 313,
+      "L": 312,
+      "q": {
+        "d1": {
+          "n_pairs": 156,
+          "Cj_modal": 268,
+          "q_measured": 0.0,
+          "matched_frac_(1-q)": 1.0
+        },
+        "d2": {
+          "n_pairs": 156,
+          "Cj_modal": 302,
+          "q_measured": 0.2115,
+          "matched_frac_(1-q)": 0.7885
+        },
+        "d3": {
+          "n_pairs": 156,
+          "Cj_modal": 157,
+          "q_measured": 0.2115,
+          "matched_frac_(1-q)": 0.7885
+        }
+      },
+      "digits": {
+        "d1": {
+          "q_measured": 0.0,
+          "mass_real*L": 2.886,
+          "pred_mass*L_(2+(1-q)^2)": 3.0,
+          "syn_mass*L_at_q": 2.982,
+          "first_principles_q": 0.4986
+        },
+        "d2": {
+          "q_measured": 0.2115,
+          "mass_real*L": 2.7531,
+          "pred_mass*L_(2+(1-q)^2)": 2.6217,
+          "syn_mass*L_at_q": 2.6101,
+          "first_principles_q": 0.4986
+        },
+        "d3": {
+          "q_measured": 0.2115,
+          "mass_real*L": 2.6372,
+          "pred_mass*L_(2+(1-q)^2)": 2.6217,
+          "syn_mass*L_at_q": 2.6108,
+          "first_principles_q": 0.0
+        }
+      },
+      "fp": {
+        "d1": 0.4986,
+        "d2": 0.4986,
+        "d3": 0.0
+      }
+    },
+    {
+      "p": 433,
+      "n": 397,
+      "L": 396,
+      "q": {
+        "d1": {
+          "n_pairs": 198,
+          "Cj_modal": 353,
+          "q_measured": 0.0,
+          "matched_frac_(1-q)": 1.0
+        },
+        "d2": {
+          "n_pairs": 198,
+          "Cj_modal": 0,
+          "q_measured": 0.1919,
+          "matched_frac_(1-q)": 0.8081
+        },
+        "d3": {
+          "n_pairs": 198,
+          "Cj_modal": 73,
+          "q_measured": 0.0051,
+          "matched_frac_(1-q)": 0.9949
+        }
+      },
+      "digits": {
+        "d1": {
+          "q_measured": 0.0,
+          "mass_real*L": 3.1469,
+          "pred_mass*L_(2+(1-q)^2)": 3.0,
+          "syn_mass*L_at_q": 2.9917,
+          "first_principles_q": 0.4988
+        },
+        "d2": {
+          "q_measured": 0.1919,
+          "mass_real*L": 2.9556,
+          "pred_mass*L_(2+(1-q)^2)": 2.653,
+          "syn_mass*L_at_q": 2.6384,
+          "first_principles_q": 0.4988
+        },
+        "d3": {
+          "q_measured": 0.0051,
+          "mass_real*L": 2.9674,
+          "pred_mass*L_(2+(1-q)^2)": 2.9898,
+          "syn_mass*L_at_q": 2.9839,
+          "first_principles_q": 0.0
+        }
+      },
+      "fp": {
+        "d1": 0.4988,
+        "d2": 0.4988,
+        "d3": 0.0
+      }
+    },
+    {
+      "p": 577,
+      "n": 613,
+      "L": 612,
+      "q": {
+        "d1": {
+          "n_pairs": 306,
+          "Cj_modal": 514,
+          "q_measured": 0.0,
+          "matched_frac_(1-q)": 1.0
+        },
+        "d2": {
+          "n_pairs": 306,
+          "Cj_modal": 187,
+          "q_measured": 0.0915,
+          "matched_frac_(1-q)": 0.9085
+        },
+        "d3": {
+          "n_pairs": 306,
+          "Cj_modal": 483,
+          "q_measured": 0.3007,
+          "matched_frac_(1-q)": 0.6993
+        }
+      },
+      "digits": {
+        "d1": {
+          "q_measured": 0.0,
+          "mass_real*L": 2.7446,
+          "pred_mass*L_(2+(1-q)^2)": 3.0,
+          "syn_mass*L_at_q": 2.9999,
+          "first_principles_q": 0.4991
+        },
+        "d2": {
+          "q_measured": 0.0915,
+          "mass_real*L": 3.1248,
+          "pred_mass*L_(2+(1-q)^2)": 2.8254,
+          "syn_mass*L_at_q": 2.8274,
+          "first_principles_q": 0.4991
+        },
+        "d3": {
+          "q_measured": 0.3007,
+          "mass_real*L": 2.9779,
+          "pred_mass*L_(2+(1-q)^2)": 2.489,
+          "syn_mass*L_at_q": 2.4925,
+          "first_principles_q": 0.0
+        }
+      },
+      "fp": {
+        "d1": 0.4991,
+        "d2": 0.4991,
+        "d3": 0.0
+      }
+    },
+    {
+      "p": 823,
+      "n": 829,
+      "L": 828,
+      "q": {
+        "d1": {
+          "n_pairs": 414,
+          "Cj_modal": 327,
+          "q_measured": 0.0,
+          "matched_frac_(1-q)": 1.0
+        },
+        "d2": {
+          "n_pairs": 414,
+          "Cj_modal": 126,
+          "q_measured": 0.4203,
+          "matched_frac_(1-q)": 0.5797
+        },
+        "d3": {
+          "n_pairs": 414,
+          "Cj_modal": 479,
+          "q_measured": 0.1932,
+          "matched_frac_(1-q)": 0.8068
+        }
+      },
+      "digits": {
+        "d1": {
+          "q_measured": 0.0,
+          "mass_real*L": 2.9897,
+          "pred_mass*L_(2+(1-q)^2)": 3.0,
+          "syn_mass*L_at_q": 2.9969,
+          "first_principles_q": 0.4994
+        },
+        "d2": {
+          "q_measured": 0.4203,
+          "mass_real*L": 2.8337,
+          "pred_mass*L_(2+(1-q)^2)": 2.3361,
+          "syn_mass*L_at_q": 2.3351,
+          "first_principles_q": 0.4994
+        },
+        "d3": {
+          "q_measured": 0.1932,
+          "mass_real*L": 3.0998,
+          "pred_mass*L_(2+(1-q)^2)": 2.6509,
+          "syn_mass*L_at_q": 2.6454,
+          "first_principles_q": 0.0
+        }
+      },
+      "fp": {
+        "d1": 0.4994,
+        "d2": 0.4994,
+        "d3": 0.0
+      }
+    }
+  ],
+  "synthetic_law": [
+    {
+      "q": 0.0,
+      "E[M]*L_mc": 2.9907,
+      "predicted_2+(1-q)^2": 3.0,
+      "ratio_mc": 1.4953,
+      "ratio_pred": 1.5
+    },
+    {
+      "q": 0.2,
+      "E[M]*L_mc": 2.6326,
+      "predicted_2+(1-q)^2": 2.64,
+      "ratio_mc": 1.3163,
+      "ratio_pred": 1.32
+    },
+    {
+      "q": 0.4,
+      "E[M]*L_mc": 2.3522,
+      "predicted_2+(1-q)^2": 2.36,
+      "ratio_mc": 1.1761,
+      "ratio_pred": 1.18
+    },
+    {
+      "q": 0.6,
+      "E[M]*L_mc": 2.1557,
+      "predicted_2+(1-q)^2": 2.16,
+      "ratio_mc": 1.0779,
+      "ratio_pred": 1.08
+    },
+    {
+      "q": 0.8,
+      "E[M]*L_mc": 2.0396,
+      "predicted_2+(1-q)^2": 2.04,
+      "ratio_mc": 1.0198,
+      "ratio_pred": 1.02
+    },
+    {
+      "q": 1.0,
+      "E[M]*L_mc": 1.9977,
+      "predicted_2+(1-q)^2": 2.0,
+      "ratio_mc": 0.9988,
+      "ratio_pred": 1.0
+    }
+  ],
+  "first_principles": [],
+  "resolvability": {
+    "note": "per-realization std of M*L decays ~L^{-1/2} while carry gap (q=0->0.2) is fixed ~0.36; so single-curve detectability gap/std ~ sqrt(L): invisible at L=78 (0.7), ~2sigma at L=828, ~4sigma at L=3000. Carries are RESOLVABLE on one curve for L>~800, decisively by L~3000.",
+    "table": [
+      {
+        "L": 78,
+        "mean_M*L_q0": 2.949,
+        "std_single_q0": 0.481,
+        "mean_M*L_q0.2": 2.617,
+        "carry_gap": 0.332,
+        "gap_over_std": 0.69
+      },
+      {
+        "L": 300,
+        "mean_M*L_q0": 2.948,
+        "std_single_q0": 0.252,
+        "mean_M*L_q0.2": 2.64,
+        "carry_gap": 0.308,
+        "gap_over_std": 1.22
+      },
+      {
+        "L": 828,
+        "mean_M*L_q0": 2.999,
+        "std_single_q0": 0.175,
+        "mean_M*L_q0.2": 2.642,
+        "carry_gap": 0.357,
+        "gap_over_std": 2.03
+      },
+      {
+        "L": 3000,
+        "mean_M*L_q0": 3.005,
+        "std_single_q0": 0.087,
+        "mean_M*L_q0.2": 2.644,
+        "carry_gap": 0.361,
+        "gap_over_std": 4.15
+      }
+    ]
+  },
+  "q_summary": {
+    "d1": {
+      "q_mean": 0.0,
+      "q_min": 0.0,
+      "q_max": 0.0,
+      "pred_U2_ratio": 1.5
+    },
+    "d2": {
+      "q_mean": 0.203,
+      "q_min": 0.0769,
+      "q_max": 0.4203,
+      "pred_U2_ratio": 1.317
+    },
+    "d3": {
+      "q_mean": 0.231,
+      "q_min": 0.0051,
+      "q_max": 0.4103,
+      "pred_U2_ratio": 1.296
+    }
+  }
+}

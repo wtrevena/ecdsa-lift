@@ -1,0 +1,322 @@
+{
+  "phase": 52,
+  "seed": 20260609,
+  "syn_draws": 300,
+  "rand_draws": 300,
+  "digits": [
+    1,
+    2,
+    3
+  ],
+  "z95_one_sided": 1.6448536269514722,
+  "method": "Delta_excl=(max(0,z_obs)+1.645)*sd_syn is the 95% upper confidence limit on residual U2 beyond the reflection baseline; reported as a fraction of the elevation E=U2_real-mu_rand.",
+  "curves": [
+    {
+      "p": 67,
+      "n": 79,
+      "L": 78,
+      "digits": {
+        "d1": {
+          "U2_real": 0.43405,
+          "mu_syn": 0.44178,
+          "sd_syn": 0.01912,
+          "mu_rand": 0.39843,
+          "elevation_E": 0.03562,
+          "z_real_vs_syn": -0.4,
+          "z_real_vs_rand": 3.62,
+          "Delta_excl_95": 0.03145,
+          "resid_excluded_frac_of_elevation": 0.883,
+          "resid_excluded_pct": 88.3
+        },
+        "d2": {
+          "U2_real": 0.46281,
+          "mu_syn": 0.44106,
+          "sd_syn": 0.01891,
+          "mu_rand": 0.39843,
+          "elevation_E": 0.06439,
+          "z_real_vs_syn": 1.15,
+          "z_real_vs_rand": 6.54,
+          "Delta_excl_95": 0.05285,
+          "resid_excluded_frac_of_elevation": 0.821,
+          "resid_excluded_pct": 82.1
+        },
+        "d3": {
+          "U2_real": 0.45018,
+          "mu_syn": 0.44029,
+          "sd_syn": 0.01882,
+          "mu_rand": 0.39843,
+          "elevation_E": 0.05176,
+          "z_real_vs_syn": 0.53,
+          "z_real_vs_rand": 5.26,
+          "Delta_excl_95": 0.04085,
+          "resid_excluded_frac_of_elevation": 0.789,
+          "resid_excluded_pct": 78.9
+        }
+      }
+    },
+    {
+      "p": 163,
+      "n": 139,
+      "L": 138,
+      "digits": {
+        "d1": {
+          "U2_real": 0.39379,
+          "mu_syn": 0.3818,
+          "sd_syn": 0.01175,
+          "mu_rand": 0.34699,
+          "elevation_E": 0.04679,
+          "z_real_vs_syn": 1.02,
+          "z_real_vs_rand": 6.27,
+          "Delta_excl_95": 0.03132,
+          "resid_excluded_frac_of_elevation": 0.669,
+          "resid_excluded_pct": 66.9
+        },
+        "d2": {
+          "U2_real": 0.40234,
+          "mu_syn": 0.38282,
+          "sd_syn": 0.01204,
+          "mu_rand": 0.34699,
+          "elevation_E": 0.05535,
+          "z_real_vs_syn": 1.62,
+          "z_real_vs_rand": 7.41,
+          "Delta_excl_95": 0.03933,
+          "resid_excluded_frac_of_elevation": 0.711,
+          "resid_excluded_pct": 71.1
+        },
+        "d3": {
+          "U2_real": 0.37193,
+          "mu_syn": 0.38246,
+          "sd_syn": 0.01276,
+          "mu_rand": 0.34699,
+          "elevation_E": 0.02493,
+          "z_real_vs_syn": -0.83,
+          "z_real_vs_rand": 3.34,
+          "Delta_excl_95": 0.02099,
+          "resid_excluded_frac_of_elevation": 0.842,
+          "resid_excluded_pct": 84.2
+        }
+      }
+    },
+    {
+      "p": 211,
+      "n": 199,
+      "L": 198,
+      "digits": {
+        "d1": {
+          "U2_real": 0.35321,
+          "mu_syn": 0.35111,
+          "sd_syn": 0.01071,
+          "mu_rand": 0.31599,
+          "elevation_E": 0.03722,
+          "z_real_vs_syn": 0.2,
+          "z_real_vs_rand": 6.56,
+          "Delta_excl_95": 0.01972,
+          "resid_excluded_frac_of_elevation": 0.53,
+          "resid_excluded_pct": 53.0
+        },
+        "d2": {
+          "U2_real": 0.3471,
+          "mu_syn": 0.35008,
+          "sd_syn": 0.00983,
+          "mu_rand": 0.31599,
+          "elevation_E": 0.03112,
+          "z_real_vs_syn": -0.3,
+          "z_real_vs_rand": 5.48,
+          "Delta_excl_95": 0.01618,
+          "resid_excluded_frac_of_elevation": 0.52,
+          "resid_excluded_pct": 52.0
+        },
+        "d3": {
+          "U2_real": 0.35816,
+          "mu_syn": 0.34904,
+          "sd_syn": 0.00933,
+          "mu_rand": 0.31599,
+          "elevation_E": 0.04217,
+          "z_real_vs_syn": 0.98,
+          "z_real_vs_rand": 7.43,
+          "Delta_excl_95": 0.02446,
+          "resid_excluded_frac_of_elevation": 0.58,
+          "resid_excluded_pct": 58.0
+        }
+      }
+    },
+    {
+      "p": 349,
+      "n": 313,
+      "L": 312,
+      "digits": {
+        "d1": {
+          "U2_real": 0.31013,
+          "mu_syn": 0.31253,
+          "sd_syn": 0.00693,
+          "mu_rand": 0.28329,
+          "elevation_E": 0.02684,
+          "z_real_vs_syn": -0.35,
+          "z_real_vs_rand": 7.03,
+          "Delta_excl_95": 0.0114,
+          "resid_excluded_frac_of_elevation": 0.425,
+          "resid_excluded_pct": 42.5
+        },
+        "d2": {
+          "U2_real": 0.30649,
+          "mu_syn": 0.31262,
+          "sd_syn": 0.00731,
+          "mu_rand": 0.28329,
+          "elevation_E": 0.0232,
+          "z_real_vs_syn": -0.84,
+          "z_real_vs_rand": 6.08,
+          "Delta_excl_95": 0.01203,
+          "resid_excluded_frac_of_elevation": 0.518,
+          "resid_excluded_pct": 51.8
+        },
+        "d3": {
+          "U2_real": 0.30321,
+          "mu_syn": 0.31238,
+          "sd_syn": 0.0069,
+          "mu_rand": 0.28329,
+          "elevation_E": 0.01993,
+          "z_real_vs_syn": -1.33,
+          "z_real_vs_rand": 5.22,
+          "Delta_excl_95": 0.01135,
+          "resid_excluded_frac_of_elevation": 0.57,
+          "resid_excluded_pct": 57.0
+        }
+      }
+    },
+    {
+      "p": 433,
+      "n": 397,
+      "L": 396,
+      "digits": {
+        "d1": {
+          "U2_real": 0.29857,
+          "mu_syn": 0.29527,
+          "sd_syn": 0.00593,
+          "mu_rand": 0.26629,
+          "elevation_E": 0.03228,
+          "z_real_vs_syn": 0.56,
+          "z_real_vs_rand": 9.31,
+          "Delta_excl_95": 0.01305,
+          "resid_excluded_frac_of_elevation": 0.404,
+          "resid_excluded_pct": 40.4
+        },
+        "d2": {
+          "U2_real": 0.29392,
+          "mu_syn": 0.29482,
+          "sd_syn": 0.00606,
+          "mu_rand": 0.26629,
+          "elevation_E": 0.02763,
+          "z_real_vs_syn": -0.15,
+          "z_real_vs_rand": 7.97,
+          "Delta_excl_95": 0.00996,
+          "resid_excluded_frac_of_elevation": 0.361,
+          "resid_excluded_pct": 36.1
+        },
+        "d3": {
+          "U2_real": 0.29422,
+          "mu_syn": 0.29483,
+          "sd_syn": 0.00565,
+          "mu_rand": 0.26629,
+          "elevation_E": 0.02792,
+          "z_real_vs_syn": -0.11,
+          "z_real_vs_rand": 8.05,
+          "Delta_excl_95": 0.0093,
+          "resid_excluded_frac_of_elevation": 0.333,
+          "resid_excluded_pct": 33.3
+        }
+      }
+    },
+    {
+      "p": 577,
+      "n": 613,
+      "L": 612,
+      "digits": {
+        "d1": {
+          "U2_real": 0.25878,
+          "mu_syn": 0.26439,
+          "sd_syn": 0.00441,
+          "mu_rand": 0.23905,
+          "elevation_E": 0.01973,
+          "z_real_vs_syn": -1.27,
+          "z_real_vs_rand": 7.95,
+          "Delta_excl_95": 0.00726,
+          "resid_excluded_frac_of_elevation": 0.368,
+          "resid_excluded_pct": 36.8
+        },
+        "d2": {
+          "U2_real": 0.26731,
+          "mu_syn": 0.26485,
+          "sd_syn": 0.00426,
+          "mu_rand": 0.23905,
+          "elevation_E": 0.02826,
+          "z_real_vs_syn": 0.58,
+          "z_real_vs_rand": 11.39,
+          "Delta_excl_95": 0.00948,
+          "resid_excluded_frac_of_elevation": 0.335,
+          "resid_excluded_pct": 33.5
+        },
+        "d3": {
+          "U2_real": 0.26411,
+          "mu_syn": 0.264,
+          "sd_syn": 0.00407,
+          "mu_rand": 0.23905,
+          "elevation_E": 0.02507,
+          "z_real_vs_syn": 0.03,
+          "z_real_vs_rand": 10.1,
+          "Delta_excl_95": 0.00682,
+          "resid_excluded_frac_of_elevation": 0.272,
+          "resid_excluded_pct": 27.2
+        }
+      }
+    },
+    {
+      "p": 823,
+      "n": 829,
+      "L": 828,
+      "digits": {
+        "d1": {
+          "U2_real": 0.24513,
+          "mu_syn": 0.24521,
+          "sd_syn": 0.00352,
+          "mu_rand": 0.22189,
+          "elevation_E": 0.02324,
+          "z_real_vs_syn": -0.02,
+          "z_real_vs_rand": 11.82,
+          "Delta_excl_95": 0.00578,
+          "resid_excluded_frac_of_elevation": 0.249,
+          "resid_excluded_pct": 24.9
+        },
+        "d2": {
+          "U2_real": 0.24187,
+          "mu_syn": 0.24481,
+          "sd_syn": 0.00324,
+          "mu_rand": 0.22189,
+          "elevation_E": 0.01998,
+          "z_real_vs_syn": -0.91,
+          "z_real_vs_rand": 10.16,
+          "Delta_excl_95": 0.00533,
+          "resid_excluded_frac_of_elevation": 0.267,
+          "resid_excluded_pct": 26.7
+        },
+        "d3": {
+          "U2_real": 0.24736,
+          "mu_syn": 0.24526,
+          "sd_syn": 0.00338,
+          "mu_rand": 0.22189,
+          "elevation_E": 0.02547,
+          "z_real_vs_syn": 0.62,
+          "z_real_vs_rand": 12.95,
+          "Delta_excl_95": 0.00766,
+          "resid_excluded_frac_of_elevation": 0.301,
+          "resid_excluded_pct": 30.1
+        }
+      }
+    }
+  ],
+  "summary": {
+    "median_resid_excluded_pct": 51.8,
+    "min_resid_excluded_pct": 24.9,
+    "max_resid_excluded_pct": 88.3,
+    "interpretation": "with 300 synthetic draws we exclude, per curve, any residual H3 component larger than the listed % of the real-vs-random elevation; the reflection model accounts for the elevation up to that residual."
+  }
+}
