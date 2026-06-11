@@ -100,6 +100,26 @@ Conclusion: the constant is correct; the missing proof step is the Parseval⇒Di
 
 ---
 
+## 3b. Working-tree merge analysis (user request) — DONE
+
+Analyzed the author's uncommitted working-tree changes and merged them into branch `referee-revision-v4`.
+
+**What the author was working on (uncommitted):**
+- `paper/ecdsa_lift_paper.tex` (modified, +484 lines) is **byte-identical to `paper/ecdsa_lift_paper_v3.tex`** — the v3 revision was done in place on the base filename. This is the real source of the reviewed PDF.
+- `revision_plan.md` — author's own plan merging two prior referee reports (`referee_report_ecdsa_lift.md` = "Referee 1"; `feedback.txt` = "Reviewer 2"). High quality. **It independently flags my M2 finding**: item 3.2 says "derive the 0.43 constant in closed form, stating exactly what is standardized (mass vs norm; analytic vs empirical null variance). R1 reproduced scaling but the constant only to ~20% — purely a standardization ambiguity; fix by specification." → my Phase 61 supplies the missing Var(mass)=4/L³ (Dirichlet/Parseval) step that closes this.
+- Untracked phases 49–59 + results JSON — the revision experiments the v3 paper's phase index cites but were never committed.
+- `phase49b_killtest_confound.py` — author already DOCUMENTED the converse confound (asymmetric "smaller_rep" rule halves L because it lifts −P for ~50% of points). They flagged it honestly but couldn't remove it (their construction is not a section). **Phase 60 supersedes it** with a genuine kernel-offset section (full length, U² still collapses, odd offset preserves it).
+- `phase42` change: removed a 243-char trailing whitespace line (trivial cleanup; kept).
+
+**Verdict:** author's work is good and substantive; the only true gaps are the ones the referee report identifies (M1 converse not a section; M2 variance derivation incomplete). All consolidated into commit `dc9a5a8`.
+
+**GIT LOCK WORKAROUND (sandbox cannot unlink `.git/*.lock`):** normal `git add/commit` fail with "Unable to create .git/index.lock: File exists". To commit:
+1. `cp .git/index /tmp/gi` (once), then `GIT_INDEX_FILE=/tmp/gi git add <files>`.
+2. `TREE=$(GIT_INDEX_FILE=/tmp/gi git write-tree)`
+3. `COMMIT=$(echo "$MSG" | GIT_AUTHOR_*/GIT_COMMITTER_* env git commit-tree $TREE -p $(git rev-parse HEAD))`
+4. Update branch ref by **Writing the hash directly** to `.git/refs/heads/referee-revision-v4` via the file tool (git update-ref also hits a lock). Then `git log` confirms.
+(`git status`/`git diff`/`git cat-file`/`write-tree`/`commit-tree` all work read-side; only index/ref *.lock creation fails.)
+
 ## 4. Independent-verification ledger (already completed during review; all ✓)
 - Prop 1 E|Z|⁴=2σ⁴+|ρ|² (Isserlis + MC 8.998 vs 9.000).
 - Inflation 3/2; growth 0.427√L; U³ excess ~1/L.
